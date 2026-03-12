@@ -244,6 +244,14 @@
         justify-content: center;
       }
 
+      /* Styles to ensure project images fill their containers cleanly */
+      .card__image img, .card__visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
       .card__image svg {
         width: 100%;
         height: 100%;
@@ -284,7 +292,8 @@
 
       .about__grid {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        /* Replaced 1fr 2fr with a fixed width for the portrait to make it smaller */
+        grid-template-columns: 240px 1fr;
         gap: 3rem;
         align-items: start;
       }
@@ -413,6 +422,7 @@
         padding: 3rem 0;
         border-top: 1px solid var(--border);
         color: var(--text-muted);
+        font-size: 0.85rem; /* Reduced font size as requested */
       }
 
       .site-footer__inner {
@@ -500,13 +510,10 @@
       <section id="home" class="section section--full hero">
         <div class="shell hero__inner">
           <div class="hero__content">
-            <!-- Added Eyebrow for professional positioning -->
             <p class="eyebrow">Strategic Analyst & Researcher</p>
             
-            <!-- More commanding, thesis-driven title -->
             <h1 class="hero__title">Translating complex environmental and social data into actionable systemic insights.</h1>
             
-            <!-- Think Tank style editorial split layout -->
             <div class="hero__columns">
               <div class="hero__summary">
                 <p class="hero__subtitle">
@@ -655,7 +662,6 @@
             <h2 class="section-heading__title">Projects</h2>
           </div>
 
-          <!-- Featured Project is now appropriately seated in the Projects section -->
           <div class="projects__featured">
             <h3 class="projects__group-title">Featured Project</h3>
             
@@ -669,15 +675,13 @@
               <article class="hero-card card--featured-layout">
                 
                 <div class="card__visual">
-                  <svg viewBox="0 0 300 240" style="width: 100%; height: auto; border-radius: 10px; background: var(--bg); border: 1px solid var(--border);">
-                    <path d="M 60 160 Q 150 60 240 160" fill="none" stroke="var(--border)" stroke-width="2" stroke-dasharray="4 4"/>
-                    <line x1="100" y1="120" x2="200" y2="120" stroke="var(--text-muted)" stroke-width="2"/>
-                    <circle cx="100" cy="120" r="24" fill="var(--bg)" stroke="var(--primary)" stroke-width="3"/>
-                    <circle cx="200" cy="120" r="24" fill="var(--bg)" stroke="var(--primary)" stroke-width="3"/>
-                    <circle cx="150" cy="120" r="6" fill="var(--text-muted)"/>
-                    <circle cx="125" cy="120" r="4" fill="var(--border)"/>
-                    <circle cx="175" cy="120" r="4" fill="var(--border)"/>
-                  </svg>
+                  <!-- Updated: Uses local image path instead of SVG -->
+                  <img 
+                    src="./assets/images/project-bridge-the-gap.jpg" 
+                    alt="Bridge the Gap interface preview" 
+                    style="width: 100%; aspect-ratio: 4/3; border-radius: 10px; background: var(--bg); border: 1px solid var(--border);"
+                    onerror="this.src='https://placehold.co/800x600/f4f4f5/a1a1aa?text=Bridge+the+Gap+Image'"
+                  />
                 </div>
 
                 <div class="card__content">
@@ -711,19 +715,12 @@
               
               <article class="card card--project">
                 <div class="card__image">
-                  <svg viewBox="0 0 400 225">
-                    <circle cx="200" cy="112" r="12" fill="var(--primary)"/>
-                    <circle cx="140" cy="70" r="8" fill="var(--text-muted)"/>
-                    <circle cx="260" cy="70" r="8" fill="var(--text-muted)"/>
-                    <circle cx="120" cy="150" r="6" fill="var(--border)"/>
-                    <circle cx="280" cy="150" r="6" fill="var(--border)"/>
-                    <line x1="200" y1="112" x2="140" y2="70" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="200" y1="112" x2="260" y2="70" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="140" y1="70" x2="120" y2="150" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="260" y1="70" x2="280" y2="150" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="200" y1="112" x2="120" y2="150" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4"/>
-                    <line x1="200" y1="112" x2="280" y2="150" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4"/>
-                  </svg>
+                  <!-- Updated: Uses local image path instead of SVG -->
+                  <img 
+                    src="./assets/images/project-sustainability-comm.jpg" 
+                    alt="Sustainability Communication Modeling" 
+                    onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=Sustainability+Comm'"
+                  />
                 </div>
                 <div class="card__meta">
                   <span class="card__category">Systems modeling &amp; communication</span>
@@ -743,16 +740,12 @@
 
               <article class="card card--project">
                 <div class="card__image">
-                  <svg viewBox="0 0 400 225">
-                    <line x1="80" y1="170" x2="320" y2="170" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="80" y1="170" x2="80" y2="50" stroke="var(--border)" stroke-width="2"/>
-                    <rect x="110" y="130" width="30" height="40" fill="var(--text-muted)" opacity="0.3"/>
-                    <rect x="170" y="100" width="30" height="70" fill="var(--text-muted)" opacity="0.6"/>
-                    <rect x="230" y="140" width="30" height="30" fill="var(--text-muted)" opacity="0.3"/>
-                    <rect x="290" y="70" width="30" height="100" fill="var(--primary)" opacity="0.9"/>
-                    <polyline points="125,110 185,80 245,120 305,50" fill="none" stroke="var(--primary)" stroke-width="3"/>
-                    <circle cx="305" cy="50" r="4" fill="var(--bg)" stroke="var(--primary)" stroke-width="2"/>
-                  </svg>
+                  <!-- Updated: Uses local image path instead of SVG -->
+                  <img 
+                    src="./assets/images/project-esg-reporting.jpg" 
+                    alt="Environmental Data Analytics & ESG Reporting" 
+                    onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=ESG+Analytics'"
+                  />
                 </div>
                 <div class="card__meta">
                   <span class="card__category">Environmental data &amp; ESG</span>
@@ -772,18 +765,12 @@
 
               <article class="card card--project">
                 <div class="card__image">
-                  <svg viewBox="0 0 400 225">
-                    <circle cx="200" cy="112" r="40" fill="none" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 6"/>
-                    <circle cx="200" cy="112" r="14" fill="var(--primary)"/>
-                    <circle cx="140" cy="112" r="8" fill="var(--text-muted)"/>
-                    <circle cx="260" cy="112" r="8" fill="var(--text-muted)"/>
-                    <circle cx="200" cy="52" r="8" fill="var(--text-muted)"/>
-                    <circle cx="200" cy="172" r="8" fill="var(--text-muted)"/>
-                    <line x1="186" y1="112" x2="148" y2="112" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="214" y1="112" x2="252" y2="112" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="200" y1="98" x2="200" y2="60" stroke="var(--border)" stroke-width="2"/>
-                    <line x1="200" y1="126" x2="200" y2="164" stroke="var(--border)" stroke-width="2"/>
-                  </svg>
+                  <!-- Updated: Uses local image path instead of SVG -->
+                  <img 
+                    src="./assets/images/project-community-networks.jpg" 
+                    alt="Community Networks & Crisis Communication" 
+                    onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=Crisis+Communication'"
+                  />
                 </div>
                 <div class="card__meta">
                   <span class="card__category">Community networks</span>
