@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     
@@ -27,6 +27,7 @@
         --primary: #18181b;
         --primary-hover: #3f3f46;
         --radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       @media (prefers-color-scheme: dark) {
@@ -53,9 +54,10 @@
         font-family: 'Inter', sans-serif;
         background-color: var(--bg);
         color: var(--text);
-        line-height: 1.6;
+        line-height: 1.7;
         margin: 0;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       h1, h2, h3, h4, .nav__brand {
@@ -64,19 +66,32 @@
         color: var(--text);
       }
 
+      p {
+        margin-top: 0;
+        margin-bottom: 1.25rem;
+      }
+
       .shell {
-        max-width: 1000px;
+        max-width: 1080px;
         margin: 0 auto;
         padding: 0 1.5rem;
       }
 
       .site-header {
-        padding: 1.5rem 0;
+        padding: 1.25rem 0;
         position: sticky;
         top: 0;
-        background: var(--bg);
+        background: rgba(250, 250, 250, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         z-index: 50;
         border-bottom: 1px solid var(--border);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .site-header {
+          background: rgba(9, 9, 11, 0.85);
+        }
       }
 
       .nav {
@@ -89,6 +104,7 @@
         font-size: 1.5rem;
         font-weight: 600;
         text-decoration: none;
+        letter-spacing: -0.02em;
       }
 
       .nav__list {
@@ -103,6 +119,7 @@
         text-decoration: none;
         color: var(--text-muted);
         font-size: 0.95rem;
+        font-weight: 500;
         transition: color 0.2s;
       }
 
@@ -120,12 +137,12 @@
       }
 
       .section {
-        padding: 5rem 0;
+        padding: 6rem 0;
       }
 
-      /* --- Updated Hero Styles for Think Tank Vibe --- */
+      /* --- Hero Styles --- */
       .hero {
-        padding: 6rem 0 4rem;
+        padding: 8rem 0 6rem;
       }
 
       .eyebrow {
@@ -135,16 +152,16 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         color: var(--text-muted);
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid var(--text);
-        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.75rem;
         display: inline-block;
       }
 
       .hero__title {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         line-height: 1.1;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         max-width: 900px;
         letter-spacing: -0.02em;
       }
@@ -152,9 +169,9 @@
       .hero__columns {
         display: grid;
         grid-template-columns: 1.5fr 1fr;
-        gap: 4rem;
+        gap: 5rem;
         margin-top: 4rem;
-        padding-top: 3rem;
+        padding-top: 4rem;
         border-top: 1px solid var(--border);
       }
 
@@ -162,6 +179,7 @@
         font-size: 1.15rem;
         color: var(--text-muted);
         margin-bottom: 1rem;
+        max-width: 600px;
       }
 
       .hero__competencies {
@@ -172,10 +190,10 @@
       .competency-item {
         display: flex;
         align-items: center;
-        padding: 1rem 0;
+        padding: 1.25rem 0;
         border-bottom: 1px solid var(--border);
         font-family: 'Crimson Pro', serif;
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         color: var(--text);
       }
 
@@ -190,7 +208,20 @@
         font-family: 'Inter', sans-serif;
       }
 
-      /* ---------------------------------------------- */
+      /* --- Common Typography & UI Elements --- */
+      .section-heading {
+        margin-bottom: 3.5rem;
+      }
+      
+      .section-heading--center {
+        text-align: center;
+      }
+
+      .section-heading__title {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+        letter-spacing: -0.02em;
+      }
 
       .projects__group-title, .pill-group__label {
         font-family: 'Inter', sans-serif;
@@ -199,102 +230,199 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
         color: var(--text-muted);
-        margin-bottom: 1rem;
-      }
-
-      .hero-card, .card {
-        display: block;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 2rem;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .hero-card:hover, .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-      }
-      
-      .card--featured-layout {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 2.5rem;
-        align-items: center;
-      }
-
-      .card__visual {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .card__image {
-        aspect-ratio: 16 / 9;
-        border-radius: 10px;
-        margin-bottom: 12px;
-        overflow: hidden;
-        background: var(--bg);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Styles to ensure project images fill their containers cleanly */
-      .card__image img, .card__visual img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .card__image svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-      .hero-card__title, .card__title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .hero-card__body, .card__body {
-        color: var(--text-muted);
         margin-bottom: 1.5rem;
       }
 
       .tag, .pill {
         display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background: var(--border);
-        color: var(--text);
+        padding: 0.35rem 0.85rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
         border-radius: 99px;
         font-size: 0.8rem;
+        font-weight: 500;
         margin: 0 0.5rem 0.5rem 0;
+        transition: var(--transition);
+      }
+
+      .tag:hover, .pill:hover {
+        background: var(--border);
+        color: var(--text);
+      }
+
+      /* --- Cards --- */
+      .hero-card, .card {
+        display: block;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+
+      .card--project {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .hero-card:hover, .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px -12px rgba(0,0,0,0.1);
+        border-color: var(--text-muted);
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .hero-card:hover, .card:hover {
+          box-shadow: 0 12px 32px -12px rgba(0,0,0,0.5);
+        }
+      }
+      
+      .card--featured-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3.5rem;
+        align-items: center;
+        padding: 3rem;
+      }
+
+      .card__visual {
+        width: 100%;
+      }
+
+      .card__image {
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        background: var(--border);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .card__image--featured {
+        aspect-ratio: 4 / 3;
+        border-radius: 8px;
+        margin-bottom: 0;
+      }
+
+      .card__image img, .card__visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .hero-card:hover .card__visual img,
+      .card:hover .card__image img {
+        transform: scale(1.03);
+      }
+
+      .hero-card__title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+      
+      .card__title {
+        font-size: 1.35rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+
+      .hero-card__body, .card__body {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .card__meta {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       .hero-card__cta {
         display: inline-block;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         font-weight: 500;
-        color: var(--primary);
+        color: var(--text);
+        border-bottom: 1px solid var(--text);
+        padding-bottom: 0.2rem;
+        transition: var(--transition);
+      }
+      
+      .hero-card:hover .hero-card__cta {
+        color: var(--text-muted);
+        border-color: var(--text-muted);
       }
 
-      .section-heading__title {
-        font-size: 2.5rem;
-        margin-bottom: 2.5rem;
+      /* --- Consulting Style Project Lists --- */
+      .project-list {
+        display: flex;
+        flex-direction: column;
       }
 
+      .project-list__item {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 3.5rem;
+        padding: 3rem 0;
+        border-top: 1px solid var(--border);
+        transition: var(--transition);
+      }
+
+      .project-list__item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .project-list__item:hover .card__image img {
+        transform: scale(1.03);
+      }
+
+      .project-list__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .card--minimal {
+        padding: 1.5rem 0 0 0;
+        border: none;
+        border-top: 2px solid var(--border);
+        border-radius: 0;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: border-color 0.3s ease;
+      }
+
+      .card--minimal:hover {
+        transform: none;
+        box-shadow: none;
+        border-top-color: var(--text);
+      }
+      
+      .card--minimal .card__title {
+        font-size: 1.25rem;
+      }
+
+      /* --- About Section --- */
       .about__grid {
         display: grid;
-        /* Replaced 1fr 2fr with a fixed width for the portrait to make it smaller */
-        grid-template-columns: 240px 1fr;
-        gap: 3rem;
+        grid-template-columns: 280px 1fr;
+        gap: 4rem;
         align-items: start;
       }
 
@@ -302,99 +430,102 @@
         width: 100%;
         border-radius: var(--radius);
         object-fit: cover;
-        aspect-ratio: 1;
+        aspect-ratio: 4/5;
         background: var(--border);
+        border: 1px solid var(--border);
+      }
+
+      .about__body p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .pill-group {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+      }
+
+      /* --- Timeline (Experience & Education) --- */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
       }
 
       .timeline-item {
         display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 2rem;
-        margin-bottom: 3rem;
+        grid-template-columns: 140px 1fr;
+        gap: 2.5rem;
       }
 
       .timeline-item__meta {
         color: var(--text-muted);
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         font-weight: 500;
-        margin-top: 0.3rem;
+        margin-top: 0.35rem;
+        font-family: 'Inter', sans-serif;
       }
 
       .timeline-item__title {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin-bottom: 0.25rem;
       }
 
       .timeline-item__org {
         font-weight: 500;
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
+        color: var(--text);
       }
 
-      .timeline-item__desc, .about__body p {
+      .timeline-item__desc {
         color: var(--text-muted);
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      
+      .timeline-item__tags {
+        margin-top: 1rem;
       }
 
-      .pill-group {
-        margin-top: 2rem;
-      }
-
-      .education-list {
-        display: flex;
-        flex-direction: column;
+      /* --- Projects Section --- */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2rem;
       }
 
-      .education-item__degree {
-        font-size: 1.25rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .education-item__school {
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-      }
-
       .projects__group {
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
       }
 
-      .card__meta {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
+      /* --- Contact Section --- */
       .contact__intro {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         color: var(--text-muted);
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .contact__buttons {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+        justify-content: center;
       }
 
       .button {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.75rem 1.5rem;
+        padding: 0.85rem 1.75rem;
         border-radius: var(--radius);
         font-weight: 500;
         text-decoration: none;
-        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        transition: var(--transition);
       }
 
       .button--primary {
@@ -406,6 +537,7 @@
       .button--primary:hover {
         background: var(--primary-hover);
         border-color: var(--primary-hover);
+        transform: translateY(-2px);
       }
 
       .button--ghost {
@@ -416,13 +548,15 @@
 
       .button--ghost:hover {
         background: var(--border);
+        transform: translateY(-2px);
       }
 
+      /* --- Footer --- */
       .site-footer {
-        padding: 3rem 0;
+        padding: 4rem 0;
         border-top: 1px solid var(--border);
         color: var(--text-muted);
-        font-size: 0.85rem; /* Reduced font size as requested */
+        font-size: 0.85rem;
       }
 
       .site-footer__inner {
@@ -437,7 +571,25 @@
         margin: 0;
       }
 
+      /* --- Responsive --- */
+      @media (max-width: 900px) {
+        .card--featured-layout {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem;
+        }
+        .hero__columns {
+          gap: 3rem;
+        }
+      }
+
       @media (max-width: 768px) {
+        .section {
+          padding: 4rem 0;
+        }
+        .hero {
+          padding: 5rem 0 3rem;
+        }
         .nav__toggle {
           display: flex;
           align-items: center;
@@ -454,6 +606,7 @@
           padding: 1.5rem;
           border-bottom: 1px solid var(--border);
           gap: 1.5rem;
+          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
         }
         .nav__list.is-open {
           display: flex;
@@ -463,20 +616,31 @@
         }
         .hero__columns {
           grid-template-columns: 1fr;
-          gap: 2rem;
-          margin-top: 2rem;
-          padding-top: 2rem;
+          gap: 2.5rem;
+          margin-top: 3rem;
+          padding-top: 3rem;
         }
+        
+        .project-list__item {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          padding: 2rem 0;
+        }
+
         .about__grid {
           grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .about__portrait-frame img {
+          max-width: 320px;
+          aspect-ratio: 1;
         }
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 0.5rem;
         }
-        .card--featured-layout {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
+        .timeline-item__meta {
+          margin-bottom: 0.5rem;
         }
       }
     </style>
@@ -484,7 +648,7 @@
   <body>
     <header class="site-header">
       <nav class="nav shell">
-        <a href="#home" class="nav__brand">Zijun&nbsp;Wang</a>
+        <a href="#home" class="nav__brand">Zijun Wang</a>
         
         <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav__toggle-icon">
@@ -507,21 +671,17 @@
 
     <main>
       <!-- Hero -->
-      <section id="home" class="section section--full hero">
+      <section id="home" class="section hero">
         <div class="shell hero__inner">
           <div class="hero__content">
-            <p class="eyebrow">Data-Driven Strategy for a Cross-Cultural World</p>
+            <span class="eyebrow">Data-Driven Strategy for a Cross-Cultural World</span>
             
             <h1 class="hero__title">Translating complex data into actionable insights for strategy and decision-making</h1>
             
             <div class="hero__columns">
               <div class="hero__summary">
                 <p class="hero__subtitle">
-                  <p style="text-align: justify;">
-                  I work at the intersection of data, technology, and 
-                  human behavior—applying analytics, experimentation, 
-                  and cross-cultural understanding to solve real-world problems.
-                    </p>
+                  I work at the intersection of data, technology, and human behavior—applying analytics, experimentation, and cross-cultural understanding to solve real-world problems.
                 </p>
               </div>
               
@@ -532,7 +692,6 @@
                 <span class="competency-item">Spatial Specialist</span>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -545,45 +704,31 @@
           </div>
 
           <div class="about__grid">
-            <figure class="about__portrait">
+            <figure class="about__portrait" style="margin: 0;">
               <div class="about__portrait-frame">
                 <img
                   src="./assets/images/placeholder-user.jpg"
                   onerror="this.src='https://ui-avatars.com/api/?name=Zijun+Wang&size=400&background=f4f4f5&color=18181b'"
-                  alt="Portrait placeholder"
-                  class="about__portrait-image"
+                  alt="Zijun Wang Portrait"
                 />
               </div>
             </figure>
 
             <div class="about__body">
               <p>
-              I am a strategy-oriented analyst with a background in data, product, and computational social science, 
-                driven by a strong curiosity about how technology shapes human behavior and interaction.
+                I am a strategy-oriented analyst with a background in data, product, and computational social science, driven by a strong curiosity about how technology shapes human behavior and interaction.
               </p>
               <p>
-              Across both industry and research experiences, I have consistently explored how data can be used to 
-                understand human behavior and inform decision-making—from environmental modeling to digital product 
-                optimization. This journey has shaped my interest in data-driven strategy, especially in cross-cultural 
-                and technology-enabled contexts.
-            </p>
-            <p>
-              My professional experience spans digital product development and applied data science. I have worked on 
-              building and optimizing user-facing products through data analysis, experimentation, and cross-functional 
-              collaboration, while also engaging in research that applies machine learning to real-world environmental 
-              challenges. These experiences have equipped me with both analytical rigor and a practical understanding of 
-              how insights can be translated into impact.
+                Across both industry and research experiences, I have consistently explored how data can be used to understand human behavior and inform decision-making—from environmental modeling to digital product optimization. This journey has shaped my interest in data-driven strategy, especially in cross-cultural and technology-enabled contexts.
               </p>
-            <p>
-              Beyond my professional work, I am particularly interested in the role of culture in shaping behavior and 
-              decision-making. I am currently developing Bridge the Gap, a concept for a cross-cultural platform that 
-              uses food as a medium to foster understanding and connection between people from different backgrounds. 
-              This reflects my broader aspiration to combine data, technology, and human-centered thinking to create 
-              meaningful and inclusive solutions.
+              <p>
+                My professional experience spans digital product development and applied data science. I have worked on building and optimizing user-facing products through data analysis, experimentation, and cross-functional collaboration, while also engaging in research that applies machine learning to real-world environmental challenges. These experiences have equipped me with both analytical rigor and a practical understanding of how insights can be translated into impact.
               </p>
-            <p>
-              I am especially interested in opportunities at the intersection of data, strategy, and innovation—where 
-              I can contribute to solving complex problems, particularly in global and multicultural contexts.
+              <p>
+                Beyond my professional work, I am particularly interested in the role of culture in shaping behavior and decision-making. I am currently developing Bridge the Gap, a concept for a cross-cultural platform that uses food as a medium to foster understanding and connection between people from different backgrounds. This reflects my broader aspiration to combine data, technology, and human-centered thinking to create meaningful and inclusive solutions.
+              </p>
+              <p>
+                I am especially interested in opportunities at the intersection of data, strategy, and innovation—where I can contribute to solving complex problems, particularly in global and multicultural contexts.
               </p>
 
               <div class="pill-group">
@@ -615,14 +760,12 @@
                 <h3 class="timeline-item__title">Research Assistant</h3>
                 <p class="timeline-item__org">University at Buffalo, SUNY</p>
                 <p class="timeline-item__desc">
-                  Supported an NSF-funded research initiative examining community resilience during extreme winter
-                  storms. Designed online surveys and conducted spatial statistical analysis to understand how digital
-                  communities coordinate information and mutual aid during disasters.
+                  Supported an NSF-funded research initiative examining community resilience during extreme winter storms. Designed online surveys and conducted spatial statistical analysis to understand how digital communities coordinate information and mutual aid during disasters.
                 </p>
                 <div class="timeline-item__tags">
-                  <span class="pill pill--soft">Spatial Analysis</span>
-                  <span class="pill pill--soft">Community Resilience</span>
-                  <span class="pill pill--soft">Crisis Communication</span>
+                  <span class="tag">Spatial Analysis</span>
+                  <span class="tag">Community Resilience</span>
+                  <span class="tag">Crisis Communication</span>
                 </div>
               </div>
             </article>
@@ -633,21 +776,13 @@
                 <h3 class="timeline-item__title">Product Manager &amp; Environmental Data Analyst</h3>
                 <p class="timeline-item__org">Beijing Yiyun Technology Co., Ltd.</p>
                 <p class="timeline-item__desc">
-                  I worked at the intersection of product strategy, data analysis, and user behavior, focusing on
-                  building and optimizing digital products through a data-driven approach. I was involved in the 
-                  full product lifecycle—from identifying user needs and defining product requirements to launching 
-                  features and iterating based on performance data. By analyzing user behavior with SQL and 
-                  visualization tools, I uncovered key friction points and translated them into actionable improvements 
-                  that enhanced user engagement. Working closely with cross-functional teams, I also designed and 
-                  evaluated A/B testing strategies to validate hypotheses and support decision-making. This experience 
-                  shaped my understanding of how digital platforms influence user behavior and sparked my interest in 
-                  customer strategy and technology-driven transformation.
+                  Worked at the intersection of product strategy, data analysis, and user behavior, focusing on building and optimizing digital products through a data-driven approach. Involved in the full product lifecycle—from identifying user needs and defining product requirements to launching features and iterating based on performance data. By analyzing user behavior with SQL and visualization tools, I uncovered key friction points and translated them into actionable improvements that enhanced user engagement.
                 </p>
                 <div class="timeline-item__tags">
-                  <span class="pill pill--soft">ESG Analytics</span>
-                  <span class="pill pill--soft">Product Strategy</span>
-                  <span class="pill pill--soft">Customer Experience</span>
-                  <span class="pill pill--soft">Digital Transformation</span>
+                  <span class="tag">ESG Analytics</span>
+                  <span class="tag">Product Strategy</span>
+                  <span class="tag">Customer Experience</span>
+                  <span class="tag">Digital Transformation</span>
                 </div>
               </div>
             </article>
@@ -658,25 +793,16 @@
                 <h3 class="timeline-item__title">Project Manager &amp; Remote Sensing Analyst</h3>
                 <p class="timeline-item__org">Beijing Satimage Technology Inc.</p>
                 <p class="timeline-item__desc">
-                  At Satimage, I contributed to projects supporting government planning and environmental 
-                  monitoring initiatives through spatial and data-driven analysis. My work focused on 
-                  delivering policy-relevant insights by integrating satellite data with environmental 
-                  indicators, helping translate complex data into actionable information for public sector 
-                  clients. I participated in the development of analytical models and reports that supported 
-                  real-world decision-making in areas such as air quality assessment and environmental management.
+                  Contributed to projects supporting government planning and environmental monitoring initiatives through spatial and data-driven analysis. Focused on delivering policy-relevant insights by integrating satellite data with environmental indicators, helping translate complex data into actionable information for public sector clients.
                 </p>
                 <p class="timeline-item__desc">
-                  While my primary focus was on project delivery and applied analysis, I also supported the 
-                  development and validation of satellite-based models, including machine learning approaches, 
-                  to improve the accuracy and reliability of environmental estimations. This experience gave me 
-                  early exposure to how data, technology, and domain knowledge can be combined to inform policy 
-                  and drive impact in real-world contexts.
+                  Supported the development and validation of satellite-based models, including machine learning approaches, to improve the accuracy and reliability of environmental estimations.
                 </p>
                 <div class="timeline-item__tags">
-                  <span class="pill pill--soft">Environmental Analytics</span>
-                  <span class="pill pill--soft">Public Sector Projects</span>
-                  <span class="pill pill--soft">Data-driven Decision Making</span>
-                  <span class="pill pill--soft">Applied Machine Learning</span>
+                  <span class="tag">Environmental Analytics</span>
+                  <span class="tag">Public Sector Projects</span>
+                  <span class="tag">Data-driven Decision Making</span>
+                  <span class="tag">Applied Machine Learning</span>
                 </div>
               </div>
             </article>
@@ -691,46 +817,35 @@
             <h2 class="section-heading__title">Projects</h2>
           </div>
 
-          <div class="projects__featured">
+          <div class="projects__group">
             <h3 class="projects__group-title">Featured Project</h3>
-            
             <a
               href="https://v0-bridge-the-gap.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              class="projects__featured-link"
               style="text-decoration: none;"
             >
               <article class="hero-card card--featured-layout">
-                
                 <div class="card__visual">
-                  <!-- Updated: Uses local image path instead of SVG -->
-                  <img 
-                    src="./assets/images/culture.jpg" 
-                    alt="Bridge the Gap interface preview" 
-                    style="width: 100%; aspect-ratio: 4/3; border-radius: 10px; background: var(--bg); border: 1px solid var(--border);"
-                    onerror="this.src='https://placehold.co/800x600/f4f4f5/a1a1aa?text=Bridge+the+Gap+Image'"
-                  />
+                  <div class="card__image card__image--featured">
+                    <img 
+                      src="./assets/images/culture.jpg" 
+                      alt="Bridge the Gap interface preview" 
+                      onerror="this.src='https://placehold.co/800x600/f4f4f5/a1a1aa?text=Bridge+the+Gap+Image'"
+                    />
+                  </div>
                 </div>
 
                 <div class="card__content">
-                  <div class="card__meta" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">
-                    <span>Concept exploration</span>
-                  </div>
+                  <div class="card__meta">Concept exploration</div>
                   <h2 class="hero-card__title">Bridge the Gap</h2>
                   <p class="hero-card__body">
-                    Bridge the Gap is a concept for a cross-cultural platform that uses food as a medium for connection and 
-                    cultural understanding. It explores how digital tools could combine ingredient discovery, cultural 
-                    storytelling, and community interaction to reveal the cultural knowledge embedded in everyday food. 
-                    By turning curiosity about unfamiliar ingredients into opportunities for learning and sharing, the 
-                    project ultimately seeks to foster mutual understanding and more friendly exchanges among people from 
-                    different cultures.
+                    Bridge the Gap is a concept for a cross-cultural platform that uses food as a medium for connection and cultural understanding. It explores how digital tools could combine ingredient discovery, cultural storytelling, and community interaction to reveal the cultural knowledge embedded in everyday food. By turning curiosity about unfamiliar ingredients into opportunities for learning and sharing, the project ultimately seeks to foster mutual understanding and more friendly exchanges among people from different cultures.
                   </p>
                   <div class="hero-card__meta">
                     <span class="tag">Cross-cultural Platform</span>
                     <span class="tag">Culture Diffusion</span>
                     <span class="tag">Community Interaction</span>
-                    <span class="tag">Concept Exploration</span>
                   </div>
                   <span class="hero-card__cta">Explore the project &rarr;</span>
                 </div>
@@ -738,104 +853,98 @@
             </a>
           </div>
 
-          <div class="projects__group" style="margin-top: 4rem;">
+          <div class="projects__group">
             <h3 class="projects__group-title">Selected Projects</h3>
-            <div class="grid">
+            <div class="project-list">
               
-              <article class="card card--project">
-                <div class="card__image">
-                  <!-- Updated: Uses local image path instead of SVG -->
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
                   <img 
                     src="./assets/images/diffusion.jpg" 
                     alt="Sustainability Communication Modeling" 
                     onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=Sustainability+Comm'"
                   />
                 </div>
-                <div class="card__meta">
-                  <span class="card__category">Systems modeling &amp; communication</span>
-                </div>
-                <h3 class="card__title">Sustainability Communication &amp; Behavioral Modeling</h3>
-                <p class="card__body">
-                  Analyzed over 78,000 consumer reviews using natural language processing to identify sustainability
-                  narratives in food consumption. Built agent-based simulations to explore how sustainability messages
-                  diffuse across online communities and influence behavioral adoption.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">NLP</span>
-                  <span class="tag">Agent-based Modeling</span>
-                  <span class="tag">Behavioral Dynamics</span>
+                <div class="project-list__content">
+                  <div class="card__meta">Systems modeling &amp; communication</div>
+                  <h3 class="card__title">Sustainability Communication &amp; Behavioral Modeling</h3>
+                  <p class="card__body">
+                    Analyzed over 78,000 consumer reviews using natural language processing to identify sustainability narratives in food consumption. Built agent-based simulations to explore how sustainability messages diffuse across online communities.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">NLP</span>
+                    <span class="tag">Agent-based Modeling</span>
+                    <span class="tag">Behavioral Dynamics</span>
+                  </div>
                 </div>
               </article>
 
-              <article class="card card--project">
-                <div class="card__image">
-                  <!-- Updated: Uses local image path instead of SVG -->
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
                   <img 
                     src="./assets/images/esg.jpg" 
                     alt="Environmental Data Analytics & ESG Reporting" 
                     onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=ESG+Analytics'"
                   />
                 </div>
-                <div class="card__meta">
-                  <span class="card__category">Environmental data &amp; ESG</span>
-                </div>
-                <h3 class="card__title">Environmental Data Analytics &amp; ESG Reporting</h3>
-                <p class="card__body">
-                  Structured environmental and operational datasets across sustainability-related projects to support
-                  ESG analysis and reporting workflows. Developed analytical outputs used for internal decision support
-                  and stakeholder communication.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">ESG Analytics</span>
-                  <span class="tag">Reporting Workflows</span>
-                  <span class="tag">Decision Support</span>
+                <div class="project-list__content">
+                  <div class="card__meta">Environmental data &amp; ESG</div>
+                  <h3 class="card__title">Environmental Data Analytics &amp; ESG Reporting</h3>
+                  <p class="card__body">
+                    Structured environmental and operational datasets across sustainability-related projects to support ESG analysis and reporting workflows. Developed analytical outputs used for internal decision support and stakeholder communication.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">ESG Analytics</span>
+                    <span class="tag">Reporting Workflows</span>
+                    <span class="tag">Decision Support</span>
+                  </div>
                 </div>
               </article>
 
-              <article class="card card--project">
-                <div class="card__image">
-                  <!-- Updated: Uses local image path instead of SVG -->
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
                   <img 
                     src="./assets/images/community.jpg" 
                     alt="Community Networks & Crisis Communication" 
                     onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=Crisis+Communication'"
                   />
                 </div>
-                <div class="card__meta">
-                  <span class="card__category">Community networks</span>
-                </div>
-                <h3 class="card__title">Community Networks &amp; Crisis Communication</h3>
-                <p class="card__body">
-                  Designed and distributed an online survey examining how digital communities coordinate information and
-                  mutual aid during extreme weather events. Synthesized insights on community resilience and crisis
-                  communication dynamics.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Community Resilience</span>
-                  <span class="tag">Crisis Communication</span>
-                  <span class="tag">Survey Design</span>
+                <div class="project-list__content">
+                  <div class="card__meta">Community networks</div>
+                  <h3 class="card__title">Community Networks &amp; Crisis Communication</h3>
+                  <p class="card__body">
+                    Designed and distributed an online survey examining how digital communities coordinate information and mutual aid during extreme weather events. Synthesized insights on community resilience and crisis communication dynamics.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Community Resilience</span>
+                    <span class="tag">Crisis Communication</span>
+                    <span class="tag">Survey Design</span>
+                  </div>
                 </div>
               </article>
 
-              <article class="card card--project">
-                <div class="card__meta">
-                  <span class="card__category">Agri-Tech &amp; Remote Sensing</span>
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img 
+                    src="./assets/images/irrigation.jpg" 
+                    alt="Smart Irrigation Cloud" 
+                    onerror="this.src='https://placehold.co/400x225/f4f4f5/a1a1aa?text=Smart+Irrigation'"
+                  />
                 </div>
-                <h3 class="card__title">Smart Irrigation Cloud: Data-Driven Water Stewardship</h3>
-                <p class="card__body">
-                  Developed a scalable SaaS platform integrating multi-source satellite imagery 
-                  and meteorological data to optimize agricultural water efficiency. 
-                  By leveraging proprietary "sensor-less" inversion models and expert decision systems, 
-                  the platform delivers actionable irrigation intelligence and real-time crop monitoring 
-                  to enhance climate resilience for large-scale farming.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Remote Sensing (RS)</span>
-                  <span class="tag">GIS Visualization</span>
-                  <span class="tag">Decision Support System</span>
-                  <span class="tag">Sustainable Ag</span>
+                <div class="project-list__content">
+                  <div class="card__meta">Agri-Tech &amp; Remote Sensing</div>
+                  <h3 class="card__title">Smart Irrigation Cloud: Data-Driven Water Stewardship</h3>
+                  <p class="card__body">
+                    Developed a scalable SaaS platform integrating multi-source satellite imagery and meteorological data to optimize agricultural water efficiency. Leveraging proprietary inversion models and expert decision systems to enhance climate resilience.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Remote Sensing</span>
+                    <span class="tag">GIS Visualization</span>
+                    <span class="tag">Decision Support</span>
+                  </div>
                 </div>
               </article>
+
             </div>
           </div>
 
@@ -843,14 +952,11 @@
             <h3 class="projects__group-title">More Projects</h3>
             <div class="grid">
               
-              <article class="card card--project">
-                <div class="card__meta">
-                  <span class="card__category">Computational social science</span>
-                </div>
+              <article class="card card--minimal">
+                <div class="card__meta">Computational social science</div>
                 <h3 class="card__title">Online Misinformation Diffusion Modeling</h3>
                 <p class="card__body">
-                  Developed an agent-based simulation framework modeling misinformation spread in social networks, and
-                  evaluated intervention strategies on belief accuracy and information persistence.
+                  Developed an agent-based simulation framework modeling misinformation spread in social networks, and evaluated intervention strategies on belief accuracy and information persistence.
                 </p>
                 <div class="card__tags">
                   <span class="tag">Agent-based Modeling</span>
@@ -859,51 +965,19 @@
                 </div>
               </article>
 
-              <article class="card card--project">
-                <div class="card__meta">
-                  <span class="card__category">Consulting &amp; implementation</span>
-                </div>
+              <article class="card card--minimal">
+                <div class="card__meta">Consulting &amp; implementation</div>
                 <h3 class="card__title">Technology Consulting &amp; Social Impact</h3>
                 <p class="card__body">
-                  Collaborated with a local nonprofit organization to assess operational and technology needs. Conducted
-                  stakeholder interviews and delivered a needs assessment and implementation roadmap.
+                  Collaborated with a local nonprofit organization to assess operational and technology needs. Conducted stakeholder interviews and delivered a needs assessment and implementation roadmap.
                 </p>
                 <div class="card__tags">
                   <span class="tag">Needs Assessment</span>
                   <span class="tag">Stakeholder Interviews</span>
-                  <span class="tag">Implementation Roadmap</span>
+                  <span class="tag">Roadmap</span>
                 </div>
               </article>
 
-              <article class="card card--project">
-                <div class="card__meta">
-                  <span class="card__category">Remote sensing</span>
-                </div>
-                <h3 class="card__title">Remote Sensing for Environmental Monitoring</h3>
-                <p class="card__body">
-                  Developed satellite-based analytical workflows for environmental monitoring and spatial analysis.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Satellite Imagery</span>
-                  <span class="tag">Environmental Monitoring</span>
-                </div>
-              </article>
-
-              <article class="card card--project">
-                <div class="card__meta">
-                  <span class="card__category">Applied research</span>
-                </div>
-                <h3 class="card__title">Hyperspectral Detection of Crop Water Stress</h3>
-                <p class="card__body">
-                  Undergraduate research project using hyperspectral imagery to detect drought stress in winter wheat
-                  using machine learning methods.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Hyperspectral data</span>
-                  <span class="tag">Crop Water Stress</span>
-                  <span class="tag">Machine Learning</span>
-                </div>
-              </article>
             </div>
           </div>
         </div>
@@ -916,20 +990,29 @@
             <h2 class="section-heading__title">Education</h2>
           </div>
 
-          <div class="education-list">
-            <article class="education-item">
-              <h3 class="education-item__degree">M.S. — Geographic Information Science</h3>
-              <p class="education-item__school">University at Buffalo, SUNY (USA) · 2024–2025</p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-item__meta">2024–2025</div>
+              <div class="timeline-item__body">
+                <h3 class="timeline-item__title">M.S. — Geographic Information Science</h3>
+                <p class="timeline-item__org">University at Buffalo, SUNY (USA)</p>
+              </div>
             </article>
 
-            <article class="education-item">
-              <h3 class="education-item__degree">B.S. — Geographic Information Science</h3>
-              <p class="education-item__school">Huazhong Agricultural University (China) · 2014–2018</p>
+            <article class="timeline-item">
+              <div class="timeline-item__meta">2014–2018</div>
+              <div class="timeline-item__body">
+                <h3 class="timeline-item__title">B.S. — Geographic Information Science</h3>
+                <p class="timeline-item__org">Huazhong Agricultural University (China)</p>
+              </div>
             </article>
 
-            <article class="education-item">
-              <h3 class="education-item__degree">B.S. — Human Geography &amp; Urban Planning</h3>
-              <p class="education-item__school">Central China Normal University (China) · 2015–2018</p>
+            <article class="timeline-item">
+              <div class="timeline-item__meta">2015–2018</div>
+              <div class="timeline-item__body">
+                <h3 class="timeline-item__title">B.S. — Human Geography &amp; Urban Planning</h3>
+                <p class="timeline-item__org">Central China Normal University (China)</p>
+              </div>
             </article>
           </div>
         </div>
@@ -953,7 +1036,7 @@
               </svg>
               Drop me an email
             </a>
-            <a href="www.linkedin.com/in/zijunwang-joey" target="_blank" rel="noreferrer" class="button button--ghost">
+            <a href="https://www.linkedin.com/in/zijunwang-joey" target="_blank" rel="noreferrer" class="button button--ghost">
               Connect on LinkedIn
             </a>
           </div>
