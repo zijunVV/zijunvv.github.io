@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="KCAS Knowledge Capital Ecosystem: evaluate, research, allocate, create">
+  <rect width="640" height="360" fill="#fafafa"/>
+  <text x="40" y="50" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="2" fill="#52525b">KNOWLEDGE CAPITAL ECOSYSTEM</text>
+  <line x1="40" y1="64" x2="600" y2="64" stroke="#e4e4e7" stroke-width="1"/>
+
+  <!-- journey line -->
+  <line x1="62" y1="104" x2="62" y2="290" stroke="#d4d4d8" stroke-width="2"/>
+
+  <!-- 01 evaluate -->
+  <circle cx="62" cy="104" r="6" fill="#18181b"/>
+  <text x="88" y="103" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#18181b"><tspan font-weight="700">KCAS Core</tspan><tspan font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#52525b">  &#8212;  evaluate assets</tspan></text>
+
+  <!-- 02 research -->
+  <circle cx="62" cy="166" r="6" fill="#18181b"/>
+  <text x="88" y="165" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#18181b"><tspan font-weight="700">KCAS Research</tspan><tspan font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#52525b">  &#8212;  research assets</tspan></text>
+
+  <!-- 03 allocate -->
+  <circle cx="62" cy="228" r="6" fill="#18181b"/>
+  <text x="88" y="227" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#18181b"><tspan font-weight="700">KCAS Portfolio</tspan><tspan font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#52525b">  &#8212;  allocate capital</tspan></text>
+
+  <!-- 04 create -->
+  <circle cx="62" cy="290" r="6" fill="#18181b"/>
+  <text x="88" y="289" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#18181b"><tspan font-weight="700">KCAB OS</tspan><tspan font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#52525b">  &#8212;  create assets</tspan></text>
+
+  <text x="40" y="338" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#a1a1aa">A journey from asset observer &#8594; allocator &#8594; creator</text>
+</svg>
