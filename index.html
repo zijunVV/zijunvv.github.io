@@ -871,6 +871,31 @@
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
                   <img
+                    src="./assets/images/diffusion.jpg"
+                    alt="Opinion diffusion across a network of agents"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta">MS thesis · NLP and agent-based modelling</div>
+                  <h3 class="card__title">Sustainability Communication &amp; Behavioral Modeling</h3>
+                  <p class="card__body">
+                    Filtered 78,116 sustainability-related reviews out of the Yelp Open Dataset, ran LDA topic modelling in gensim with the topic count selected by coherence score rather than fixed by assumption, and scored sentiment with a pretrained multilingual BERT model. Those outputs then initialised 500 agents on a Barab&aacute;si-Albert scale-free network in Mesa, where each agent only takes influence from neighbours whose views sit within a confidence threshold of its own. Three scenarios at ten seeds each over 100 steps, measured against a no-intervention baseline, turn a description of what people wrote into a question that can be tested: when does a sustainability narrative spread through a community, and when does it stall. Designed, implemented, and interpreted alone.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">gensim LDA</span>
+                    <span class="tag">BERT</span>
+                    <span class="tag">Mesa</span>
+                    <span class="tag">NetworkX</span>
+                    <span class="tag">Agent-based Modeling</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV/OpinionDynamics_ESG" target="_blank" rel="noreferrer">On GitHub &rarr;</a>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
                     src="./assets/images/airport-twin-ai-preview.png"
                     alt="AirportTwin AI digital twin road network preview"
                   />
@@ -968,20 +993,6 @@
           <div class="projects__group projects__group--secondary">
             <h3 class="projects__group-title">Earlier Modelling, Geospatial &amp; Product Work</h3>
             <div class="grid">
-              
-              <article class="card card--minimal">
-                <div class="card__meta">Systems modeling &amp; communication strategy</div>
-                <h3 class="card__title">Sustainability Communication &amp; Behavioral Modeling</h3>
-                <p class="card__body">
-                  Master's thesis. Filtered 78,116 sustainability-related reviews out of the Yelp Open Dataset, ran LDA topic modelling in gensim with the topic count selected by coherence score, and scored sentiment with a pretrained multilingual BERT model. Those outputs then initialised 500 agents on a Barabási-Albert scale-free network in Mesa, updating under a bounded-confidence rule, run across three scenarios and ten seeds against a no-intervention baseline to see when a sustainability narrative spreads through a community and when it stalls.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">LDA · BERT</span>
-                  <span class="tag">Agent-based Modeling</span>
-                  <span class="tag">Network Dynamics</span>
-                </div>
-              </article>
-
               <article class="card card--minimal">
                 <div class="card__meta">Analytics dashboard</div>
                 <h3 class="card__title">Sustainable Food Consumer Insights Dashboard</h3>
