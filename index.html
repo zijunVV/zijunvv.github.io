@@ -878,50 +878,24 @@
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
                   <img
-                    src="./assets/images/chinese-intent-routing.svg"
-                    alt="Chinese intent recognition model confidence routing evaluation"
+                    src="./assets/images/culture.jpg"
+                    alt="Bridge the Gap cross-cultural food platform"
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Model fine-tuning · Open-set recognition and business routing</div>
-                  <h3 class="card__title">Chinese Intent Recognition &amp; Confidence Routing</h3>
+                  <div class="card__meta">Bilingual AI knowledge product · Trust and ranking</div>
+                  <h3 class="card__title">Bridge the Gap</h3>
                   <p class="card__body">
-                    Fine-tuned a Chinese intent classifier on more than 11,000 dialogues across 50 intents, reaching 87% test accuracy. Ten additional intent classes were held out from training to test how the system behaves when a request falls outside the known taxonomy rather than assuming every input belongs somewhere.
-                  </p>
-                  <p class="card__body">
-                    I then turned the confidence threshold into a routing policy. At a 90% precision target, the smaller model can handle 94% of known requests; low-confidence cases go to a larger model. The error review also separates model uncertainty from taxonomy gaps and missing system context, which matters more to a product team than one aggregate score.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">Transformers</span>
-                    <span class="tag">Fine-tuning</span>
-                    <span class="tag">Open-set Evaluation</span>
-                    <span class="tag">Confidence Routing</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/stock-analyzer.jpg"
-                    alt="Stock Analyzer multi-market AI analysis platform"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta">Production financial intelligence product · US · HK · A-share markets</div>
-                  <h3 class="card__title">Stock Analyzer</h3>
-                  <p class="card__body">
-                    An end-to-end financial intelligence product that combines live market data across US, Hong Kong, and China A-share markets with AI-assisted analysis of fundamentals, technicals, valuation, and sentiment. I designed the product, data workflow, S&amp;P 500 screener, and AI value-chain map, then built a provider-agnostic LLM layer with automatic model fallback to keep the service available when a model fails.
+                    A bilingual knowledge product that turns unfamiliar food and cultural encounters into structured, community-contributed answers. AI provides instant translation, while a custom authority-ranking system combines weighted endorsements, Wilson-score confidence bounds, and freshness decay to decide which perspectives should surface first when contributors disagree.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Next.js</span>
-                    <span class="tag">FastAPI</span>
+                    <span class="tag">Supabase</span>
                     <span class="tag">Groq LLM</span>
-                    <span class="tag">Multi-market Data</span>
-                    <span class="tag">AI Value-Chain Map</span>
+                    <span class="tag">Ranking Algorithm Design</span>
+                    <span class="tag">EN / 中 Bilingual</span>
                   </div>
-                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer">Live demo →</a>
+                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer">Live →</a>
                 </div>
               </article>
 
@@ -952,6 +926,32 @@
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
                   <img
+                    src="./assets/images/chinese-intent-routing.svg"
+                    alt="Chinese intent recognition model confidence routing evaluation"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta">Model fine-tuning · Open-set recognition and business routing</div>
+                  <h3 class="card__title">Chinese Intent Recognition &amp; Confidence Routing</h3>
+                  <p class="card__body">
+                    Fine-tuned a Chinese intent classifier on more than 11,000 dialogues across 50 intents, reaching 87% test accuracy. Ten additional intent classes were held out from training to test how the system behaves when a request falls outside the known taxonomy rather than assuming every input belongs somewhere.
+                  </p>
+                  <p class="card__body">
+                    I then turned the confidence threshold into a routing policy. At a 90% precision target, the smaller model can handle 94% of known requests; low-confidence cases go to a larger model. The error review also separates model uncertainty from taxonomy gaps and missing system context, which matters more to a product team than one aggregate score.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">Fine-tuning</span>
+                    <span class="tag">Open-set Evaluation</span>
+                    <span class="tag">Confidence Routing</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
                     src="./assets/images/diffusion.jpg"
                     alt="Opinion diffusion across a network of agents"
                   />
@@ -970,6 +970,30 @@
                     <span class="tag">NetworkX</span>
                     <span class="tag">Agent-based Modeling</span>
                   </div>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/stock-analyzer.jpg"
+                    alt="Stock Analyzer multi-market AI analysis platform"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta">Production financial intelligence product · US · HK · A-share markets</div>
+                  <h3 class="card__title">Stock Analyzer</h3>
+                  <p class="card__body">
+                    An end-to-end financial intelligence product that combines live market data across US, Hong Kong, and China A-share markets with AI-assisted analysis of fundamentals, technicals, valuation, and sentiment. I designed the product, data workflow, S&amp;P 500 screener, and AI value-chain map, then built a provider-agnostic LLM layer with automatic model fallback to keep the service available when a model fails.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Groq LLM</span>
+                    <span class="tag">Multi-market Data</span>
+                    <span class="tag">AI Value-Chain Map</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer">Live demo →</a>
                 </div>
               </article>
 
@@ -1041,30 +1065,6 @@
                     <span class="tag">US–China</span>
                     <span class="tag">Agentic Workflows</span>
                   </div>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/culture.jpg"
-                    alt="Bridge the Gap cross-cultural food platform"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta">Bilingual AI knowledge product · Trust and ranking</div>
-                  <h3 class="card__title">Bridge the Gap</h3>
-                  <p class="card__body">
-                    A bilingual knowledge product that turns unfamiliar food and cultural encounters into structured, community-contributed answers. AI provides instant translation, while a custom authority-ranking system combines weighted endorsements, Wilson-score confidence bounds, and freshness decay to decide which perspectives should surface first when contributors disagree.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">Groq LLM</span>
-                    <span class="tag">Ranking Algorithm Design</span>
-                    <span class="tag">EN / 中 Bilingual</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer">Live →</a>
                 </div>
               </article>
 
