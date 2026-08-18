@@ -712,7 +712,7 @@
                 One line runs through everything I have worked on: <strong>take a system nobody can see whole, and turn it into a model you can reason with.</strong> Space, social behaviour, industry structure, physical capital — the material keeps changing, the move does not. Phrase the question precisely enough to be wrong about, find the data that can answer it, build the thing that produces the answer, and stay accountable for the number at the end.
               </p>
               <p>
-                <strong>Building.</strong> I design, build, deploy, and operate production LLM systems on my own: a multi-market equity analytics platform, a reflection product with a semantic retrieval layer over PostgreSQL, and a bilingual knowledge platform with its own content ranking algorithm. Running them in production is where my views come from. I care about the unglamorous half, which is evaluation, output guardrails, data quality, model fallback, and the distance between a convincing demo and a dependable system.
+                <strong>Building.</strong> I have three LLM applications running live: a multi-market equity analytics platform, a reflection product with semantic retrieval over PostgreSQL, and a bilingual knowledge platform with its own ranking algorithm. I handle the product definition, data model, retrieval, guardrails, deployment, and the debugging that starts after launch. Social Memory Copilot is a fourth project, running locally as a portfolio MVP while I work through agent memory, hybrid retrieval, and human confirmation around side effects.
               </p>
               <p>
                 <strong>Analysis and modelling.</strong> Before the LLM work there were years of statistics and machine learning: an NLP thesis pairing topic modelling with an agent-based simulation of how narratives spread through a network, NSF-funded research on how communities exchange information during extreme weather, and two years defining KPIs, writing the SQL behind them, and answering for the figures when someone disputed them.
@@ -757,13 +757,13 @@
               <div class="timeline-item__body">
                 <h3 class="timeline-item__title">Independent AI Engineer &amp; Researcher</h3>
                 <p class="timeline-item__desc">
-                  Design, build, deploy, and operate production LLM applications end to end, alone: product definition, data model and migrations, retrieval and vector search, output validation and guardrails, deployment, monitoring, and the debugging that only starts once something is actually running. Three systems are live.
+                  I have three LLM applications running live and a fourth, Social Memory Copilot, working locally as a portfolio MVP. Across them I handle product definition, data models and migrations, retrieval, output guardrails, deployment, monitoring, and post-launch debugging.
                 </p>
                 <p class="timeline-item__desc">
                   Alongside the build work, a self-directed study track on where economic value lands across the AI stack. The collection layer is automated with scheduled agents; interpretation stays manual.
                 </p>
                 <div class="timeline-item__tags">
-                  <span class="tag">Production LLM Systems</span>
+                  <span class="tag">Deployed LLM Applications</span>
                   <span class="tag">Retrieval &amp; Vector Search</span>
                   <span class="tag">Output Guardrails</span>
                   <span class="tag">Full-stack Delivery</span>
@@ -854,13 +854,13 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Google ADK agent system · Personal assistant and relationship memory</div>
+                  <div class="card__meta">Portfolio MVP · Google ADK · Agent memory and hybrid retrieval</div>
                   <h3 class="card__title">Social Memory Copilot</h3>
                   <p class="card__body">
-                    A multi-turn personal AI assistant that remembers people, relationships, commitments, and communication context across sessions. Session State tracks the active contact, goal, and pending action; short- and long-term memory support structured proactive retrieval, while confirmation-gated tools draft messages and reminders without acting beyond the user&rsquo;s intent.
+                    I built Social Memory Copilot to solve a simple problem: remembering the context around a person, not just their name. It keeps track of the current contact, conversation goal, and pending action, then retrieves relevant preferences, events, and commitments when a later conversation needs them. Memory writes and reminders stay in a proposed state until the user confirms them.
                   </p>
                   <p class="card__body">
-                    The retrieval layer combines BM25 with pgvector/HNSW, fuses results with reciprocal rank fusion, and supports an optional reranker. Memory citations show why the agent recalled something. User-level data isolation, prompt-injection cases, fallback paths, and offline comparisons across Vector, Hybrid, and Hybrid + Rerank cover the less visible parts of making the system dependable.
+                    Retrieval combines BM25 with pgvector/HNSW, followed by RRF and a lightweight reranker. On a small synthetic evaluation set, Recall@5 improved from 0.682 with either route alone to 0.889 with fusion and reranking. The project has 354 passing tests covering user isolation, prompt injection, tool schemas, fallback behavior, and HITL state changes. It runs locally as a portfolio MVP and has not been deployed to real users.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Google ADK</span>
