@@ -849,6 +849,59 @@
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
                   <img
+                    src="./assets/images/social-memory-copilot.svg"
+                    alt="Social Memory Copilot agent memory and retrieval architecture"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta">Google ADK agent system · Personal assistant and relationship memory</div>
+                  <h3 class="card__title">Social Memory Copilot</h3>
+                  <p class="card__body">
+                    A multi-turn personal AI assistant that remembers people, relationships, commitments, and communication context across sessions. Session State tracks the active contact, goal, and pending action; short- and long-term memory support structured proactive retrieval, while confirmation-gated tools draft messages and reminders without acting beyond the user&rsquo;s intent.
+                  </p>
+                  <p class="card__body">
+                    The retrieval layer combines BM25 with pgvector/HNSW, fuses results with reciprocal rank fusion, and supports an optional reranker. Memory citations show why the agent recalled something. User-level data isolation, prompt-injection cases, fallback paths, and offline comparisons across Vector, Hybrid, and Hybrid + Rerank cover the less visible parts of making the system dependable.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Google ADK</span>
+                    <span class="tag">Python / FastAPI</span>
+                    <span class="tag">PostgreSQL / pgvector</span>
+                    <span class="tag">BM25 + HNSW</span>
+                    <span class="tag">RRF + Reranker</span>
+                    <span class="tag">Agent Memory</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/chinese-intent-routing.svg"
+                    alt="Chinese intent recognition model confidence routing evaluation"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta">Model fine-tuning · Open-set recognition and business routing</div>
+                  <h3 class="card__title">Chinese Intent Recognition &amp; Confidence Routing</h3>
+                  <p class="card__body">
+                    Fine-tuned a Chinese intent classifier on more than 11,000 dialogues across 50 intents, reaching 87% test accuracy. Ten additional intent classes were held out from training to test how the system behaves when a request falls outside the known taxonomy rather than assuming every input belongs somewhere.
+                  </p>
+                  <p class="card__body">
+                    I then turned the confidence threshold into a routing policy. At a 90% precision target, the smaller model can handle 94% of known requests; low-confidence cases go to a larger model. The error review also separates model uncertainty from taxonomy gaps and missing system context, which matters more to a product team than one aggregate score.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">Fine-tuning</span>
+                    <span class="tag">Open-set Evaluation</span>
+                    <span class="tag">Confidence Routing</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
                     src="./assets/images/stock-analyzer.jpg"
                     alt="Stock Analyzer multi-market AI analysis platform"
                   />
