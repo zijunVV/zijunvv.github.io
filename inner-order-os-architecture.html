@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inner Order OS · Architecture — Zijun Wang</title>
+    <meta
+      name="description"
+      content="How Inner Order OS is put together: the layered system map, the retrieval-augmented calibration request path, the trust boundaries around row-level security and model output, and the decisions behind them."
+    />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #fafafa;
+        --surface: #ffffff;
+        --text: #18181b;
+        --text-muted: #52525b;
+        --border: #e4e4e7;
+        --primary: #18181b;
+        --radius: 12px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #09090b;
+          --surface: #18181b;
+          --text: #f4f4f5;
+          --text-muted: #a1a1aa;
+          --border: #27272a;
+          --primary: #f4f4f5;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Crimson Pro', serif;
+        margin-top: 0;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+
+      p { margin-top: 0; margin-bottom: 1.25rem; }
+
+      .shell {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .site-header {
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .back-link {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .back-link:hover { color: var(--text); }
+
+      .doc { padding: 3.5rem 0 5rem; }
+
+      .doc__meta {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .doc h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin-bottom: 1rem; }
+      .doc h2 {
+        font-size: 1.6rem;
+        margin-top: 3.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+      }
+      .doc h3 { font-size: 1.2rem; margin-top: 2rem; }
+
+      .lede { font-size: 1.1rem; color: var(--text-muted); }
+
+      .counts {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        border-left: 2px solid var(--border);
+        padding-left: 1rem;
+        margin: 1.5rem 0 0;
+      }
+
+      .status {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .status strong { display: block; margin-bottom: 0.35rem; }
+      .status p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+      .diagram {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+
+      .mermaid { display: flex; justify-content: center; min-width: 0; }
+      .mermaid svg { max-width: 100%; height: auto; }
+
+      ol, ul { margin-top: 0; margin-bottom: 1.25rem; padding-left: 1.25rem; }
+      li { margin-bottom: 0.6rem; }
+
+      code {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.875em;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 0.1em 0.35em;
+      }
+
+      .table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        min-width: 34rem;
+      }
+
+      th, td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      th {
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+
+      td:first-child { width: 34%; font-weight: 500; }
+
+      pre.plain {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 0.85rem;
+        line-height: 1.9;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        overflow-x: auto;
+        color: var(--text-muted);
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="shell">
+        <a class="back-link" href="./index.html">← Zijun Wang</a>
+      </div>
+    </header>
+
+    <main class="doc">
+      <div class="shell">
+        <div class="doc__meta">Production AI product · Architecture note</div>
+        <h1>Inner Order OS — Architecture</h1>
+        <p class="lede">
+          How the system is put together, and why the load-bearing parts are the way they are.
+          This note covers structure only; it is the public version of the architecture doc
+          that ships in the repository.
+        </p>
+        <p class="counts">
+          Counts stated as of 2026-08-20: 129 TypeScript modules, 28 route handlers,
+          11 versioned migrations, 20 unit tests. Built and operated solo, end to end.
+        </p>
+
+        <div class="status">
+          <strong>Status</strong>
+          <p>
+            Deployed, in alpha preparation. Not open to external users — there is no production
+            traffic and no retention data behind any diagram on this page.
+          </p>
+        </div>
+
+        <h2>1. System map</h2>
+
+        <div class="diagram">
+          <pre class="mermaid">
+flowchart TB
+    subgraph client["Browser — Next.js 14 App Router, TS strict"]
+        UI["Feature components<br/>entries · free-record · chapters · wisdom<br/>review · tags · settings · onboarding"]
+        XR["Xirang terrain renderer<br/>read-only view of the record stream"]
+    end
+
+    MW["middleware.ts<br/>Supabase SSR cookie session<br/>every /api/* except health + register<br/>plus all protected app paths"]
+
+    subgraph api["28 route handlers — src/app/api"]
+        R1["Records &amp; entries<br/>free-records · entries · tags · principles"]
+        R2["AI<br/>calibrate · wisdom-match · weekly-calibration"]
+        R3["Account &amp; ops<br/>auth · settings · onboarding · export<br/>feedback · analytics · health · admin backfill"]
+    end
+
+    subgraph domain["Domain layer — src/lib"]
+        D1["entries/policy · validation · content"]
+        D2["principles/versioning"]
+        D3["alpha/cohort · access"]
+        D4["wisdom/language-guard"]
+        D5["free-records/similar"]
+        D6["terrain-engine"]
+    end
+
+    subgraph ext["Provider-agnostic adapters"]
+        L["LLM adapter → Groq<br/>8B calibration · 70B wisdom matching"]
+        E["Embedding adapter<br/>Jina v3 · 1024-dim · bge-m3 drop-in"]
+    end
+
+    subgraph db["Supabase — PostgreSQL"]
+        T["Tables + RLS<br/>caller owns the row, soft-deleted rows excluded"]
+        V["pgvector vector(1024)<br/>HNSW cosine index"]
+        F["RPC — SECURITY INVOKER<br/>nearest-neighbour search"]
+        A["analytics_events<br/>insert-only, sanitized props"]
+    end
+
+    UI --> MW --> api
+    XR --> R1
+    R1 --> D1 & D2 & D3
+    R2 --> D4 & D5
+    XR -.derives from stored records, no LLM.-> D6
+    R2 --> L
+    R1 --> E
+    D5 --> F
+    api --> T
+    F --> V
+    R3 --> A
+
+    classDef boundary stroke-dasharray: 4 3
+    class MW boundary
+          </pre>
+        </div>
+
+        <p>Three things this diagram is meant to make obvious:</p>
+        <ol>
+          <li>
+            <strong>The AI layer is a leaf, not a spine.</strong> Records save, list, export and
+            render without any provider being reachable. Every AI path degrades to
+            &ldquo;no question this time&rdquo; rather than failing the write.
+          </li>
+          <li>
+            <strong>Retrieval terminates in the database</strong>, not in the application. The
+            nearest-neighbour search is a SQL function, so the row-level policy is the only
+            access gate on both the source row and its candidates.
+          </li>
+          <li>
+            <strong>The terrain layer reads and never writes.</strong> It adds no input path and
+            makes no model calls; it is a projection of the existing record stream.
+          </li>
+        </ol>
+
+        <h2>2. Retrieval-augmented calibration</h2>
+
+        <p>
+          The one request path where retrieval, a model call and the guardrails all meet. It is
+          also the path carrying the deliberate injection defence.
+        </p>
+
+        <div class="diagram">
+          <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    participant C as Browser
+    participant MW as middleware
+    participant API as calibrate route
+    participant DB as Postgres · RLS
+    participant LLM as Groq 8B
+
+    C->>MW: POST { record_id, tool_type, content }
+    Note over C,MW: record id only — never prior-record text
+    MW->>API: session attached (401 if absent)
+    API->>DB: nearest-neighbour RPC (limit 2, min similarity 0.5)
+    Note over DB: SECURITY INVOKER — RLS scopes source AND candidates.<br/>Another user's id simply returns no rows.
+    DB-->>API: 0-2 neighbour bodies
+    API->>API: cap context — 2 records x 120 chars
+    API->>LLM: system prompt + capped excerpts
+    LLM-->>API: one question (or failure)
+    API->>API: deterministic filters — shape, length, language, no-restatement
+    alt passes
+        API-->>C: question
+    else rejected
+        API-->>API: log rejection for drift tracking
+        API-->>C: no question this time
+    end
+    API->>DB: analytics event (never blocks the response)
+          </pre>
+        </div>
+
+        <p>
+          <strong>Why the client sends an id and not text.</strong> If the browser supplied the
+          prior records, anyone could hand the model arbitrary context and call it the user&rsquo;s
+          own history. Fetching server-side means the retrieved context is, by construction,
+          rows the caller already owns.
+        </p>
+        <p>
+          <strong>Why two thresholds.</strong> The browsable &ldquo;you have written this
+          before&rdquo; list uses a similarity floor of 0.35; a loose match there costs the reader
+          nothing. The same neighbours become <em>prompt context</em> here, where a weak match
+          actively degrades the question — so this path requires 0.5.
+        </p>
+        <p>
+          <strong>Why the context cap is small.</strong> The 8B model degenerates on long
+          open-ended input (see §4). Two short excerpts are enough to aim a question at a repeat;
+          more is risk without benefit.
+        </p>
+
+        <h2>3. Trust boundaries</h2>
+
+        <div class="diagram">
+          <pre class="mermaid">
+flowchart LR
+    subgraph untrusted["Untrusted"]
+        CL["Browser<br/>ids, not content, for AI context"]
+        MO["Model output<br/>treated as unvalidated"]
+    end
+
+    subgraph server["Server — session-scoped"]
+        RT["Route handlers<br/>anon key + caller session"]
+        GD["Deterministic filters<br/>shape · length · script · no-restatement"]
+    end
+
+    subgraph privileged["Privileged — narrow by design"]
+        AD["Admin client<br/>analytics insert + embedding backfill only"]
+    end
+
+    DBX["PostgreSQL<br/>RLS is the access gate,<br/>not an application filter"]
+
+    CL --> RT --> DBX
+    MO --> GD --> RT
+    RT --> AD --> DBX
+
+    classDef warn stroke-dasharray: 4 3
+    class untrusted,MO warn
+          </pre>
+        </div>
+
+        <p>Three rules hold this together:</p>
+        <ul>
+          <li>
+            <strong>Row-level security is the gate, not a second opinion.</strong> The similarity
+            function carries no owner predicate in its body — adding one would imply the policy is
+            not trusted. Running it as <code>SECURITY DEFINER</code> would bypass RLS entirely and
+            expose every user&rsquo;s records; the definition says so in a comment, so the next
+            person does not &ldquo;optimize&rdquo; it.
+          </li>
+          <li>
+            <strong>Service-role access is scoped to two jobs</strong>: writing analytics events
+            and backfilling embeddings. It never serves a read on the user&rsquo;s behalf.
+          </li>
+          <li>
+            <strong>Model output is never trusted into the response.</strong> Rejected generations
+            are written to the log rather than dropped silently, so drift is observable instead of
+            anecdotal.
+          </li>
+        </ul>
+
+        <h2>4. Decisions worth knowing before changing anything</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Decision</th><th>Reason</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Two models by task — 8B for calibration, 70B for wisdom matching</td>
+                <td>
+                  The 8B model degenerated on open-ended input: looping output, truncated JSON.
+                  Prompt and temperature changes did not fix it, which identified it as a
+                  capability limit rather than a prompt defect. Load was split by task instead of
+                  upgrading everything.
+                </td>
+              </tr>
+              <tr>
+                <td>Provider-agnostic embeddings</td>
+                <td>
+                  Switching to bge-m3 is two environment variables and a key. The single
+                  non-portable fact is the 1024 column width, which is stated in the migration
+                  itself.
+                </td>
+              </tr>
+              <tr>
+                <td>Asymmetric encoding</td>
+                <td>
+                  Stored records are encoded as passages, search text as queries. The embedding
+                  model applies a different adapter per task, which measurably improves retrieval
+                  over encoding both sides the same way.
+                </td>
+              </tr>
+              <tr>
+                <td>No mock embeddings in development</td>
+                <td>
+                  A plausible mock <em>question</em> is still useful; a random <em>vector</em>
+                  produces nonsense neighbours, which is worse than having no semantic search at
+                  all. No key means no embeddings, everywhere.
+                </td>
+              </tr>
+              <tr>
+                <td>Embedding failures never throw</td>
+                <td>
+                  Every caller reads a null as &ldquo;not embedded yet&rdquo; and leaves the row
+                  for the backfill script. Embedding is an additive property of a record, never a
+                  precondition for saving one.
+                </td>
+              </tr>
+              <tr>
+                <td>HNSW index shipped before it pays</td>
+                <td>
+                  No measurable benefit at current row counts; present so it grows with the data
+                  instead of requiring a later migration under load.
+                </td>
+              </tr>
+              <tr>
+                <td>Records are soft-deleted, principles are versioned</td>
+                <td>
+                  Nothing the user wrote is destroyed by ordinary use. Both are enforced in the
+                  schema and covered by unit tests.
+                </td>
+              </tr>
+              <tr>
+                <td>Analytics can never block a flow</td>
+                <td>
+                  The write is wrapped and swallowed. A telemetry outage must not cost a user
+                  their record.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Schema evolution</h2>
+
+        <pre class="plain">0001  init                      0007  free_records
+0002  boundary script tool      0008  tags architecture
+0003  chapter system            0009  feedback
+0004  language preference       0010  xirang terrain
+0005  alpha observation events  0011  semantic search — pgvector
+0006  saved wisdom</pre>
+
+        <p>
+          Migrations are additive and versioned; each states in a header comment whether it
+          removes anything. After one <code>TRUNCATE CASCADE</code> incident on this project, a
+          destructive statement now requires listing every foreign-key referencing table and
+          confirming each one first — the check lives in the repository&rsquo;s agent
+          specification, not in somebody&rsquo;s memory.
+        </p>
+
+        <h2>6. What the tests cover</h2>
+
+        <p>
+          20 unit tests across five business invariants, chosen because these are the rules that
+          would be expensive to get wrong and cheap to break by accident.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Module</th><th>Invariant</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>alpha cohort</td><td>who is admitted to the alpha, and on what basis</td></tr>
+              <tr><td>entry policy</td><td>what may be written, edited, or soft-deleted</td></tr>
+              <tr><td>principle versioning</td><td>principles are versioned, never overwritten</td></tr>
+              <tr><td>language guard</td><td>a quote&rsquo;s script must match the user&rsquo;s culture circle</td></tr>
+              <tr><td>calibration</td><td>prompt assembly and the output contract</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          They are invariant tests, not a coverage target. The gate before a commit is TypeScript
+          strict mode, ESLint, <code>tsc --noEmit</code> and a production build.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        Inner Order OS ·
+        <a class="back-link" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer">Live app →</a>
+      </div>
+    </footer>
+
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: prefersDark ? 'dark' : 'neutral',
+        securityLevel: 'strict',
+        fontFamily: "'Inter', sans-serif",
+        flowchart: { curve: 'basis', htmlLabels: true },
+      });
+    </script>
+  </body>
+</html>
