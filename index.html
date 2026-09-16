@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
       rel="stylesheet"
     />
-    
+
     <!-- Embedded CSS for standalone compilation -->
     <style>
       :root {
@@ -107,6 +107,12 @@
         letter-spacing: -0.02em;
       }
 
+      .nav__right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
       .nav__list {
         display: flex;
         gap: 2rem;
@@ -125,6 +131,42 @@
 
       .nav__link:hover {
         color: var(--text);
+      }
+
+      /* --- Language Switcher --- */
+      .lang-switch {
+        display: inline-flex;
+        align-items: stretch;
+        border: 1px solid var(--border);
+        border-radius: 99px;
+        overflow: hidden;
+        flex: 0 0 auto;
+      }
+
+      .lang-switch__btn {
+        background: none;
+        border: none;
+        padding: 0.3rem 0.7rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .lang-switch__btn + .lang-switch__btn {
+        border-left: 1px solid var(--border);
+      }
+
+      .lang-switch__btn:hover {
+        color: var(--text);
+      }
+
+      .lang-switch__btn.is-active {
+        background: var(--primary);
+        color: var(--bg);
       }
 
       .nav__toggle {
@@ -212,7 +254,7 @@
       .section-heading {
         margin-bottom: 3.5rem;
       }
-      
+
       .section-heading--center {
         text-align: center;
       }
@@ -275,13 +317,13 @@
         box-shadow: 0 12px 32px -12px rgba(0,0,0,0.1);
         border-color: var(--text-muted);
       }
-      
+
       @media (prefers-color-scheme: dark) {
         .hero-card:hover, .card:hover {
           box-shadow: 0 12px 32px -12px rgba(0,0,0,0.5);
         }
       }
-      
+
       .card--featured-layout {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
@@ -305,7 +347,7 @@
         align-items: center;
         justify-content: center;
       }
-      
+
       .card__image--featured {
         aspect-ratio: 4 / 3;
         border-radius: 8px;
@@ -330,7 +372,7 @@
         margin-bottom: 1rem;
         letter-spacing: -0.01em;
       }
-      
+
       .card__title {
         font-size: 1.35rem;
         margin-bottom: 0.75rem;
@@ -361,7 +403,7 @@
         padding-bottom: 0.2rem;
         transition: var(--transition);
       }
-      
+
       .hero-card:hover .hero-card__cta {
         color: var(--text-muted);
         border-color: var(--text-muted);
@@ -413,7 +455,7 @@
         box-shadow: none;
         border-top-color: var(--text);
       }
-      
+
       .card--minimal .card__title {
         font-size: 1.25rem;
       }
@@ -483,7 +525,7 @@
         color: var(--text-muted);
         margin-bottom: 1.25rem;
       }
-      
+
       .timeline-item__tags {
         margin-top: 1rem;
       }
@@ -612,7 +654,7 @@
           margin-top: 3rem;
           padding-top: 3rem;
         }
-        
+
         .project-list__item {
           grid-template-columns: 1fr;
           gap: 1.5rem;
@@ -641,23 +683,31 @@
     <header class="site-header">
       <nav class="nav shell">
         <a href="#home" class="nav__brand">Zijun Wang</a>
-        
-        <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav__toggle-icon">
-            <line x1="4" x2="20" y1="12" y2="12"></line>
-            <line x1="4" x2="20" y1="6" y2="6"></line>
-            <line x1="4" x2="20" y1="18" y2="18"></line>
-          </svg>
-        </button>
-        
-        <ul class="nav__list">
-          <li><a href="#home" class="nav__link">Home</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#experience" class="nav__link">Experience</a></li>
-          <li><a href="#projects" class="nav__link">Projects</a></li>
-          <li><a href="#education" class="nav__link">Education</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
-        </ul>
+
+        <div class="nav__right">
+          <ul class="nav__list">
+            <li><a href="#home" class="nav__link" data-i18n="nav.home">Home</a></li>
+            <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#education" class="nav__link" data-i18n="nav.education">Education</a></li>
+            <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+
+          <div class="lang-switch" role="group" aria-label="Language / 语言">
+            <button type="button" class="lang-switch__btn" data-lang="en" lang="en">EN</button>
+            <button type="button" class="lang-switch__btn" data-lang="zh-Hans" lang="zh-Hans">简</button>
+            <button type="button" class="lang-switch__btn" data-lang="zh-Hant" lang="zh-Hant">繁</button>
+          </div>
+
+          <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav__toggle-icon">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -666,23 +716,23 @@
       <section id="home" class="section hero">
         <div class="shell hero__inner">
           <div class="hero__content">
-            <span class="eyebrow">AI Engineering &times; Data &amp; Modelling &times; Geospatial &times; Product</span>
+            <span class="eyebrow" data-i18n="hero.eyebrow">AI Engineering &times; Data &amp; Modelling &times; Geospatial &times; Product</span>
 
-            <h1 class="hero__title">AI Builder, Analyst &amp; Researcher</h1>
+            <h1 class="hero__title" data-i18n="hero.title">AI Builder, Analyst &amp; Researcher</h1>
 
             <div class="hero__columns">
               <div class="hero__summary">
-                <p class="hero__subtitle">
+                <p class="hero__subtitle" data-i18n="hero.subtitle">
                   I turn systems nobody can see whole into models you can reason with. In practice that means production AI systems, data that does not arrive clean, and spatial and physical evidence about what the technology is actually doing. Four years of product and analytics work across China and the US sits underneath it.
                 </p>
               </div>
 
               <div class="hero__competencies">
-                <span class="competency-item">Production LLM Applications</span>
-                <span class="competency-item">Data Analysis &amp; Machine Learning</span>
-                <span class="competency-item">Geospatial &amp; Earth Observation</span>
-                <span class="competency-item">Product Management &amp; Delivery</span>
-                <span class="competency-item">US &amp; China AI Ecosystems</span>
+                <span class="competency-item" data-i18n="hero.comp1">Production LLM Applications</span>
+                <span class="competency-item" data-i18n="hero.comp2">Data Analysis &amp; Machine Learning</span>
+                <span class="competency-item" data-i18n="hero.comp3">Geospatial &amp; Earth Observation</span>
+                <span class="competency-item" data-i18n="hero.comp4">Product Management &amp; Delivery</span>
+                <span class="competency-item" data-i18n="hero.comp5">US &amp; China AI Ecosystems</span>
               </div>
             </div>
           </div>
@@ -693,7 +743,7 @@
       <section id="about" class="section">
         <div class="shell about">
           <div class="section-heading">
-            <h2 class="section-heading__title">About</h2>
+            <h2 class="section-heading__title" data-i18n="about.title">About</h2>
           </div>
 
           <div class="about__grid">
@@ -708,27 +758,27 @@
             </figure>
 
             <div class="about__body">
-              <p>
+              <p data-i18n="about.p1">
                 One line runs through everything I have worked on: <strong>take a system nobody can see whole, and turn it into a model you can reason with.</strong> Space, social behaviour, industry structure, physical capital — the material keeps changing, the move does not. Phrase the question precisely enough to be wrong about, find the data that can answer it, build the thing that produces the answer, and stay accountable for the number at the end.
               </p>
-              <p>
+              <p data-i18n="about.p2">
                 <strong>Building.</strong> I have four LLM applications running live: a multi-market equity analytics platform, a reflection product with semantic retrieval over PostgreSQL, a bilingual knowledge platform, and Social Memory Copilot. I handle the product definition, data model, retrieval, guardrails, deployment, and the debugging that starts after launch. Social Memory Copilot is where I have been working most directly on agent memory, hybrid retrieval, and human confirmation before side effects.
               </p>
-              <p>
+              <p data-i18n="about.p3">
                 <strong>Analysis and modelling.</strong> Before the LLM work there were years of statistics and machine learning: an NLP thesis pairing topic modelling with an agent-based simulation of how narratives spread through a network, NSF-funded research on how communities exchange information during extreme weather, and two years defining KPIs, writing the SQL behind them, and answering for the figures when someone disputed them.
               </p>
-              <p>
+              <p data-i18n="about.p4">
                 <strong>Geospatial.</strong> I started here, with two degrees in geographic information science and satellite-based estimation models for public-sector planning and environmental assessment. It remains the least fashionable and most distinctive thing I do. Physical evidence is a check on what companies say about themselves, and remote sensing is how you read it.
               </p>
-              <p>
+              <p data-i18n="about.p5">
                 <strong>Product and delivery.</strong> Four years converting client problems into requirements, workflows, dashboards, and rollout plans across 6+ government digitalisation projects, presenting results to technical and non-technical decision-makers at national and provincial level. It is why I am comfortable sitting between a business user and an engineering team.
               </p>
-              <p>
+              <p data-i18n="about.p6">
                 The list of domains is open, and I expect it to keep growing. What stays constant is the move, not the subject matter: someone who can build the system, model the data, read the physical evidence, and explain the result to the person who has to act on it. I am open to AI engineering and solutions work, data and analytics roles, applied research, and geospatial or alternative-data work. I work in Mandarin, English, and Cantonese.
               </p>
 
               <div class="pill-group">
-                <p class="pill-group__label">Focus areas</p>
+                <p class="pill-group__label" data-i18n="about.focusLabel">Focus areas</p>
                 <div class="pill-group__items">
                   <span class="pill">LLM Product Engineering</span>
                   <span class="pill">Data Analysis &amp; NLP</span>
@@ -748,18 +798,18 @@
       <section id="experience" class="section">
         <div class="shell work">
           <div class="section-heading">
-            <h2 class="section-heading__title">Experience</h2>
+            <h2 class="section-heading__title" data-i18n="exp.title">Experience</h2>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
-              <div class="timeline-item__meta">2026–present</div>
+              <div class="timeline-item__meta" data-i18n="exp.e1.meta">2026–present</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">Independent AI Engineer &amp; Researcher</h3>
-                <p class="timeline-item__desc">
+                <h3 class="timeline-item__title" data-i18n="exp.e1.title">Independent AI Engineer &amp; Researcher</h3>
+                <p class="timeline-item__desc" data-i18n="exp.e1.d1">
                   I have four LLM applications running live, including Social Memory Copilot, a Google ADK project for agent memory and hybrid retrieval. Across them I handle product definition, data models and migrations, retrieval, output guardrails, deployment, monitoring, and post-launch debugging.
                 </p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e1.d2">
                   Alongside the build work, a self-directed study track on where economic value lands across the AI stack. The collection layer is automated with scheduled agents; interpretation stays manual.
                 </p>
                 <div class="timeline-item__tags">
@@ -773,14 +823,14 @@
             </article>
 
             <article class="timeline-item">
-              <div class="timeline-item__meta">2024–2025</div>
+              <div class="timeline-item__meta" data-i18n="exp.e2.meta">2024–2025</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">Research Assistant</h3>
+                <h3 class="timeline-item__title" data-i18n="exp.e2.title">Research Assistant</h3>
                 <p class="timeline-item__org">University at Buffalo, SUNY</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e2.d1">
                   Ran the quantitative analysis for an NSF-funded study of community resilience during extreme winter storms, covering survey, behavioral, and spatial data on how location, information exposure, and online communities shape mutual-aid decisions.
                 </p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e2.d2">
                   Designed and executed the analysis workflow end to end, from data preparation through statistical modelling and validation to interpretation, and wrote up the findings for the research team and the funder.
                 </p>
                 <div class="timeline-item__tags">
@@ -793,14 +843,14 @@
             </article>
 
             <article class="timeline-item">
-              <div class="timeline-item__meta">2021–2023</div>
+              <div class="timeline-item__meta" data-i18n="exp.e3.meta">2021–2023</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">Product Manager &amp; Data Analyst</h3>
+                <h3 class="timeline-item__title" data-i18n="exp.e3.title">Product Manager &amp; Data Analyst</h3>
                 <p class="timeline-item__org">Beijing Yiyun Technology Co., Ltd.</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e3.d1">
                   Led business analysis across 6+ government digitalisation projects, mostly monitoring and early-warning platforms. Agreed with stakeholders which KPIs each project would be judged on, wrote the SQL and analysis workflows that produced them, specified the dashboards, and maintained the definitions so a figure meant the same thing month to month. When a number was disputed, tracing it back to source data and finding where a rule or parameter had drifted was my job rather than someone else's.
                 </p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e3.d2">
                   Replaced manual re-extraction each reporting cycle with Python scripts and templated queries. Coordinated a 10+ person team across engineering, data, design, and marketing, and presented analysis and recommendations to technical and non-technical decision-makers at national and provincial level. Several proposals were put into operation.
                 </p>
                 <div class="timeline-item__tags">
@@ -814,14 +864,14 @@
             </article>
 
             <article class="timeline-item">
-              <div class="timeline-item__meta">2019–2020</div>
+              <div class="timeline-item__meta" data-i18n="exp.e4.meta">2019–2020</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">Remote Sensing Analyst &amp; Project Manager</h3>
+                <h3 class="timeline-item__title" data-i18n="exp.e4.title">Remote Sensing Analyst &amp; Project Manager</h3>
                 <p class="timeline-item__org">Beijing Satimage Technology Inc.</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e4.d1">
                   Applied machine-learning classification, spatial analysis, and quantitative methods to large geospatial datasets for government planning and environmental assessment, developing and validating satellite-based estimation models that combined imagery with environmental indicators.
                 </p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="exp.e4.d2">
                   Managed analytical delivery from client scoping through to reports, presentations, and decision-ready recommendations.
                 </p>
                 <div class="timeline-item__tags">
@@ -840,11 +890,11 @@
       <section id="projects" class="section">
         <div class="shell projects">
           <div class="section-heading">
-            <h2 class="section-heading__title">Projects</h2>
+            <h2 class="section-heading__title" data-i18n="projects.title">Projects</h2>
           </div>
 
           <div class="projects__group">
-            <h3 class="projects__group-title">Selected Work: Systems, Analysis &amp; Research</h3>
+            <h3 class="projects__group-title" data-i18n="projects.group1">Selected Work: Systems, Analysis &amp; Research</h3>
 
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
@@ -854,12 +904,12 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Live MVP · Google ADK · Agent memory and hybrid retrieval</div>
+                  <div class="card__meta" data-i18n="p.smc.meta">Live MVP · Google ADK · Agent memory and hybrid retrieval</div>
                   <h3 class="card__title">Social Memory Copilot</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.smc.b1">
                     I built Social Memory Copilot to solve a simple problem: remembering the context around a person, not just their name. It keeps track of the current contact, conversation goal, and pending action, then retrieves relevant preferences, events, and commitments when a later conversation needs them. Memory writes and reminders stay in a proposed state until the user confirms them.
                   </p>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.smc.b2">
                     Retrieval combines BM25 with pgvector/HNSW, followed by RRF and a lightweight reranker. On a small synthetic evaluation set, Recall@5 improved from 0.682 with either route alone to 0.889 with fusion and reranking. The project has 354 passing tests covering user isolation, prompt injection, tool schemas, fallback behavior, and HITL state changes. The live Vercel demo uses synthetic contacts and memories; I do not present it as production usage.
                   </p>
                   <div class="card__tags">
@@ -870,8 +920,8 @@
                     <span class="tag">RRF + Reranker</span>
                     <span class="tag">Agent Memory</span>
                   </div>
-                  <a class="hero-card__cta" href="https://social-memory-copilot.vercel.app" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;">Live demo →</a>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV/social-memory-copilot" target="_blank" rel="noreferrer">On GitHub →</a>
+                  <a class="hero-card__cta" href="https://social-memory-copilot.vercel.app" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.liveDemo">Live demo →</a>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV/social-memory-copilot" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
                 </div>
               </article>
 
@@ -883,9 +933,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Bilingual AI knowledge product · Trust and ranking</div>
+                  <div class="card__meta" data-i18n="p.btg.meta">Bilingual AI knowledge product · Trust and ranking</div>
                   <h3 class="card__title">Bridge the Gap</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.btg.b1">
                     A bilingual knowledge product that turns unfamiliar food and cultural encounters into structured, community-contributed answers. AI provides instant translation, while a custom authority-ranking system combines weighted endorsements, Wilson-score confidence bounds, and freshness decay to decide which perspectives should surface first when contributors disagree.
                   </p>
                   <div class="card__tags">
@@ -895,7 +945,7 @@
                     <span class="tag">Ranking Algorithm Design</span>
                     <span class="tag">EN / 中 Bilingual</span>
                   </div>
-                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer">Live →</a>
+                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.live">Live →</a>
                 </div>
               </article>
 
@@ -907,9 +957,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Production AI product · Behavioral guardrails</div>
+                  <div class="card__meta" data-i18n="p.ioos.meta">Production AI product · Behavioral guardrails</div>
                   <h3 class="card__title">Inner Order OS</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.ioos.b1">
                     A production LLM product built around a deliberately narrow behavior: ask one calibrated question at a time without drifting into advice or reassurance. I designed the product and implemented multi-layer prompts, structured-output validation, and behavioral guardrails, then iterated against real usage to keep the model aligned with the product promise.
                   </p>
                   <div class="card__tags">
@@ -919,8 +969,8 @@
                     <span class="tag">Prompt Engineering</span>
                     <span class="tag">Production Guardrails</span>
                   </div>
-                  <a class="hero-card__cta" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;">Live →</a>
-                  <a class="hero-card__cta" href="./inner-order-os-architecture.html">Architecture →</a>
+                  <a class="hero-card__cta" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.live">Live →</a>
+                  <a class="hero-card__cta" href="./inner-order-os-architecture.html" data-i18n="cta.architecture">Architecture →</a>
                 </div>
               </article>
 
@@ -932,12 +982,12 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Model fine-tuning · Open-set recognition and business routing</div>
-                  <h3 class="card__title">Chinese Intent Recognition &amp; Confidence Routing</h3>
-                  <p class="card__body">
+                  <div class="card__meta" data-i18n="p.cir.meta">Model fine-tuning · Open-set recognition and business routing</div>
+                  <h3 class="card__title" data-i18n="p.cir.title">Chinese Intent Recognition &amp; Confidence Routing</h3>
+                  <p class="card__body" data-i18n="p.cir.b1">
                     Fine-tuned a Chinese intent classifier on more than 11,000 dialogues across 50 intents, reaching 87% test accuracy. Ten additional intent classes were held out from training to test how the system behaves when a request falls outside the known taxonomy rather than assuming every input belongs somewhere.
                   </p>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.cir.b2">
                     I then turned the confidence threshold into a routing policy. At a 90% precision target, the smaller model can handle 94% of known requests; low-confidence cases go to a larger model. The error review also separates model uncertainty from taxonomy gaps and missing system context, which matters more to a product team than one aggregate score.
                   </p>
                   <div class="card__tags">
@@ -958,9 +1008,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">MS thesis · NLP and agent-based modelling</div>
-                  <h3 class="card__title">Sustainability Communication &amp; Behavioral Modeling</h3>
-                  <p class="card__body">
+                  <div class="card__meta" data-i18n="p.scbm.meta">MS thesis · NLP and agent-based modelling</div>
+                  <h3 class="card__title" data-i18n="p.scbm.title">Sustainability Communication &amp; Behavioral Modeling</h3>
+                  <p class="card__body" data-i18n="p.scbm.b1">
                     Filtered 78,116 sustainability-related reviews out of the Yelp Open Dataset, ran LDA topic modelling in gensim with the topic count selected by coherence score rather than fixed by assumption, and scored sentiment with a pretrained multilingual BERT model. Those outputs then initialised 500 agents on a Barab&aacute;si-Albert scale-free network in Mesa, where each agent only takes influence from neighbours whose views sit within a confidence threshold of its own. Three scenarios at ten seeds each over 100 steps, measured against a no-intervention baseline, turn a description of what people wrote into a question that can be tested: when does a sustainability narrative spread through a community, and when does it stall. Designed, implemented, and interpreted alone.
                   </p>
                   <div class="card__tags">
@@ -982,9 +1032,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Production financial intelligence product · US · HK · A-share markets</div>
+                  <div class="card__meta" data-i18n="p.sa.meta">Production financial intelligence product · US · HK · A-share markets</div>
                   <h3 class="card__title">Stock Analyzer</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.sa.b1">
                     An end-to-end financial intelligence product that combines live market data across US, Hong Kong, and China A-share markets with AI-assisted analysis of fundamentals, technicals, valuation, and sentiment. I designed the product, data workflow, S&amp;P 500 screener, and AI value-chain map, then built a provider-agnostic LLM layer with automatic model fallback to keep the service available when a model fails.
                   </p>
                   <div class="card__tags">
@@ -994,7 +1044,7 @@
                     <span class="tag">Multi-market Data</span>
                     <span class="tag">AI Value-Chain Map</span>
                   </div>
-                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer">Live demo →</a>
+                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.liveDemo">Live demo →</a>
                 </div>
               </article>
 
@@ -1006,9 +1056,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Geospatial AI pipeline · HKIA smart mobility</div>
+                  <div class="card__meta" data-i18n="p.ata.meta">Geospatial AI pipeline · HKIA smart mobility</div>
                   <h3 class="card__title">AirportTwin AI</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.ata.b1">
                     A GIS-to-3D digital twin prototype for the roads around Hong Kong International Airport and the North Lantau access area. The pipeline cleans public OpenStreetMap data, generates scene-ready geometry, and organizes the output into a USD-ready hierarchy for future mobility simulation, turning real spatial data into structured digital twin assets.
                   </p>
                   <div class="card__tags">
@@ -1018,7 +1068,7 @@
                     <span class="tag">Blender Python</span>
                     <span class="tag">USD-ready</span>
                   </div>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV/airport-twin-ai" target="_blank" rel="noreferrer">On GitHub →</a>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV/airport-twin-ai" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
                 </div>
               </article>
 
@@ -1030,9 +1080,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Alt-data method in progress · Free Sentinel-2 imagery</div>
+                  <div class="card__meta" data-i18n="p.oc.meta">Alt-data method in progress · Free Sentinel-2 imagery</div>
                   <h3 class="card__title">Orbital Capex</h3>
-                  <p class="card__body">
+                  <p class="card__body" data-i18n="p.oc.b1">
                     Hyperscaler AI capital expenditure is disclosed once a quarter. The construction sites are photographed from orbit every five days. This project measures built roof area and cleared ground at self-built US datacenter sites from free Sentinel-2 imagery, so that a quarterly, company-reported number can be checked against a weekly, self-collected one. Two findings shaped the method. NDBI, the standard built-up index, fails in reverse on the high-albedo membrane roofs these buildings use, excluding the newest construction precisely when the increment matters most. And grey metal roofing cannot be separated from dry bare soil in single-scene spectral space at all, so the pipeline separates them by temporal persistence instead, on the reasoning that a roof is permanent and a field is seasonal. Site boundaries come from county tax parcels queried by owner name and cross-checked against reported acreage, not from boxes drawn around an address. Status is openly Building. The pipeline runs end to end and the first parcel-clipped series does trend upward in step with the site's public construction timeline, but at 10 m the mask still takes in apron, parking and haul roads alongside roofing, so the level is not yet a roof-area figure and the method claims nothing until a timestamped prediction has been scored against reported capex.
                   </p>
                   <div class="card__tags">
@@ -1043,7 +1093,7 @@
                     <span class="tag">Alternative Data</span>
                     <span class="tag">Falsifiable Prediction</span>
                   </div>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV/orbital-capex" target="_blank" rel="noreferrer">On GitHub →</a>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV/orbital-capex" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
                 </div>
               </article>
 
@@ -1055,9 +1105,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Ongoing since early 2026 · Self-directed</div>
-                  <h3 class="card__title">AI Industry Study Track</h3>
-                  <p class="card__body">
+                  <div class="card__meta" data-i18n="p.ist.meta">Ongoing since early 2026 · Self-directed</div>
+                  <h3 class="card__title" data-i18n="p.ist.title">AI Industry Study Track</h3>
+                  <p class="card__body" data-i18n="p.ist.b1">
                     A self-directed effort to build the industry and financial literacy that a technical background does not come with, aimed at one question: where does economic value accumulate across the AI stack, from semiconductors and cloud to foundation models, agents, and vertical applications, in both the US and China. What is built and running is the collection layer, a set of scheduled agents that assemble weekly industry digests and pull consensus data, with interpretation kept manual on purpose. Alongside it I read quarterly earnings materials and disclosures from the major model and infrastructure vendors as primary sources. This is openly a track in progress rather than a finished credential.
                   </p>
                   <div class="card__tags">
@@ -1077,9 +1127,9 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta">Open-source decision frameworks · Capital allocation</div>
-                  <h3 class="card__title">KCAS · Knowledge Capital Ecosystem</h3>
-                  <p class="card__body">
+                  <div class="card__meta" data-i18n="p.kcas.meta">Open-source decision frameworks · Capital allocation</div>
+                  <h3 class="card__title" data-i18n="p.kcas.title">KCAS · Knowledge Capital Ecosystem</h3>
+                  <p class="card__body" data-i18n="p.kcas.b1">
                     A modular decision system for research and capital allocation. Four connected frameworks separate asset quality from price, structure evidence gathering, rank holdings by role and opportunity cost, and test whether a project deserves long-term commitment. The work demonstrates how I turn broad judgment problems into explicit criteria and repeatable workflows.
                   </p>
                   <div class="card__tags">
@@ -1088,7 +1138,7 @@
                     <span class="tag">Compounding</span>
                     <span class="tag">Framework Design</span>
                   </div>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV" target="_blank" rel="noreferrer">On GitHub →</a>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
                 </div>
               </article>
 
@@ -1097,12 +1147,12 @@
           </div>
 
           <div class="projects__group projects__group--secondary">
-            <h3 class="projects__group-title">Earlier Geospatial, Data &amp; Product Work</h3>
+            <h3 class="projects__group-title" data-i18n="projects.group2">Earlier Geospatial, Data &amp; Product Work</h3>
             <div class="grid">
               <article class="card card--minimal">
-                <div class="card__meta">Analytics dashboard</div>
-                <h3 class="card__title">Sustainable Food Consumer Insights Dashboard</h3>
-                <p class="card__body">
+                <div class="card__meta" data-i18n="m.dash.meta">Analytics dashboard</div>
+                <h3 class="card__title" data-i18n="m.dash.title">Sustainable Food Consumer Insights Dashboard</h3>
+                <p class="card__body" data-i18n="m.dash.b1">
                   Tableau analysis of consumer review data. Sustainability narratives and sentiment patterns turned into business-facing KPIs and adoption recommendations.
                 </p>
                 <div class="card__tags">
@@ -1112,9 +1162,9 @@
               </article>
 
               <article class="card card--minimal">
-                <div class="card__meta">Digital transformation &amp; risk analytics</div>
-                <h3 class="card__title">Government-facing Monitoring &amp; Early-warning Platforms</h3>
-                <p class="card__body">
+                <div class="card__meta" data-i18n="m.warn.meta">Digital transformation &amp; risk analytics</div>
+                <h3 class="card__title" data-i18n="m.warn.title">Government-facing Monitoring &amp; Early-warning Platforms</h3>
+                <p class="card__body" data-i18n="m.warn.b1">
                   Requirements and solution design for forest-fire risk and meteorological disaster assessment systems, turning multi-source data into dashboards and decision-support logic.
                 </p>
                 <div class="card__tags">
@@ -1124,9 +1174,9 @@
               </article>
 
               <article class="card card--minimal">
-                <div class="card__meta">Consulting &amp; implementation</div>
-                <h3 class="card__title">Non-profit Digital Roadmap</h3>
-                <p class="card__body">
+                <div class="card__meta" data-i18n="m.npo.meta">Consulting &amp; implementation</div>
+                <h3 class="card__title" data-i18n="m.npo.title">Non-profit Digital Roadmap</h3>
+                <p class="card__body" data-i18n="m.npo.b1">
                   Interviewed stakeholders and mapped workflows, then wrote the requirements documentation and implementation roadmap, delivered through agile cycles.
                 </p>
                 <div class="card__tags">
@@ -1136,9 +1186,9 @@
               </article>
 
               <article class="card card--minimal">
-                <div class="card__meta">Agri-tech digital solution</div>
-                <h3 class="card__title">Smart Irrigation Cloud</h3>
-                <p class="card__body">
+                <div class="card__meta" data-i18n="m.irr.meta">Agri-tech digital solution</div>
+                <h3 class="card__title" data-i18n="m.irr.title">Smart Irrigation Cloud</h3>
+                <p class="card__body" data-i18n="m.irr.b1">
                   GIS-based precision-irrigation platform concept that combines satellite data and weather patterns with expert-system logic to produce grower-facing recommendations.
                 </p>
                 <div class="card__tags">
@@ -1148,9 +1198,9 @@
               </article>
 
               <article class="card card--minimal">
-                <div class="card__meta">Applied research</div>
-                <h3 class="card__title">Hyperspectral Detection of Crop Water Stress</h3>
-                <p class="card__body">
+                <div class="card__meta" data-i18n="m.hyp.meta">Applied research</div>
+                <h3 class="card__title" data-i18n="m.hyp.title">Hyperspectral Detection of Crop Water Stress</h3>
+                <p class="card__body" data-i18n="m.hyp.b1">
                   Undergraduate research project using hyperspectral imagery to detect drought stress in winter wheat using machine learning methods.
                 </p>
                 <div class="card__tags">
@@ -1169,16 +1219,16 @@
       <section id="education" class="section">
         <div class="shell education">
           <div class="section-heading">
-            <h2 class="section-heading__title">Education</h2>
+            <h2 class="section-heading__title" data-i18n="edu.title">Education</h2>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
-              <div class="timeline-item__meta">2024–2025</div>
+              <div class="timeline-item__meta" data-i18n="edu.d1.meta">2024–2025</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">M.S. in Geographic Information Science</h3>
+                <h3 class="timeline-item__title" data-i18n="edu.d1.title">M.S. in Geographic Information Science</h3>
                 <p class="timeline-item__org">University at Buffalo, SUNY (USA)</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="edu.d1.desc">
                   Quantitative and computational track: spatial statistics, machine learning, and simulation methods. The thesis paired an NLP pipeline over 78,116 reviews with an agent-based model of how a narrative spreads through a network, and is the origin of most of the modelling on this site.
                 </p>
                 <div class="timeline-item__tags">
@@ -1191,22 +1241,22 @@
             </article>
 
             <article class="timeline-item">
-              <div class="timeline-item__meta">2014–2018</div>
+              <div class="timeline-item__meta" data-i18n="edu.d2.meta">2014–2018</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">B.S. in Geographic Information Science</h3>
+                <h3 class="timeline-item__title" data-i18n="edu.d2.title">B.S. in Geographic Information Science</h3>
                 <p class="timeline-item__org">Huazhong Agricultural University (China)</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="edu.d2.desc">
                   Remote sensing, cartography, spatial databases, and programming for geospatial analysis.
                 </p>
               </div>
             </article>
 
             <article class="timeline-item">
-              <div class="timeline-item__meta">2015–2018</div>
+              <div class="timeline-item__meta" data-i18n="edu.d3.meta">2015–2018</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title">B.S. in Human Geography &amp; Urban Planning</h3>
+                <h3 class="timeline-item__title" data-i18n="edu.d3.title">B.S. in Human Geography &amp; Urban Planning</h3>
                 <p class="timeline-item__org">Central China Normal University (China)</p>
-                <p class="timeline-item__desc">
+                <p class="timeline-item__desc" data-i18n="edu.d3.desc">
                   A full bachelor's degree read concurrently with the one above, on the human side of the same questions: how people, cities, and land use interact.
                 </p>
               </div>
@@ -1219,9 +1269,9 @@
       <section id="contact" class="section">
         <div class="shell contact">
           <div class="section-heading section-heading--center">
-            <h2 class="section-heading__title">Contact</h2>
+            <h2 class="section-heading__title" data-i18n="contact.title">Contact</h2>
           </div>
-          <p class="contact__intro">
+          <p class="contact__intro" data-i18n="contact.intro">
             I am open to AI product, solutions, and applied AI opportunities. Email is the fastest way to reach me.
           </p>
 
@@ -1255,13 +1305,287 @@
 
     <footer class="site-footer">
       <div class="shell site-footer__inner">
-        <p class="site-footer__meta">© <span id="year"></span> Zijun Wang. All rights reserved.</p>
+        <p class="site-footer__meta" data-i18n="footer.meta">© <span id="year"></span> Zijun Wang. All rights reserved.</p>
       </div>
     </footer>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      // --- Internationalisation: English is the source of truth in the markup;
+      // only the Simplified and Traditional Chinese strings live here. ---
+      const I18N = {
+        'zh-Hans': {
+          'nav.home': '首页',
+          'nav.about': '关于',
+          'nav.experience': '经历',
+          'nav.projects': '项目',
+          'nav.education': '教育',
+          'nav.contact': '联系',
 
+          'hero.eyebrow': 'AI 工程 × 数据与建模 × 地理空间 × 产品',
+          'hero.title': 'AI 构建者、分析师与研究者',
+          'hero.subtitle': '我把没人能看清全貌的系统，变成你可以据以推理的模型。具体而言，这意味着投入生产的 AI 系统、并非干净到手的数据，以及关于技术实际在做什么的空间与物理证据。这一切之下，是四年横跨中美的产品与分析工作。',
+          'hero.comp1': '生产级 LLM 应用',
+          'hero.comp2': '数据分析与机器学习',
+          'hero.comp3': '地理空间与对地观测',
+          'hero.comp4': '产品管理与交付',
+          'hero.comp5': '中美 AI 生态',
+
+          'about.title': '关于',
+          'about.p1': '有一条主线贯穿我做过的所有工作：<strong>拿起一个没人能看清全貌的系统，把它变成你可以据以推理的模型。</strong>空间、社会行为、产业结构、实体资本——素材不断在变，而这个动作不变。把问题表述得精确到足以被证伪，找到能回答它的数据，构建产出答案的东西，并对最终那个数字负责。',
+          'about.p2': '<strong>构建。</strong>我有四个 LLM 应用正在线上运行：一个多市场股票分析平台、一个基于 PostgreSQL 语义检索的自省产品、一个双语知识平台，以及 Social Memory Copilot。产品定义、数据模型、检索、护栏、部署，以及上线之后才开始的调试，都由我一手处理。Social Memory Copilot 是我最直接钻研智能体记忆、混合检索，以及在产生副作用前先由人确认的地方。',
+          'about.p3': '<strong>分析与建模。</strong>在 LLM 工作之前，是多年的统计与机器学习：一篇把主题建模与"叙事如何在网络中扩散"的基于智能体的模拟相结合的 NLP 论文、一项由 NSF 资助、研究社区在极端天气下如何交换信息的课题，以及两年定义 KPI、编写背后 SQL、并在有人质疑数字时为其作答的经历。',
+          'about.p4': '<strong>地理空间。</strong>我从这里起步：两个地理信息科学学位，以及为公共部门规划与环境评估构建的卫星估算模型。它至今仍是我所做之事中最不时髦、也最独特的一项。实体证据是对企业自我陈述的一道校验，而遥感就是解读它的方式。',
+          'about.p5': '<strong>产品与交付。</strong>四年间，在 6 个以上政府数字化项目中，把客户问题转化为需求、工作流、仪表盘与推广方案，并向国家级与省级的技术与非技术决策者汇报成果。这正是我能自如地坐在业务方与工程团队之间的原因。',
+          'about.p6': '领域清单是开放的，我预期它会继续增长。不变的是那个动作，而非题材本身：一个能构建系统、为数据建模、读懂实体证据，并把结果解释给那个必须据此行动的人的人。我对 AI 工程与解决方案工作、数据与分析岗位、应用研究，以及地理空间或另类数据工作持开放态度。我使用普通话、英语和粤语工作。',
+          'about.focusLabel': '重点领域',
+
+          'exp.title': '经历',
+          'exp.e1.meta': '2026 至今',
+          'exp.e1.title': '独立 AI 工程师与研究者',
+          'exp.e1.d1': '我有四个 LLM 应用正在线上运行，其中包括 Social Memory Copilot——一个用于智能体记忆与混合检索的 Google ADK 项目。在这些项目中，我负责产品定义、数据模型与迁移、检索、输出护栏、部署、监控，以及上线后的调试。',
+          'exp.e1.d2': '在构建工作之外，还有一条自主的研究线，探究经济价值在 AI 技术栈中落在何处。采集层由定时智能体自动完成；解读则保持人工。',
+          'exp.e2.meta': '2024–2025',
+          'exp.e2.title': '研究助理',
+          'exp.e2.d1': '为一项 NSF 资助、研究极端冬季风暴下社区韧性的课题负责定量分析，涵盖调查、行为与空间数据，探讨地理位置、信息接触和线上社区如何塑造互助决策。',
+          'exp.e2.d2': '端到端设计并执行了分析流程，从数据准备、统计建模与验证到结果解读，并为研究团队和资助方撰写了研究发现。',
+          'exp.e3.meta': '2021–2023',
+          'exp.e3.title': '产品经理与数据分析师',
+          'exp.e3.d1': '在 6 个以上政府数字化项目中主导业务分析，多为监测与预警平台。与相关方商定每个项目将以哪些 KPI 来评判，编写产出这些指标的 SQL 与分析流程，明确仪表盘规格，并维护指标定义，使同一个数字逐月都表示同一件事。当某个数字受到质疑时，把它追溯回源数据、找出规则或参数在哪里发生了漂移，是我的职责而非别人的。',
+          'exp.e3.d2': '用 Python 脚本与模板化查询取代了每个报告周期的手工重复取数。协调了一个 10 人以上、横跨工程、数据、设计与市场的团队，并向国家级与省级的技术与非技术决策者汇报分析与建议。多项提案被投入实施。',
+          'exp.e4.meta': '2019–2020',
+          'exp.e4.title': '遥感分析师与项目经理',
+          'exp.e4.d1': '将机器学习分类、空间分析与定量方法应用于大型地理空间数据集，服务于政府规划与环境评估，开发并验证了将影像与环境指标相结合的卫星估算模型。',
+          'exp.e4.d2': '管理从客户需求界定，到报告、演示与可供决策的建议在内的完整分析交付。',
+
+          'projects.title': '项目',
+          'projects.group1': '精选作品：系统、分析与研究',
+          'projects.group2': '早期地理空间、数据与产品工作',
+
+          'p.smc.meta': '在线 MVP · Google ADK · 智能体记忆与混合检索',
+          'p.smc.b1': '我构建 Social Memory Copilot 是为了解决一个简单的问题：记住一个人周围的上下文，而不只是名字。它追踪当前联系人、对话目标和待办动作，并在之后的对话需要时，检索相关的偏好、事件与承诺。记忆写入与提醒会保持在"待确认"状态，直到用户确认。',
+          'p.smc.b2': '检索将 BM25 与 pgvector/HNSW 相结合，再经过 RRF 融合与一个轻量级重排器。在一个小型合成评测集上，Recall@5 从单路检索的 0.682 提升到融合与重排后的 0.889。该项目有 354 个通过的测试，覆盖用户隔离、提示注入、工具 schema、降级行为与 HITL 状态变更。线上的 Vercel 演示使用合成的联系人与记忆；我并不将其呈现为生产环境中的真实使用。',
+          'p.btg.meta': '双语 AI 知识产品 · 信任与排序',
+          'p.btg.b1': '一个双语知识产品，把陌生的饮食与文化遭遇转化为结构化的、由社区贡献的答案。AI 提供即时翻译，而一套自定义的权威排序系统结合加权背书、Wilson 置信区间与新鲜度衰减，在贡献者意见分歧时决定哪些视角应当优先呈现。',
+          'p.ioos.meta': '生产级 AI 产品 · 行为护栏',
+          'p.ioos.b1': '一个围绕刻意收窄的行为构建的生产级 LLM 产品：每次只提出一个经过校准的问题，而不滑向建议或安慰。我设计了产品，实现了多层提示、结构化输出校验与行为护栏，并根据真实使用不断迭代，使模型始终贴合产品承诺。',
+          'p.cir.meta': '模型微调 · 开集识别与业务路由',
+          'p.cir.title': '中文意图识别与置信度路由',
+          'p.cir.b1': '在涵盖 50 个意图、超过 11,000 条对话的数据上微调了一个中文意图分类器，测试准确率达到 87%。另有十个意图类别被排除在训练之外，用于检验当一个请求落在已知分类体系之外时系统如何表现，而不是假设每个输入都必然归属某处。',
+          'p.cir.b2': '随后我把置信度阈值转化为一套路由策略。在 90% 精确率的目标下，较小的模型可以处理 94% 的已知请求；低置信度的情形则交给更大的模型。错误复盘还把模型不确定性与分类体系缺口、系统上下文缺失区分开来——这对产品团队而言，比一个汇总分数更有意义。',
+          'p.scbm.meta': '硕士论文 · NLP 与基于智能体的建模',
+          'p.scbm.title': '可持续性传播与行为建模',
+          'p.scbm.b1': '从 Yelp 公开数据集中筛出 78,116 条与可持续性相关的评论，在 gensim 中运行 LDA 主题建模——主题数由一致性得分选定，而非凭假设固定——并用一个预训练的多语言 BERT 模型进行情感打分。这些产出随后在 Mesa 中初始化了一个 Barabási–Albert 无标度网络上的 500 个智能体，其中每个智能体只接受与自身观点差距在置信阈值以内的邻居的影响。三种情景、各十个随机种子、运行 100 步，并以"无干预"作为基线进行衡量，把"人们写了什么"的描述，变成一个可被检验的问题：一个可持续性叙事何时会在社区中扩散，又何时会停滞。独立完成设计、实现与解读。',
+          'p.sa.meta': '生产级金融情报产品 · 美股 · 港股 · A 股市场',
+          'p.sa.b1': '一个端到端的金融情报产品，把美股、港股与中国 A 股的实时市场数据，与对基本面、技术面、估值与情绪的 AI 辅助分析结合起来。我设计了产品、数据流程、标普 500 筛选器与 AI 价值链图谱，并构建了一个与供应商无关的 LLM 层，具备自动模型降级能力，在某个模型失效时仍能保持服务可用。',
+          'p.ata.meta': '地理空间 AI 流水线 · 香港机场智慧交通',
+          'p.ata.b1': '一个从 GIS 到 3D 的数字孪生原型，针对香港国际机场周边道路及北大屿山进场区域。该流水线清洗公开的 OpenStreetMap 数据，生成可直接用于场景的几何体，并把输出整理为面向 USD 的层级结构，以供未来的交通仿真使用，将真实空间数据转化为结构化的数字孪生资产。',
+          'p.oc.meta': '进行中的另类数据方法 · 免费 Sentinel-2 影像',
+          'p.oc.b1': '超大规模厂商的 AI 资本开支每季度才披露一次，而它们的施工现场每五天就被从轨道上拍摄一次。本项目用免费的 Sentinel-2 影像，测量美国自建数据中心场地的已建屋顶面积与清整地面，从而让一个按季度、由公司自报的数字，可以对照一个按周、自行采集的数字加以核验。有两个发现塑造了这套方法。其一，标准的建成区指数 NDBI，在这些建筑所用的高反照率膜结构屋顶上会反向失效，恰恰在增量最重要的时候把最新的施工排除在外。其二，在单景光谱空间里，灰色金属屋顶根本无法与干燥裸土区分开来，因此流水线转而依据时间上的持久性来区分二者——理由是屋顶是永久的，而农田是季节性的。场地边界来自按业主名称查询、并与所报占地面积交叉核对的县级税务地块，而非围绕某个地址画出的方框。项目状态公开标注为"建设中"。流水线已能端到端运行，首条按地块裁切的序列确实随场地公开的施工时间线同步上行；但在 10 米分辨率下，掩膜仍会把停机坪、停车场与运输道路连同屋顶一并纳入，因此这个数值尚不是一个屋顶面积数字，在一个带时间戳的预测被拿去与所报资本开支比对打分之前，该方法不做任何声明。',
+          'p.ist.meta': '自 2026 年初持续进行 · 自主开展',
+          'p.ist.title': 'AI 产业研究线',
+          'p.ist.b1': '一项自主的努力，用以补上技术背景本身并不附带的产业与财务素养，指向同一个问题：经济价值在 AI 技术栈中于何处累积——从半导体与云，到基础模型、智能体与垂直应用，横跨美国与中国。已经构建并运行起来的是采集层：一组定时智能体，汇编每周的行业摘要并抓取一致预期数据，而解读则刻意保持人工。与之并行，我把主要模型与基础设施厂商的季度财报材料与披露文件作为一手来源来阅读。这是一条公开进行中的研究线，而非一纸完成的凭证。',
+          'p.kcas.meta': '开源决策框架 · 资本配置',
+          'p.kcas.title': 'KCAS · 知识资本生态',
+          'p.kcas.b1': '一个用于研究与资本配置的模块化决策系统。四个相互衔接的框架，分别把资产质量与价格区分开、为证据收集建立结构、按角色与机会成本对持仓排序，并检验一个项目是否值得长期投入。这项工作展示了我如何把宽泛的判断问题，转化为明确的标准与可复用的工作流。',
+
+          'm.dash.meta': '分析仪表盘',
+          'm.dash.title': '可持续食品消费者洞察仪表盘',
+          'm.dash.b1': '对消费者评论数据的 Tableau 分析。将可持续性叙事与情绪模式转化为面向业务的 KPI 与采纳建议。',
+          'm.warn.meta': '数字化转型与风险分析',
+          'm.warn.title': '面向政府的监测与预警平台',
+          'm.warn.b1': '为森林火险与气象灾害评估系统做需求与解决方案设计，把多源数据转化为仪表盘与决策支持逻辑。',
+          'm.npo.meta': '咨询与实施',
+          'm.npo.title': '非营利组织数字化路线图',
+          'm.npo.b1': '访谈相关方、梳理工作流，随后撰写需求文档与实施路线图，并通过敏捷迭代交付。',
+          'm.irr.meta': '农业科技数字化方案',
+          'm.irr.title': '智慧灌溉云',
+          'm.irr.b1': '一个基于 GIS 的精准灌溉平台概念，把卫星数据与天气模式同专家系统逻辑相结合，为种植者产出建议。',
+          'm.hyp.meta': '应用研究',
+          'm.hyp.title': '作物水分胁迫的高光谱检测',
+          'm.hyp.b1': '一个本科研究项目，用高光谱影像并借助机器学习方法，检测冬小麦的干旱胁迫。',
+
+          'edu.title': '教育',
+          'edu.d1.meta': '2024–2025',
+          'edu.d1.title': '地理信息科学 理学硕士',
+          'edu.d1.desc': '定量与计算方向：空间统计、机器学习与模拟方法。毕业论文把一条处理 78,116 条评论的 NLP 流水线，与一个"叙事如何在网络中扩散"的基于智能体的模型相结合，也是本站大部分建模工作的源头。',
+          'edu.d2.meta': '2014–2018',
+          'edu.d2.title': '地理信息科学 理学学士',
+          'edu.d2.desc': '遥感、地图学、空间数据库，以及面向地理空间分析的编程。',
+          'edu.d3.meta': '2015–2018',
+          'edu.d3.title': '人文地理与城乡规划 理学学士',
+          'edu.d3.desc': '一个与上述学位同期修读的完整学士学位，聚焦同一批问题的人文一侧：人、城市与土地利用如何相互作用。',
+
+          'contact.title': '联系',
+          'contact.intro': '我对 AI 产品、解决方案与应用 AI 方面的机会持开放态度。电子邮件是联系我最快的方式。',
+
+          'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有权利。',
+
+          'cta.liveDemo': '在线演示 →',
+          'cta.live': '在线 →',
+          'cta.github': 'GitHub 源码 →',
+          'cta.architecture': '架构 →'
+        },
+        'zh-Hant': {
+          'nav.home': '首頁',
+          'nav.about': '關於',
+          'nav.experience': '經歷',
+          'nav.projects': '項目',
+          'nav.education': '教育',
+          'nav.contact': '聯繫',
+
+          'hero.eyebrow': 'AI 工程 × 數據與建模 × 地理空間 × 產品',
+          'hero.title': 'AI 建構者、分析師與研究者',
+          'hero.subtitle': '我把沒人能看清全貌的系統，變成你可以據以推理的模型。具體而言，這意味著投入生產的 AI 系統、並非乾淨到手的數據，以及關於技術實際在做什麼的空間與物理證據。這一切之下，是四年橫跨中美的產品與分析工作。',
+          'hero.comp1': '生產級 LLM 應用',
+          'hero.comp2': '數據分析與機器學習',
+          'hero.comp3': '地理空間與對地觀測',
+          'hero.comp4': '產品管理與交付',
+          'hero.comp5': '中美 AI 生態',
+
+          'about.title': '關於',
+          'about.p1': '有一條主線貫穿我做過的所有工作：<strong>拿起一個沒人能看清全貌的系統，把它變成你可以據以推理的模型。</strong>空間、社會行為、產業結構、實體資本——素材不斷在變，而這個動作不變。把問題表述得精確到足以被證偽，找到能回答它的數據，建構產出答案的東西，並對最終那個數字負責。',
+          'about.p2': '<strong>建構。</strong>我有四個 LLM 應用正在線上運行：一個多市場股票分析平台、一個基於 PostgreSQL 語義檢索的自省產品、一個雙語知識平台，以及 Social Memory Copilot。產品定義、數據模型、檢索、護欄、部署，以及上線之後才開始的除錯，都由我一手處理。Social Memory Copilot 是我最直接鑽研智能體記憶、混合檢索，以及在產生副作用前先由人確認的地方。',
+          'about.p3': '<strong>分析與建模。</strong>在 LLM 工作之前，是多年的統計與機器學習：一篇把主題建模與「敘事如何在網絡中擴散」的基於智能體的模擬相結合的 NLP 論文、一項由 NSF 資助、研究社區在極端天氣下如何交換信息的課題，以及兩年定義 KPI、編寫背後 SQL、並在有人質疑數字時為其作答的經歷。',
+          'about.p4': '<strong>地理空間。</strong>我從這裡起步：兩個地理信息科學學位，以及為公共部門規劃與環境評估建構的衛星估算模型。它至今仍是我所做之事中最不時髦、也最獨特的一項。實體證據是對企業自我陳述的一道校驗，而遙感就是解讀它的方式。',
+          'about.p5': '<strong>產品與交付。</strong>四年間，在 6 個以上政府數字化項目中，把客戶問題轉化為需求、工作流、儀表盤與推廣方案，並向國家級與省級的技術與非技術決策者匯報成果。這正是我能自如地坐在業務方與工程團隊之間的原因。',
+          'about.p6': '領域清單是開放的，我預期它會繼續增長。不變的是那個動作，而非題材本身：一個能建構系統、為數據建模、讀懂實體證據，並把結果解釋給那個必須據此行動的人的人。我對 AI 工程與解決方案工作、數據與分析崗位、應用研究，以及地理空間或另類數據工作持開放態度。我使用普通話、英語和粵語工作。',
+          'about.focusLabel': '重點領域',
+
+          'exp.title': '經歷',
+          'exp.e1.meta': '2026 至今',
+          'exp.e1.title': '獨立 AI 工程師與研究者',
+          'exp.e1.d1': '我有四個 LLM 應用正在線上運行，其中包括 Social Memory Copilot——一個用於智能體記憶與混合檢索的 Google ADK 項目。在這些項目中，我負責產品定義、數據模型與遷移、檢索、輸出護欄、部署、監控，以及上線後的除錯。',
+          'exp.e1.d2': '在建構工作之外，還有一條自主的研究線，探究經濟價值在 AI 技術棧中落在何處。採集層由定時智能體自動完成；解讀則保持人工。',
+          'exp.e2.meta': '2024–2025',
+          'exp.e2.title': '研究助理',
+          'exp.e2.d1': '為一項 NSF 資助、研究極端冬季風暴下社區韌性的課題負責定量分析，涵蓋調查、行為與空間數據，探討地理位置、信息接觸和線上社區如何塑造互助決策。',
+          'exp.e2.d2': '端到端設計並執行了分析流程，從數據準備、統計建模與驗證到結果解讀，並為研究團隊和資助方撰寫了研究發現。',
+          'exp.e3.meta': '2021–2023',
+          'exp.e3.title': '產品經理與數據分析師',
+          'exp.e3.d1': '在 6 個以上政府數字化項目中主導業務分析，多為監測與預警平台。與相關方商定每個項目將以哪些 KPI 來評判，編寫產出這些指標的 SQL 與分析流程，明確儀表盤規格，並維護指標定義，使同一個數字逐月都表示同一件事。當某個數字受到質疑時，把它追溯回源數據、找出規則或參數在哪裡發生了漂移，是我的職責而非別人的。',
+          'exp.e3.d2': '用 Python 腳本與模板化查詢取代了每個報告週期的手工重複取數。協調了一個 10 人以上、橫跨工程、數據、設計與市場的團隊，並向國家級與省級的技術與非技術決策者匯報分析與建議。多項提案被投入實施。',
+          'exp.e4.meta': '2019–2020',
+          'exp.e4.title': '遙感分析師與項目經理',
+          'exp.e4.d1': '將機器學習分類、空間分析與定量方法應用於大型地理空間數據集，服務於政府規劃與環境評估，開發並驗證了將影像與環境指標相結合的衛星估算模型。',
+          'exp.e4.d2': '管理從客戶需求界定，到報告、演示與可供決策的建議在內的完整分析交付。',
+
+          'projects.title': '項目',
+          'projects.group1': '精選作品：系統、分析與研究',
+          'projects.group2': '早期地理空間、數據與產品工作',
+
+          'p.smc.meta': '線上 MVP · Google ADK · 智能體記憶與混合檢索',
+          'p.smc.b1': '我建構 Social Memory Copilot 是為了解決一個簡單的問題：記住一個人周圍的上下文，而不只是名字。它追蹤當前聯繫人、對話目標和待辦動作，並在之後的對話需要時，檢索相關的偏好、事件與承諾。記憶寫入與提醒會保持在「待確認」狀態，直到用戶確認。',
+          'p.smc.b2': '檢索將 BM25 與 pgvector/HNSW 相結合，再經過 RRF 融合與一個輕量級重排器。在一個小型合成評測集上，Recall@5 從單路檢索的 0.682 提升到融合與重排後的 0.889。該項目有 354 個通過的測試，覆蓋用戶隔離、提示注入、工具 schema、降級行為與 HITL 狀態變更。線上的 Vercel 演示使用合成的聯繫人與記憶；我並不將其呈現為生產環境中的真實使用。',
+          'p.btg.meta': '雙語 AI 知識產品 · 信任與排序',
+          'p.btg.b1': '一個雙語知識產品，把陌生的飲食與文化遭遇轉化為結構化的、由社區貢獻的答案。AI 提供即時翻譯，而一套自定義的權威排序系統結合加權背書、Wilson 置信區間與新鮮度衰減，在貢獻者意見分歧時決定哪些視角應當優先呈現。',
+          'p.ioos.meta': '生產級 AI 產品 · 行為護欄',
+          'p.ioos.b1': '一個圍繞刻意收窄的行為建構的生產級 LLM 產品：每次只提出一個經過校準的問題，而不滑向建議或安慰。我設計了產品，實現了多層提示、結構化輸出校驗與行為護欄，並根據真實使用不斷迭代，使模型始終貼合產品承諾。',
+          'p.cir.meta': '模型微調 · 開集識別與業務路由',
+          'p.cir.title': '中文意圖識別與置信度路由',
+          'p.cir.b1': '在涵蓋 50 個意圖、超過 11,000 條對話的數據上微調了一個中文意圖分類器，測試準確率達到 87%。另有十個意圖類別被排除在訓練之外，用於檢驗當一個請求落在已知分類體系之外時系統如何表現，而不是假設每個輸入都必然歸屬某處。',
+          'p.cir.b2': '隨後我把置信度閾值轉化為一套路由策略。在 90% 精確率的目標下，較小的模型可以處理 94% 的已知請求；低置信度的情形則交給更大的模型。錯誤復盤還把模型不確定性與分類體系缺口、系統上下文缺失區分開來——這對產品團隊而言，比一個匯總分數更有意義。',
+          'p.scbm.meta': '碩士論文 · NLP 與基於智能體的建模',
+          'p.scbm.title': '可持續性傳播與行為建模',
+          'p.scbm.b1': '從 Yelp 公開數據集中篩出 78,116 條與可持續性相關的評論，在 gensim 中運行 LDA 主題建模——主題數由一致性得分選定，而非憑假設固定——並用一個預訓練的多語言 BERT 模型進行情感打分。這些產出隨後在 Mesa 中初始化了一個 Barabási–Albert 無標度網絡上的 500 個智能體，其中每個智能體只接受與自身觀點差距在置信閾值以內的鄰居的影響。三種情景、各十個隨機種子、運行 100 步，並以「無干預」作為基線進行衡量，把「人們寫了什麼」的描述，變成一個可被檢驗的問題：一個可持續性敘事何時會在社區中擴散，又何時會停滯。獨立完成設計、實現與解讀。',
+          'p.sa.meta': '生產級金融情報產品 · 美股 · 港股 · A 股市場',
+          'p.sa.b1': '一個端到端的金融情報產品，把美股、港股與中國 A 股的實時市場數據，與對基本面、技術面、估值與情緒的 AI 輔助分析結合起來。我設計了產品、數據流程、標普 500 篩選器與 AI 價值鏈圖譜，並建構了一個與供應商無關的 LLM 層，具備自動模型降級能力，在某個模型失效時仍能保持服務可用。',
+          'p.ata.meta': '地理空間 AI 流水線 · 香港機場智慧交通',
+          'p.ata.b1': '一個從 GIS 到 3D 的數字孿生原型，針對香港國際機場周邊道路及北大嶼山進場區域。該流水線清洗公開的 OpenStreetMap 數據，生成可直接用於場景的幾何體，並把輸出整理為面向 USD 的層級結構，以供未來的交通仿真使用，將真實空間數據轉化為結構化的數字孿生資產。',
+          'p.oc.meta': '進行中的另類數據方法 · 免費 Sentinel-2 影像',
+          'p.oc.b1': '超大規模廠商的 AI 資本開支每季度才披露一次，而它們的施工現場每五天就被從軌道上拍攝一次。本項目用免費的 Sentinel-2 影像，測量美國自建數據中心場地的已建屋頂面積與清整地面，從而讓一個按季度、由公司自報的數字，可以對照一個按週、自行採集的數字加以核驗。有兩個發現塑造了這套方法。其一，標準的建成區指數 NDBI，在這些建築所用的高反照率膜結構屋頂上會反向失效，恰恰在增量最重要的時候把最新的施工排除在外。其二，在單景光譜空間裡，灰色金屬屋頂根本無法與乾燥裸土區分開來，因此流水線轉而依據時間上的持久性來區分二者——理由是屋頂是永久的，而農田是季節性的。場地邊界來自按業主名稱查詢、並與所報佔地面積交叉核對的縣級稅務地塊，而非圍繞某個地址畫出的方框。項目狀態公開標註為「建設中」。流水線已能端到端運行，首條按地塊裁切的序列確實隨場地公開的施工時間線同步上行；但在 10 米分辨率下，掩膜仍會把停機坪、停車場與運輸道路連同屋頂一併納入，因此這個數值尚不是一個屋頂面積數字，在一個帶時間戳的預測被拿去與所報資本開支比對打分之前，該方法不做任何聲明。',
+          'p.ist.meta': '自 2026 年初持續進行 · 自主開展',
+          'p.ist.title': 'AI 產業研究線',
+          'p.ist.b1': '一項自主的努力，用以補上技術背景本身並不附帶的產業與財務素養，指向同一個問題：經濟價值在 AI 技術棧中於何處累積——從半導體與雲，到基礎模型、智能體與垂直應用，橫跨美國與中國。已經建構並運行起來的是採集層：一組定時智能體，彙編每週的行業摘要並抓取一致預期數據，而解讀則刻意保持人工。與之並行，我把主要模型與基礎設施廠商的季度財報材料與披露文件作為一手來源來閱讀。這是一條公開進行中的研究線，而非一紙完成的憑證。',
+          'p.kcas.meta': '開源決策框架 · 資本配置',
+          'p.kcas.title': 'KCAS · 知識資本生態',
+          'p.kcas.b1': '一個用於研究與資本配置的模塊化決策系統。四個相互銜接的框架，分別把資產質量與價格區分開、為證據收集建立結構、按角色與機會成本對持倉排序，並檢驗一個項目是否值得長期投入。這項工作展示了我如何把寬泛的判斷問題，轉化為明確的標準與可復用的工作流。',
+
+          'm.dash.meta': '分析儀表盤',
+          'm.dash.title': '可持續食品消費者洞察儀表盤',
+          'm.dash.b1': '對消費者評論數據的 Tableau 分析。將可持續性敘事與情緒模式轉化為面向業務的 KPI 與採納建議。',
+          'm.warn.meta': '數字化轉型與風險分析',
+          'm.warn.title': '面向政府的監測與預警平台',
+          'm.warn.b1': '為森林火險與氣象災害評估系統做需求與解決方案設計，把多源數據轉化為儀表盤與決策支持邏輯。',
+          'm.npo.meta': '諮詢與實施',
+          'm.npo.title': '非營利組織數字化路線圖',
+          'm.npo.b1': '訪談相關方、梳理工作流，隨後撰寫需求文檔與實施路線圖，並通過敏捷迭代交付。',
+          'm.irr.meta': '農業科技數字化方案',
+          'm.irr.title': '智慧灌溉雲',
+          'm.irr.b1': '一個基於 GIS 的精準灌溉平台概念，把衛星數據與天氣模式同專家系統邏輯相結合，為種植者產出建議。',
+          'm.hyp.meta': '應用研究',
+          'm.hyp.title': '作物水分脅迫的高光譜檢測',
+          'm.hyp.b1': '一個本科研究項目，用高光譜影像並借助機器學習方法，檢測冬小麥的乾旱脅迫。',
+
+          'edu.title': '教育',
+          'edu.d1.meta': '2024–2025',
+          'edu.d1.title': '地理信息科學 理學碩士',
+          'edu.d1.desc': '定量與計算方向：空間統計、機器學習與模擬方法。畢業論文把一條處理 78,116 條評論的 NLP 流水線，與一個「敘事如何在網絡中擴散」的基於智能體的模型相結合，也是本站大部分建模工作的源頭。',
+          'edu.d2.meta': '2014–2018',
+          'edu.d2.title': '地理信息科學 理學學士',
+          'edu.d2.desc': '遙感、地圖學、空間數據庫，以及面向地理空間分析的編程。',
+          'edu.d3.meta': '2015–2018',
+          'edu.d3.title': '人文地理與城鄉規劃 理學學士',
+          'edu.d3.desc': '一個與上述學位同期修讀的完整學士學位，聚焦同一批問題的人文一側：人、城市與土地利用如何相互作用。',
+
+          'contact.title': '聯繫',
+          'contact.intro': '我對 AI 產品、解決方案與應用 AI 方面的機會持開放態度。電子郵件是聯繫我最快的方式。',
+
+          'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有權利。',
+
+          'cta.liveDemo': '線上演示 →',
+          'cta.live': '線上 →',
+          'cta.github': 'GitHub 源碼 →',
+          'cta.architecture': '架構 →'
+        }
+      };
+
+      (function () {
+        const nodes = Array.from(document.querySelectorAll('[data-i18n]'));
+        // Capture the markup as authored — this is the English source of truth.
+        nodes.forEach((el) => { el.dataset.i18nEn = el.innerHTML; });
+
+        const langButtons = Array.from(document.querySelectorAll('.lang-switch__btn'));
+        const supported = ['en', 'zh-Hans', 'zh-Hant'];
+
+        function fillYear() {
+          const y = document.getElementById('year');
+          if (y) y.textContent = new Date().getFullYear();
+        }
+
+        function applyLang(lang) {
+          if (supported.indexOf(lang) === -1) lang = 'en';
+          const dict = I18N[lang];
+          nodes.forEach((el) => {
+            const key = el.getAttribute('data-i18n');
+            if (lang === 'en' || !dict || !(key in dict)) {
+              el.innerHTML = el.dataset.i18nEn;
+            } else {
+              el.innerHTML = dict[key];
+            }
+          });
+          document.documentElement.lang = lang;
+          langButtons.forEach((b) => b.classList.toggle('is-active', b.dataset.lang === lang));
+          try { localStorage.setItem('site-lang', lang); } catch (e) {}
+          fillYear();
+        }
+
+        langButtons.forEach((b) => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+        // Initial language: saved preference, else browser language, else English.
+        let initial = '';
+        try { initial = localStorage.getItem('site-lang') || ''; } catch (e) {}
+        if (!initial) {
+          const nav = (navigator.language || '').toLowerCase();
+          if (nav.indexOf('zh') === 0) {
+            initial = /(hant|tw|hk|mo)/.test(nav) ? 'zh-Hant' : 'zh-Hans';
+          } else {
+            initial = 'en';
+          }
+        }
+        applyLang(initial);
+      })();
+
+      // --- Mobile navigation toggle ---
       const navToggle = document.querySelector('.nav__toggle');
       const navList = document.querySelector('.nav__list');
 
@@ -1270,7 +1594,7 @@
           const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
           navToggle.setAttribute('aria-expanded', !isExpanded);
           navList.classList.toggle('is-open');
-          
+
           if (!isExpanded) {
             navToggle.innerHTML = `
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
