@@ -6,7 +6,7 @@
     <title>Zijun Wang · Applied AI &amp; Data Science</title>
     <meta
       name="description"
-      content="Zijun Wang is an applied AI and data scientist who turns recurring business questions into practical, testable products."
+      content="Zijun Wang builds AI applications for information retrieval and decision support, with a background in data analysis, product delivery, and quantitative research."
     />
     <link rel="icon" type="image/svg+xml" href="./assets/icons/icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -838,6 +838,11 @@
         border-top: 0;
       }
 
+      .hero__phrase {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
       .hero__subtitle {
         max-width: 760px;
         margin: 0 auto;
@@ -1086,6 +1091,10 @@
 
       .project-list__item .card__image img {
         object-fit: cover;
+      }
+
+      .project-list__item .card__image img[src$=".svg"] {
+        object-fit: contain;
       }
 
       .project-list__content .card__title {
@@ -1348,6 +1357,19 @@
           letter-spacing: -0.06em;
         }
 
+        html[lang^="zh"] .hero__title {
+          font-size: clamp(2.4rem, 10vw, 3.8rem);
+          line-height: 1.2;
+          letter-spacing: -0.025em;
+          text-wrap: balance;
+        }
+
+        .hero__phrase {
+          font-size: clamp(2.25rem, 9vw, 3.6rem);
+          line-height: 1.2;
+          letter-spacing: -0.025em;
+        }
+
         .hero__columns {
           margin-top: 2.5rem;
         }
@@ -1376,6 +1398,7 @@
         }
 
         .about__grid {
+          grid-template-columns: minmax(0, 1fr);
           gap: 3rem;
         }
 
@@ -1504,23 +1527,23 @@
       <section id="home" class="section hero">
         <div class="shell hero__inner">
           <div class="hero__content">
-            <span class="eyebrow" data-i18n="hero.eyebrow">Applied AI &times; Data Science &times; Thoughtful Delivery</span>
+            <span class="eyebrow" data-i18n="hero.eyebrow">Applied AI · Data science</span>
 
-            <h1 class="hero__title" data-i18n="hero.title">Applied AI &amp; Data Scientist</h1>
+            <h1 class="hero__title" data-i18n="hero.title">AI built around people</h1>
 
             <div class="hero__columns">
               <div class="hero__summary">
                 <p class="hero__subtitle" data-i18n="hero.subtitle">
-                  I help teams turn questions that are still a little fuzzy into AI and data products they can actually use. My background spans product delivery and analytics in China, quantitative research in the US, and hands-on work with LLMs and agent systems.
+                  Hi, I'm Zijun. I build AI applications that help people find useful information and make informed decisions. My background combines data analysis and product delivery in China with quantitative research at the University at Buffalo.
                 </p>
               </div>
 
               <div class="hero__competencies">
-                <span class="competency-item" data-i18n="hero.comp1">Agent Workflow Design &amp; Orchestration</span>
-                <span class="competency-item" data-i18n="hero.comp2">LLM, RAG &amp; Tool Calling</span>
-                <span class="competency-item" data-i18n="hero.comp3">Data Analysis, Statistics &amp; ML in Python / SQL</span>
-                <span class="competency-item" data-i18n="hero.comp4">Business Problem Structuring &amp; KPI Design</span>
-                <span class="competency-item" data-i18n="hero.comp5">Bilingual Stakeholder Work (中文 / English)</span>
+                <span class="competency-item" data-i18n="hero.comp1">Agent workflows and memory</span>
+                <span class="competency-item" data-i18n="hero.comp2">LLMs, retrieval and tool use</span>
+                <span class="competency-item" data-i18n="hero.comp3">Data analysis with Python and SQL</span>
+                <span class="competency-item" data-i18n="hero.comp4">Business questions and metrics</span>
+                <span class="competency-item" data-i18n="hero.comp5">Collaboration in Mandarin and English</span>
               </div>
             </div>
           </div>
@@ -1547,22 +1570,22 @@
 
             <div class="about__body">
               <p data-i18n="about.p1">
-                The work I enjoy most usually starts with a question that has not been fully shaped yet. <strong>I sit down with the people closest to it, work out what a useful answer would change, and build a practical way to reach that answer again.</strong> Sometimes that means an agent workflow; sometimes it is a cleaner metric, a small model, or a better data process. I care less about making the solution sound sophisticated than about making it useful and dependable.
+                I enjoy working with people to understand the decisions they need to make and the constraints they work within. Those conversations help me turn an open-ended question into a workflow we can test together. I want people to be able to see where an answer came from and decide how to use it.
               </p>
               <p data-i18n="about.p2">
-                <strong>Agent workflows.</strong> I have built and deployed four LLM applications, covering the unglamorous parts as well as the visible ones: product choices, data models, retrieval, tools, guardrails, deployment, and the bugs that only appear after launch. In Social Memory Copilot, for example, the system checks whether memory is needed before retrieving anything, keeps session context separate from long-term memory, shows where recalled information came from, and asks for confirmation before a write or delete. I use extra agents or model calls when they improve the result, not simply because they are available.
+                I've built and deployed four LLM applications, taking responsibility for product design, data models, and implementation through to deployment and debugging. In Social Memory Copilot, I focused on remembering conversational context, showing the sources behind an answer, and giving users control over proposed memory updates and reminders.
               </p>
               <p data-i18n="about.p3">
-                <strong>Analysis and modelling.</strong> Before the current wave of LLM work, I spent years using Python and SQL for statistics, machine learning, and reporting. That included an NLP and agent-based modelling thesis, quantitative analysis for an NSF-funded study of information sharing during extreme weather, and two years defining KPIs and tracing disputed figures back to their source. That experience still shapes how I build: every impressive output should have a number, assumption, or piece of evidence behind it.
+                My work with Python and SQL includes an NLP and agent-based modeling thesis, quantitative analysis for an NSF-funded study, and two years of KPI definition and reporting. These experiences taught me to check assumptions and explain what the data supports, so colleagues can use the results with a clear understanding of their scope.
               </p>
               <p data-i18n="about.p4">
-                <strong>Business problems and delivery.</strong> Across more than six government digitalisation projects, I helped clients clarify what they needed, translated that into requirements and metrics, and worked with technical teams through delivery. I also presented the results to people with very different levels of technical context. I learned to listen for what each side is really worried about and to make sure nobody has to pretend they understand the other side.
+                Across more than six government digitalization projects, I worked with clients to clarify requirements and agree on metrics, then coordinated delivery with engineering, data, and design colleagues. I learned to make space for questions, discuss trade-offs openly, and adapt an explanation to the person using it.
               </p>
               <p data-i18n="about.p5">
-                <strong>Geospatial.</strong> This is where I started: two degrees in geographic information science and early work on satellite-based estimation for public planning and environmental assessment. It gave me a habit I still value—before trusting what a system says about itself, look for an independent way to check it.
+                I started in geographic information science and remote sensing, using satellite imagery for public planning and environmental assessment. Comparing estimates with independent observations remains a useful part of how I approach data problems today.
               </p>
               <p data-i18n="about.p6">
-                I am interested in applied AI and data science roles where I can stay close to both the decision and the people making it. The best fit would let me understand a recurring problem, build the first useful version, and keep improving it with the team that depends on it. I work in Mandarin, English, and Cantonese.
+                I'm exploring applied AI and data science opportunities where I can work closely with the people using what we build. I'm open to relocation and on-site work. I work in Mandarin and English, and speak conversational Cantonese.
               </p>
 
               <div class="pill-group">
@@ -1587,15 +1610,15 @@
       <section id="approach" class="section">
         <div class="shell approach">
           <div class="section-heading">
-            <h2 class="section-heading__title" data-i18n="ap.title">How I Work</h2>
+            <h2 class="section-heading__title" data-i18n="ap.title">How I work</h2>
           </div>
 
           <div class="grid grid--2">
             <article class="card card--minimal">
               <div class="card__meta" data-i18n="ap.frame.meta">01 · Frame</div>
-              <h3 class="card__title" data-i18n="ap.frame.title">Understand the decision before choosing the technology</h3>
+              <h3 class="card__title" data-i18n="ap.frame.title">Understand the decision together</h3>
               <p class="card__body" data-i18n="ap.frame.body">
-                I begin by asking what decision needs to be made, who will use the answer, and what could go wrong. Once that is clear, the right mix of data, retrieval, tools, and human review is usually much easier to see.
+                I start by listening to the people closest to the work: what they need to decide, what information they have, and where they need help. We can then agree on a useful first step and how to assess it.
               </p>
               <div class="card__tags">
                 <span class="tag">KPI Design</span>
@@ -1606,9 +1629,9 @@
 
             <article class="card card--minimal">
               <div class="card__meta" data-i18n="ap.orchestrate.meta">02 · Orchestrate</div>
-              <h3 class="card__title" data-i18n="ap.orchestrate.title">Make the system easy to inspect and trust</h3>
+              <h3 class="card__title" data-i18n="ap.orchestrate.title">Keep actions and evidence visible</h3>
               <p class="card__body" data-i18n="ap.orchestrate.body">
-                Important choices—when to retrieve, which model should answer, what a tool may change—belong in visible, testable logic. I keep state and permissions carefully scoped, plan for failure, and leave consequential actions with a person.
+                I make retrieval decisions, model routing, and tool permissions explicit and testable. Source references help users review an answer, while confirmation steps give them control over changes and reminders.
               </p>
               <div class="card__tags">
                 <span class="tag">Planning &amp; Routing</span>
@@ -1620,9 +1643,9 @@
 
             <article class="card card--minimal">
               <div class="card__meta" data-i18n="ap.measure.meta">03 · Measure</div>
-              <h3 class="card__title" data-i18n="ap.measure.title">Test the part that matters</h3>
+              <h3 class="card__title" data-i18n="ap.measure.title">Evaluate against the use case</h3>
               <p class="card__body" data-i18n="ap.measure.body">
-                I choose a measure the system can genuinely fail: retrieval quality, routing precision, behaviour on unseen classes, or performance against a baseline. I label synthetic data clearly and keep demo results separate from evidence of real-world use.
+                I compare alternatives using retrieval quality, routing accuracy, or behavior on unfamiliar requests. I document the dataset and configuration alongside each result, then use error analysis to decide what needs attention next.
               </p>
               <div class="card__tags">
                 <span class="tag">Offline Evaluation</span>
@@ -1633,9 +1656,9 @@
 
             <article class="card card--minimal">
               <div class="card__meta" data-i18n="ap.productise.meta">04 · Productise</div>
-              <h3 class="card__title" data-i18n="ap.productise.title">Leave the team with something reusable</h3>
+              <h3 class="card__title" data-i18n="ap.productise.title">Make recurring work easier</h3>
               <p class="card__body" data-i18n="ap.productise.body">
-                When the same question returns every week, I look for a respectful way to remove the repetition: a template, a script, a scheduled workflow, or a shared metric definition. The goal is not automation for its own sake; it is giving people more time for the judgement only they can provide.
+                When a question returns regularly, I work toward a reusable tool or workflow. Shared metric definitions, scripts, and scheduled agents can help a team spend less time gathering information and more time deciding what to do with it.
               </p>
               <div class="card__tags">
                 <span class="tag">Process Automation</span>
@@ -1663,7 +1686,7 @@
                   Built and deployed four LLM applications from initial product decisions through post-launch debugging. The most complete is Social Memory Copilot on Google ADK, where I implemented scoped tool access, selective retrieval, cited sources, separate session and long-term memory, confirmation before write actions, and fallback when a component fails. Across the four products, I also look after data models, guardrails, evaluation, and monitoring.
                 </p>
                 <p class="timeline-item__desc" data-i18n="exp.e1.d2">
-                  Built a scheduled workflow for a recurring research question: where economic value is accumulating across the AI stack in the US and China. It gathers weekly industry updates and consensus data; I keep the interpretation manual because that is where context and judgement matter most.
+                  Built scheduled workflows for my own study of the AI industry in the US and China. Agents collect weekly industry updates and consensus data; I review company disclosures and develop the interpretation myself.
                 </p>
                 <div class="timeline-item__tags">
                   <span class="tag">Agent Orchestration</span>
@@ -1703,7 +1726,7 @@
                 <h3 class="timeline-item__title" data-i18n="exp.e3.title">Product Manager &amp; Data Analyst</h3>
                 <p class="timeline-item__org">Beijing Yiyun Technology Co., Ltd.</p>
                 <p class="timeline-item__desc" data-i18n="exp.e3.d1">
-                  Led business analysis for more than six government digitalisation projects, mainly monitoring and early-warning platforms. I worked with stakeholders to agree on useful KPIs, wrote the SQL and analysis workflows behind them, and kept the definitions consistent across reporting cycles. When a figure was questioned, I traced it back to the source and explained what had changed in plain language.
+                  Led business analysis for more than six government digitalization projects, mainly monitoring and early-warning platforms. I worked with stakeholders to define KPIs and wrote the supporting SQL and analysis workflows. When reports differed, we checked source data and calculation rules to agree on a consistent interpretation.
                 </p>
                 <p class="timeline-item__desc" data-i18n="exp.e3.d2">
                   Replaced repeated manual data pulls with Python scripts and reusable queries. I coordinated a team of more than ten across engineering, data, design, and marketing, and adapted the same analysis for both technical and non-technical decision-makers. Several of our recommendations were adopted.
@@ -1762,10 +1785,10 @@
                   <div class="card__meta" data-i18n="p.smc.meta">Live MVP · Google ADK · Agent orchestration, memory and hybrid retrieval</div>
                   <h3 class="card__title">Social Memory Copilot</h3>
                   <p class="card__body" data-i18n="p.smc.b1">
-                    Social Memory Copilot helps someone remember the context around a relationship, not just a contact name. It keeps the current person, conversation goal, and next action in view. When memory would help, the system retrieves relevant preferences, events, and commitments and shows why each one was used. Changes to the database stay pending until the user confirms them. I kept the architecture to one main agent with clear, testable stages so that the behaviour is easier to understand and debug.
+                    Social Memory Copilot helps users pick up conversations with context: past discussions, commitments, and communication preferences. One coordinating agent manages session state, with separate components for retrieval and action confirmation. It cites the memories used in an answer and asks users to confirm agent-proposed writes, deletions, and reminders.
                   </p>
                   <p class="card__body" data-i18n="p.smc.b2">
-                    The retrieval stack combines BM25 and pgvector/HNSW, then applies RRF and a lightweight reranker. On a small synthetic evaluation set, Recall@5 rose from 0.682 for either route alone to 0.889 after fusion and reranking. There are 354 passing tests covering user isolation, prompt injection, tool schemas, fallback behaviour, and confirmation-state changes. The live demo uses synthetic contacts and memories, so its results should be read as a technical demonstration rather than production usage.
+                    On 20 synthetic queries, BM25 and vector search with RRF and reranking improved Recall@5 from 0.682 to 0.889 in the local full configuration. The lighter Vercel configuration scored 0.757 on the same set. The retrieve-or-not component reached F1 0.963 on 28 labeled synthetic cases, and the repository reports 354 passing unit and integration tests. The demo uses synthetic data; evaluation with real users is a future step.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Google ADK</span>
@@ -1788,13 +1811,13 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.cir.meta">Model fine-tuning · Confidence-based routing and handoff</div>
+                  <div class="card__meta" data-i18n="p.cir.meta">Model fine-tuning · Confidence threshold evaluation</div>
                   <h3 class="card__title" data-i18n="p.cir.title">Chinese Intent Recognition &amp; Confidence Routing</h3>
                   <p class="card__body" data-i18n="p.cir.b1">
-                    I fine-tuned a Chinese intent classifier on more than 11,000 dialogues across 50 intents, reaching 87% test accuracy. I also held back ten intent classes to see how the system responds when a request does not fit the categories it already knows.
+                    I fine-tuned a Chinese encoder on 9,972 training utterances across 50 intents, reaching 87% test accuracy on known intents. Ten additional intents were held out of training to evaluate how the model responds to unfamiliar requests.
                   </p>
                   <p class="card__body" data-i18n="p.cir.b2">
-                    The confidence score then becomes a practical routing rule. At a 90% precision target, the smaller model handles 94% of known requests and passes uncertain cases to a larger model. During error review, I separate model uncertainty from gaps in the taxonomy or missing context; those lead to different product decisions, even when they look identical in one headline score.
+                    At a selected confidence threshold, the model accepted 94% of known requests with at least 90% accuracy, while detecting 42% of unseen-intent requests. These results help define a routing policy and identify where additional checks are needed. A larger-model fallback or dedicated detection layer remains a next step.
                   </p>
                   <div class="card__tags">
                     <span class="tag">PyTorch</span>
@@ -1815,9 +1838,9 @@
                 </div>
                 <div class="project-list__content">
                   <div class="card__meta" data-i18n="p.ist.meta">Scheduled research agents · Ongoing since early 2026</div>
-                  <h3 class="card__title" data-i18n="p.ist.title">AI Industry Study Track</h3>
+                  <h3 class="card__title" data-i18n="p.ist.title">AI industry research notes</h3>
                   <p class="card__body" data-i18n="p.ist.b1">
-                    This is my ongoing effort to understand the business side of the technology I build: where value is accruing across semiconductors, cloud, foundation models, agents, and applications in the US and China. Scheduled agents gather weekly industry updates and consensus data, while I read company disclosures and keep the interpretation manual. It is a study practice in progress, not a claim to have the market figured out.
+                    Since early 2026, I've been studying how economic value moves through the AI industry, including chips, cloud infrastructure, models, and applications in the US and China. For my own study, scheduled agents collect weekly industry material and consensus data. I read company disclosures and develop the interpretation myself, connecting technical choices with the business questions behind them.
                   </p>
                   <div class="card__tags">
                     <span class="tag">AI Value Chain</span>
@@ -1836,7 +1859,7 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.sa.meta">Production financial intelligence product · US · HK · A-share markets</div>
+                  <div class="card__meta" data-i18n="p.sa.meta">Deployed analysis tool · US · HK · A-share markets</div>
                   <h3 class="card__title">Stock Analyzer</h3>
                   <p class="card__body" data-i18n="p.sa.b1">
                     Stock Analyzer brings live US, Hong Kong, and A-share market data into one research workflow for fundamentals, technicals, valuation, and sentiment. I designed the product, data flow, S&amp;P 500 screener, and AI value-chain map. The LLM layer can switch providers automatically, which keeps the core service usable when one model is unavailable.
@@ -1863,7 +1886,7 @@
                   <div class="card__meta" data-i18n="p.kcas.meta">Open-source decision frameworks · Capital allocation</div>
                   <h3 class="card__title" data-i18n="p.kcas.title">KCAS · Knowledge Capital Ecosystem</h3>
                   <p class="card__body" data-i18n="p.kcas.b1">
-                    KCAS is a set of four connected frameworks I use to make research and capital-allocation decisions more explicit. They separate asset quality from price, organise evidence, compare holdings by role and opportunity cost, and test whether a project still deserves long-term attention. The aim is not to remove judgement, but to make it easier to examine and revise.
+                    KCAS is a set of four connected frameworks I use for personal research and capital-allocation decisions. They separate asset quality from price, organize evidence, compare holdings by role and opportunity cost, and review whether a project merits continued attention. Writing down the reasoning makes it easier to revisit a decision as new information arrives.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Capital Allocation</span>
@@ -1910,7 +1933,7 @@
                   <div class="card__meta" data-i18n="p.btg.meta">Bilingual AI knowledge product · Trust and ranking</div>
                   <h3 class="card__title">Bridge the Gap</h3>
                   <p class="card__body" data-i18n="p.btg.b1">
-                    Bridge the Gap helps people ask respectful questions about unfamiliar food and cultural practices in either English or Chinese. AI handles the first-pass translation; community answers are ranked using endorsements, Wilson-score confidence bounds, and freshness, so disagreement is surfaced with context rather than flattened into one authoritative-sounding response.
+                    Bridge the Gap helps people explore unfamiliar food and cultural practices in English and Chinese. AI supports translation, and community answers are ranked using endorsements, Wilson-score confidence bounds, and freshness. People familiar with the relevant culture contribute context, and community consensus can update the AI's initial label.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Next.js</span>
@@ -1931,17 +1954,17 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.ioos.meta">Production AI product · Behavioral guardrails</div>
+                  <div class="card__meta" data-i18n="p.ioos.meta">Deployed · Preparing for alpha testing</div>
                   <h3 class="card__title">Inner Order OS</h3>
                   <p class="card__body" data-i18n="p.ioos.b1">
-                    Inner Order OS is built around one deliberately narrow behaviour: ask one useful question at a time without slipping into unsolicited advice or automatic reassurance. I designed the product, prompts, structured-output checks, and behavioural guardrails, then refined them through real use. The constraint is the product, not a limitation to hide.
+                    Inner Order OS is a reflection product that asks one question at a time, giving people space to think through their own answers. I designed the product, prompts, and structured-output checks, with retrieval to bring relevant past entries into the conversation. It is deployed and preparing for alpha testing, with external access not yet open.
                   </p>
                   <div class="card__tags">
                     <span class="tag">Next.js 14</span>
                     <span class="tag">Supabase</span>
                     <span class="tag">Groq API</span>
                     <span class="tag">Prompt Engineering</span>
-                    <span class="tag">Production Guardrails</span>
+                    <span class="tag">Output Validation</span>
                   </div>
                   <a class="hero-card__cta" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.live">Live →</a>
                   <a class="hero-card__cta" href="./inner-order-os-architecture.html" data-i18n="cta.architecture">Architecture →</a>
@@ -2123,10 +2146,10 @@
       <section id="contact" class="section">
         <div class="shell contact">
           <div class="section-heading section-heading--center">
-            <h2 class="section-heading__title" data-i18n="contact.title">Contact</h2>
+            <h2 class="section-heading__title" data-i18n="contact.title">Let's talk</h2>
           </div>
           <p class="contact__intro" data-i18n="contact.intro">
-            If you are working on an AI or data problem that needs both technical depth and patient translation across teams, I would be glad to hear about it. Email is the easiest way to reach me.
+            If your team is exploring an AI or data problem, I'd be glad to hear what you're working on. I'm open to applied AI and data science opportunities, and always happy to compare notes with people building related tools. Email is the easiest way to reach me.
           </p>
 
           <div class="contact__links">
@@ -2176,49 +2199,49 @@
           'nav.education': '教育',
           'nav.contact': '联系',
 
-          'hero.eyebrow': '应用 AI × 数据科学 × 可靠交付',
-          'hero.title': '应用 AI 与数据科学',
-          'hero.subtitle': '我和团队一起，把还没完全想清楚的问题，做成真正用得上的 AI 与数据产品。我的经历横跨国内的产品交付与数据分析、美国的定量研究，以及 LLM 和智能体系统的一线开发。',
-          'hero.comp1': '智能体工作流设计与编排',
-          'hero.comp2': 'LLM、RAG 与工具调用',
-          'hero.comp3': '数据分析、统计与机器学习（Python / SQL）',
-          'hero.comp4': '业务问题拆解与 KPI 设计',
-          'hero.comp5': '中英双语的业务方沟通与协作',
+          'hero.eyebrow': '应用 AI · 数据科学',
+          'hero.title': '<span class="hero__phrase">从人的需要出发，</span> <span class="hero__phrase">构建 AI 应用</span>',
+          'hero.subtitle': '你好，我是子君。我做 AI 应用，帮助人们找到有用的信息，为决策提供依据。此前，我在国内从事数据分析与产品交付，后来在纽约州立大学布法罗分校开展定量研究。',
+          'hero.comp1': '智能体工作流与记忆',
+          'hero.comp2': 'LLM、检索与工具调用',
+          'hero.comp3': 'Python / SQL 分析',
+          'hero.comp4': '业务问题与指标设计',
+          'hero.comp5': '中英文沟通与团队协作',
 
           'about.title': '关于',
-          'about.p1': '我最喜欢的工作，往往始于一个还没有被真正问清楚的问题。<strong>我会先和最了解现场的人坐下来，弄明白一个好答案究竟会改变什么，再一起搭出一条可以重复走通的路。</strong>有时答案是智能体工作流，有时只是更清楚的指标、更合适的小模型，或更顺手的数据流程。技术不必显得复杂，能被人放心使用才重要。',
-          'about.p2': '<strong>智能体工作流。</strong>我已经构建并上线了四个 LLM 应用，也负责那些不太显眼、却决定产品是否可靠的部分：产品取舍、数据模型、检索、工具、护栏、部署，以及上线后才冒出来的问题。以 Social Memory Copilot 为例，系统会先判断是否真的需要调取记忆，区分当前会话与长期记忆，说明引用信息的来源，并在写入或删除前让用户确认。我只在确实能改善结果时增加模型调用，而不是为了显得更“智能体化”。',
-          'about.p3': '<strong>分析与建模。</strong>在 LLM 之前，我已经用 Python 和 SQL 做了多年统计、机器学习与数据分析，包括 NLP 与基于智能体的建模论文、NSF 资助课题的定量研究，以及两年 KPI 定义与数据追溯工作。这些经历让我保留了一个朴素习惯：看起来再漂亮的结果，也应该能回到数字、假设和证据。',
-          'about.p4': '<strong>业务问题与交付。</strong>在六个以上政府数字化项目中，我和客户一起澄清需求，把它们翻译成指标与实施方案，并与技术团队走完整个交付过程。面对技术背景不同的决策者，我也会调整表达方式。慢慢学会的不是“说服所有人”，而是听出双方真正担心什么，让任何一方都不必假装已经听懂。',
-          'about.p5': '<strong>地理空间。</strong>这是我的起点：两个地理信息相关学位，以及早期为公共规划和环境评估做卫星估算的工作。它留给我一个至今受用的习惯——在相信系统对自己的描述之前，先找一份独立证据来核对。',
-          'about.p6': '我希望加入一份既贴近业务决策、也贴近真实使用者的应用 AI 或数据科学工作。理想的状态是：理解一个反复出现的问题，做出第一个有用的版本，再和真正依赖它的人一起慢慢把它做稳。我使用普通话、英语和粤语工作。',
+          'about.p1': '我喜欢先和使用者聊聊，了解他们需要做什么决定，以及实际工作中有哪些限制。再一起把问题梳理成可以尝试和验证的方案。我希望使用者能看懂答案的依据，也能自己决定如何使用它。',
+          'about.p2': '我独立构建并部署了四个 LLM 应用，负责产品设计、数据模型、开发，以及部署后的调试。在 Social Memory Copilot 中，我关注对话上下文如何延续、回答如何呈现来源，以及怎样让用户决定是否保存记忆或创建提醒。',
+          'about.p3': '我的 Python 和 SQL 经验来自 NLP 与智能体建模论文、NSF 资助课题的定量分析，以及两年的 KPI 定义与报表工作。这些经历让我习惯核对假设、说明数据能支持哪些结论，方便同事判断结果适用于什么场景。',
+          'about.p4': '在六个以上政府数字化项目中，我与客户一起澄清需求、商定指标，并和工程、数据、设计同事协作交付。我也逐渐学会给讨论留出空间，把不同方案的取舍说明白，并根据对方的背景调整表达。',
+          'about.p5': '我的起点是地理信息科学与遥感，早期使用卫星影像支持公共规划和环境评估。将估算结果与独立观测相互核对，至今仍是我处理数据问题时常用的方法。',
+          'about.p6': '我正在寻找应用 AI 与数据科学方向的机会，希望能与使用者保持交流，一起改进产品。我可以配合工作地点安排搬迁和现场办公，能够使用普通话和英语工作，也能用粤语进行日常交流。',
           'about.focusLabel': '重点领域',
           'ap.title': '工作方式',
           'ap.frame.meta': '01 · 拆解',
-          'ap.frame.title': '先理解决策，再选择技术',
-          'ap.frame.body': '我先问清楚：要做什么决定、谁会使用答案、哪里最容易出错。等这些问题有了共识，数据、检索、工具和人工判断该如何配合，通常也就清楚了。',
+          'ap.frame.title': '一起理解要做的决策',
+          'ap.frame.body': '我会先听最了解业务的人介绍：需要做什么决定、手头有哪些信息、哪里需要帮助。再一起确定第一步做什么，以及如何判断它是否有用。',
           'ap.orchestrate.meta': '02 · 编排',
-          'ap.orchestrate.title': '让系统经得起查看，也值得信任',
-          'ap.orchestrate.body': '什么时候检索、哪个模型回答、工具可以改动什么，都应该写进看得见、测得到的逻辑里。我会认真划清状态与权限的边界，为失败留好退路，也把有后果的操作留给人来确认。',
+          'ap.orchestrate.title': '让依据与操作清晰可见',
+          'ap.orchestrate.body': '我会把检索决策、模型路由和工具权限写成可测试的逻辑。回答中的来源方便用户核对，确认步骤则让用户掌握数据修改和提醒操作的决定权。',
           'ap.measure.meta': '03 · 衡量',
-          'ap.measure.title': '测真正重要的那一部分',
-          'ap.measure.body': '我会为系统选一个它确实可能不及格的指标：检索质量、路由精确率、面对未知类别时的表现，或相对基线的改进。合成数据会明确标注，演示效果也不会被当成真实使用成绩。',
+          'ap.measure.title': '围绕使用场景做评估',
+          'ap.measure.body': '我会通过检索质量、路由准确率或未知请求的处理表现来比较方案，同时记录数据集与运行配置。再根据错误分析，确定接下来值得改进的部分。',
           'ap.productise.meta': '04 · 产品化',
-          'ap.productise.title': '给团队留下一样能继续用的东西',
-          'ap.productise.body': '如果同一个问题每周都会回来，我会试着用模板、脚本、定时工作流或统一指标，温和地拿掉重复劳动。目的不是为了自动化而自动化，而是把时间还给那些真正需要人来判断的事情。',
+          'ap.productise.title': '让重复工作更省力',
+          'ap.productise.body': '当一个问题反复出现时，我会尝试把处理方法做成可复用的工具或流程。统一的指标、脚本和定时智能体，可以帮助团队减少信息整理的时间，留出更多精力讨论下一步。',
 
           'exp.title': '经历',
           'exp.e1.meta': '2026 至今',
           'exp.e1.title': '独立应用 AI 工程师与研究者',
           'exp.e1.d1': '从产品取舍到上线后的调试，独立构建并部署了四个 LLM 应用。其中最完整的 Social Memory Copilot 基于 Google ADK，包含按用户隔离的工具权限、按需检索、来源引用、会话与长期记忆分离、写入前确认，以及组件失效时的降级处理。我也持续维护这些产品的数据模型、输出护栏、评测和监控。',
-          'exp.e1.d2': '为一个反复出现的研究问题搭建了定时工作流：经济价值正在中美 AI 产业链的哪些环节积累。系统负责整理每周行业信息和一致预期数据；需要背景与判断的解读仍由我自己完成。',
+          'exp.e1.d2': '为自己学习中美 AI 产业搭建定时工作流。智能体整理每周行业信息和一致预期数据，我再阅读公司披露，结合背景形成自己的理解。',
           'exp.e2.meta': '2024–2025',
           'exp.e2.title': '研究助理',
           'exp.e2.d1': '负责一项 NSF 资助课题的定量分析，研究极端冬季风暴中的社区韧性。我结合调查、行为与空间数据，理解地理位置、信息接触和线上社区如何影响互助决定。',
           'exp.e2.d2': '从数据准备、统计建模到验证，设计并完成整套分析流程，再把结果写成研究团队与资助方都能清楚使用的结论。',
           'exp.e3.meta': '2021–2023',
           'exp.e3.title': '产品经理与数据分析师',
-          'exp.e3.d1': '在六个以上政府数字化项目中负责业务分析，主要是监测与预警平台。我与相关方商定真正有用的 KPI，编写背后的 SQL 与分析流程，并保持不同报告周期中的指标口径一致。数字受到质疑时，我会追溯到源数据，用容易理解的方式说明究竟发生了什么变化。',
+          'exp.e3.d1': '在六个以上政府数字化项目中负责业务分析，主要涉及监测与预警平台。我与业务方商定 KPI，编写配套 SQL 和分析流程。遇到报表差异时，我们一起核对源数据和计算规则，明确一致的解释口径。',
           'exp.e3.d2': '用 Python 脚本和可复用查询替代重复的手工取数；协调一个十人以上、横跨工程、数据、设计与市场的团队，并针对技术与非技术决策者调整汇报方式。多项建议最终得到采纳。',
           'exp.e4.meta': '2019–2020',
           'exp.e4.title': '遥感分析师与项目经理',
@@ -2230,31 +2253,31 @@
           'projects.group2': '早期地理空间、数据与产品工作',
 
           'p.smc.meta': '在线 MVP · Google ADK · 智能体编排、记忆与混合检索',
-          'p.smc.b1': 'Social Memory Copilot 帮助用户记住一段关系里的来龙去脉，而不只是一个联系人名字。它会关注当前对象、这次对话的目标和下一步行动；需要时才检索相关偏好、事件与承诺，并说明每条信息为什么被用到。数据库变更必须等用户确认后才会执行。我刻意保留一个主智能体和清楚、可测试的阶段，让系统更容易理解和排查。',
-          'p.smc.b2': '检索由 BM25 与 pgvector/HNSW 组成，再通过 RRF 和轻量重排器融合。在一个小型合成评测集上，Recall@5 从任一单路的 0.682 提高到 0.889。项目目前有 354 个通过的测试，覆盖用户隔离、提示注入、工具结构、降级与确认状态变化。线上演示使用合成联系人和记忆，因此更适合作为技术验证，而不是生产使用证明。',
+          'p.smc.b1': 'Social Memory Copilot 帮助用户在继续交流时找回背景，包括过去的讨论、承诺和沟通偏好。系统由一个主智能体管理会话状态，检索和操作确认分别由独立组件处理。回答会标注记忆来源，智能体提出的写入、删除和提醒操作都需用户确认。',
+          'p.smc.b2': '在 20 条合成查询上，本地完整配置将 BM25 与向量检索通过 RRF 和重排结合，Recall@5 从 0.682 提高到 0.889；线上 Vercel 轻量配置在同一评测集上为 0.757。是否检索的决策组件在 28 条人工标注的合成样本上达到 F1 0.963。仓库记录了 354 项通过的单元与集成测试。演示使用合成数据，真实用户验证是后续步骤。',
           'p.btg.meta': '双语 AI 知识产品 · 信任与排序',
-          'p.btg.b1': 'Bridge the Gap 让用户可以用中英文，礼貌地询问不熟悉的食物与文化习惯。AI 负责第一步翻译；社区回答则结合认可度、Wilson 置信区间和时效性排序。出现分歧时，产品保留必要的背景，而不是把不同声音压成一个看似权威的答案。',
-          'p.ioos.meta': '生产级 AI 产品 · 行为护栏',
-          'p.ioos.b1': 'Inner Order OS 只专注一件事：一次提出一个真正有帮助的问题，不急着给建议，也不自动安慰。我负责产品设计、提示词、结构化输出检查与行为护栏，并根据真实使用持续调整。这里的克制不是要掩饰的限制，而正是产品本身。',
-          'p.cir.meta': '模型微调 · 基于置信度的路由与转交',
+          'p.btg.b1': 'Bridge the Gap 帮助人们用中英文了解不熟悉的食物和文化习惯。AI 协助翻译，社区回答根据认可度、Wilson 置信区间和时效性排序。熟悉相关文化的人可以补充背景，社区共识也可以更新 AI 最初的标签。',
+          'p.ioos.meta': '已部署 · 准备 alpha 测试',
+          'p.ioos.b1': 'Inner Order OS 是一个自我反思产品，一次提出一个问题，给使用者留出思考自己答案的空间。我负责产品设计、提示词和结构化输出检查，并通过检索将相关的过往记录带回对话。项目已部署，正在准备 alpha 测试，尚未向外部用户开放。',
+          'p.cir.meta': '模型微调 · 置信度阈值评估',
           'p.cir.title': '中文意图识别与置信度路由',
-          'p.cir.b1': '我在覆盖 50 个意图、超过 11,000 条对话的数据上微调中文意图分类器，测试准确率为 87%。另留出十个未参与训练的意图，观察系统遇到“不属于现有分类”的请求时会怎样处理。',
-          'p.cir.b2': '置信度随后被用作实际路由规则：在 90% 精确率目标下，小模型可处理 94% 的已知请求，拿不准的再交给大模型。复盘错误时，我会区分模型不确定、分类体系有缺口，还是系统上下文不足；它们看起来可能一样，却需要完全不同的产品处理。',
+          'p.cir.b1': '我用 9,972 条训练语料微调中文编码器，覆盖 50 个意图，在已知意图测试集上达到 87% 准确率。另有十个意图完全不参与训练，用来评估模型如何处理未覆盖的请求。',
+          'p.cir.b2': '在选定置信度阈值下，模型接收了 94% 的已知请求，这部分请求的准确率不低于 90%；同一阈值识别出 42% 的未知意图请求。这些结果为路由规则提供依据，也说明了哪些情况需要额外检查。大模型兜底或专门的未知意图检测层尚待实现。',
           'p.scbm.meta': '硕士论文 · NLP 与基于智能体的建模',
           'p.scbm.title': '可持续性传播与行为建模',
           'p.scbm.b1': '硕士论文从 Yelp 公开数据集中筛出 78,116 条可持续性相关评论，用 LDA 识别主题，再用多语言 BERT 评估情绪。随后，这些结果被用于初始化 Mesa 中一个包含 500 个智能体的网络模型。通过三种情景和“无干预”基线，我测试了一个简单问题：一条可持续性信息什么时候会在社区中传播，又会在什么时候停下来？研究由我独立设计、实现和解读。',
-          'p.sa.meta': '生产级金融情报产品 · 美股 · 港股 · A 股市场',
+          'p.sa.meta': '已部署分析工具 · 美股 · 港股 · A 股',
           'p.sa.b1': 'Stock Analyzer 把美股、港股和 A 股的实时数据放进同一套研究流程，覆盖基本面、技术面、估值和情绪。我负责产品、数据流程、标普 500 筛选器与 AI 价值链图谱；LLM 层可自动切换供应商，在单个模型不可用时保留核心服务。',
           'p.ata.meta': '地理空间 AI 流水线 · 香港机场智慧交通',
           'p.ata.b1': 'AirportTwin AI 是香港国际机场及北大屿山周边道路的 GIS 到 3D 原型。它清洗公开的 OpenStreetMap 数据，生成可用于场景的几何体，并整理为面向 USD 的结构，为后续交通仿真做准备。',
           'p.oc.meta': '进行中的另类数据方法 · 免费 Sentinel-2 影像',
           'p.oc.b1': '大型云厂商按季度披露 AI 资本开支，而 Sentinel-2 大约每五天就会拍到不少施工现场。Orbital Capex 尝试用这些免费影像，建立一条独立的周度信号，观察美国数据中心的建成表面与清整土地。项目已经暴露出两个重要限制：常用的 NDBI 会漏掉高反射膜屋顶，单景影像也难以区分灰色屋顶与干燥裸土，因此流程改用时间上的持续性来判断。场地边界来自县级税务地块，并与公开面积交叉核对。首条序列与公开施工进度大致同步，但 10 米影像仍会把道路和停车场算进去，所以项目继续明确标为“建设中”，等带时间戳的预测真正与资本开支数据对照后再谈结论。',
           'p.ist.meta': '定时研究智能体 · 自 2026 年初持续进行',
-          'p.ist.title': 'AI 产业研究线',
-          'p.ist.b1': '这是我理解 AI 商业世界的一项长期练习：从半导体、云和基础模型，到智能体与应用，中美市场的价值究竟在什么地方积累。定时智能体负责收集每周行业信息和一致预期数据，我则阅读公司披露，并把解读保留给自己。它是一条仍在进行的学习路径，不代表我已经把市场看透。',
+          'p.ist.title': 'AI 产业学习与研究',
+          'p.ist.b1': '从 2026 年初开始，我持续学习中美 AI 产业，关注芯片、云基础设施、模型和应用中的经济价值如何变化。定时智能体为我的个人学习收集每周行业资料与一致预期数据，我再阅读公司披露并形成自己的理解，将技术选择与背后的商业问题联系起来。',
           'p.kcas.meta': '开源决策框架 · 资本配置',
           'p.kcas.title': 'KCAS · 知识资本生态',
-          'p.kcas.b1': 'KCAS 是我用于研究与资本配置的四套相互衔接的框架：区分资产质量与价格、整理证据、按角色和机会成本比较持仓，并检验一个项目是否仍值得长期投入。它并不替代判断，而是让判断更容易被检查，也更容易被修正。',
+          'p.kcas.b1': 'KCAS 是我用于个人研究与资本配置决策的四套相互衔接的框架，分别帮助区分资产质量与价格、整理证据、按角色和机会成本比较持仓，以及评估项目是否值得继续投入。把推理过程写下来，方便在新信息出现时重新审视判断。',
 
           'm.dash.meta': '分析仪表盘',
           'm.dash.title': '可持续食品消费者洞察仪表盘',
@@ -2283,8 +2306,8 @@
           'edu.d3.title': '人文地理与城乡规划 理学学士',
           'edu.d3.desc': '与地理信息科学学位同期完成，关注空间问题中人的一面：人、城市与土地利用如何彼此影响。',
 
-          'contact.title': '联系',
-          'contact.intro': '如果你正在处理一个既需要技术深度，也需要耐心协调不同团队的 AI 或数据问题，欢迎来聊聊。电子邮件是联系我最方便的方式。',
+          'contact.title': '聊聊你的项目',
+          'contact.intro': '如果你的团队正在探索 AI 或数据应用，欢迎聊聊正在做的项目。我在寻找应用 AI 与数据科学方向的工作机会，也愿意与做相关工具的朋友交流经验。通过邮件联系我最方便。',
 
           'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有权利。',
 
@@ -2302,49 +2325,49 @@
           'nav.education': '教育',
           'nav.contact': '聯繫',
 
-          'hero.eyebrow': '應用 AI × 數據科學 × 可靠交付',
-          'hero.title': '應用 AI 與數據科學',
-          'hero.subtitle': '我和團隊一起，把還沒完全想清楚的問題，做成真正用得上的 AI 與數據產品。我的經歷橫跨內地的產品交付與數據分析、美國的定量研究，以及 LLM 和智能體系統的一線開發。',
-          'hero.comp1': '智能體工作流設計與編排',
-          'hero.comp2': 'LLM、RAG 與工具調用',
-          'hero.comp3': '數據分析、統計與機器學習（Python / SQL）',
-          'hero.comp4': '業務問題拆解與 KPI 設計',
-          'hero.comp5': '中英雙語的業務方溝通與協作',
+          'hero.eyebrow': '應用 AI · 數據科學',
+          'hero.title': '<span class="hero__phrase">從人的需要出發，</span> <span class="hero__phrase">建構 AI 應用</span>',
+          'hero.subtitle': '你好，我是子君。我做 AI 應用，幫助人們找到有用的資訊，為決策提供依據。此前，我在內地從事數據分析與產品交付，後來在紐約州立大學布法羅分校開展定量研究。',
+          'hero.comp1': '智能體工作流與記憶',
+          'hero.comp2': 'LLM、檢索與工具調用',
+          'hero.comp3': 'Python / SQL 分析',
+          'hero.comp4': '業務問題與指標設計',
+          'hero.comp5': '中英文溝通與團隊協作',
 
           'about.title': '關於',
-          'about.p1': '我最喜歡的工作，往往始於一個還沒有被真正問清楚的問題。<strong>我會先和最了解現場的人坐下來，弄明白一個好答案究竟會改變甚麼，再一起搭出一條可以重複走通的路。</strong>有時答案是智能體工作流，有時只是更清楚的指標、更合適的小模型，或更順手的數據流程。技術不必顯得複雜，能被人放心使用才重要。',
-          'about.p2': '<strong>智能體工作流。</strong>我已經建構並上線了四個 LLM 應用，也負責那些不太顯眼、卻決定產品是否可靠的部分：產品取捨、數據模型、檢索、工具、護欄、部署，以及上線後才冒出來的問題。以 Social Memory Copilot 為例，系統會先判斷是否真的需要調取記憶，區分當前會話與長期記憶，說明引用資訊的來源，並在寫入或刪除前讓用戶確認。我只在確實能改善結果時增加模型調用，而不是為了顯得更「智能體化」。',
-          'about.p3': '<strong>分析與建模。</strong>在 LLM 之前，我已經用 Python 和 SQL 做了多年統計、機器學習與數據分析，包括 NLP 與基於智能體的建模論文、NSF 資助課題的定量研究，以及兩年 KPI 定義與數據追溯工作。這些經歷讓我保留了一個樸素習慣：看起來再漂亮的結果，也應該能回到數字、假設和證據。',
-          'about.p4': '<strong>業務問題與交付。</strong>在六個以上政府數字化項目中，我和客戶一起釐清需求，把它們翻譯成指標與實施方案，並與技術團隊走完整個交付過程。面對技術背景不同的決策者，我也會調整表達方式。慢慢學會的不是「說服所有人」，而是聽出雙方真正擔心甚麼，讓任何一方都不必假裝已經聽懂。',
-          'about.p5': '<strong>地理空間。</strong>這是我的起點：兩個地理信息相關學位，以及早期為公共規劃和環境評估做衛星估算的工作。它留給我一個至今受用的習慣——在相信系統對自己的描述之前，先找一份獨立證據來核對。',
-          'about.p6': '我希望加入一份既貼近業務決策、也貼近真實使用者的應用 AI 或數據科學工作。理想的狀態是：理解一個反覆出現的問題，做出第一個有用的版本，再和真正依賴它的人一起慢慢把它做穩。我使用普通話、英語和粵語工作。',
+          'about.p1': '我喜歡先和使用者聊聊，了解他們需要做甚麼決定，以及實際工作中有哪些限制。再一起把問題梳理成可以嘗試和驗證的方案。我希望使用者能看懂答案的依據，也能自己決定如何使用它。',
+          'about.p2': '我獨立建構並部署了四個 LLM 應用，負責產品設計、數據模型、開發，以及部署後的調試。在 Social Memory Copilot 中，我關注對話上下文如何延續、回答如何呈現來源，以及怎樣讓用戶決定是否儲存記憶或建立提醒。',
+          'about.p3': '我的 Python 和 SQL 經驗來自 NLP 與智能體建模論文、NSF 資助課題的定量分析，以及兩年的 KPI 定義與報表工作。這些經歷讓我習慣核對假設、說明數據能支持哪些結論，方便同事判斷結果適用於甚麼場景。',
+          'about.p4': '在六個以上政府數字化項目中，我與客戶一起釐清需求、商定指標，並和工程、數據、設計同事協作交付。我也逐漸學會給討論留出空間，把不同方案的取捨說明白，並根據對方的背景調整表達。',
+          'about.p5': '我的起點是地理信息科學與遙感，早期使用衛星影像支持公共規劃和環境評估。將估算結果與獨立觀測相互核對，至今仍是我處理數據問題時常用的方法。',
+          'about.p6': '我正在尋找應用 AI 與數據科學方向的機會，希望能與使用者保持交流，一起改進產品。我可以配合工作地點安排搬遷和現場辦公，能夠使用普通話和英語工作，也能用粵語進行日常交流。',
           'about.focusLabel': '重點領域',
           'ap.title': '工作方式',
           'ap.frame.meta': '01 · 拆解',
-          'ap.frame.title': '先理解决策，再選擇技術',
-          'ap.frame.body': '我先問清楚：要做甚麼決定、誰會使用答案、哪裡最容易出錯。等這些問題有了共識，數據、檢索、工具和人工判斷該如何配合，通常也就清楚了。',
+          'ap.frame.title': '一起理解要做的決策',
+          'ap.frame.body': '我會先聽最了解業務的人介紹：需要做甚麼決定、手頭有哪些資訊、哪裡需要幫助。再一起確定第一步做甚麼，以及如何判斷它是否有用。',
           'ap.orchestrate.meta': '02 · 編排',
-          'ap.orchestrate.title': '讓系統經得起查看，也值得信任',
-          'ap.orchestrate.body': '甚麼時候檢索、哪個模型回答、工具可以改動甚麼，都應該寫進看得見、測得到的邏輯裡。我會認真劃清狀態與權限的邊界，為失敗留好退路，也把有後果的操作留給人來確認。',
+          'ap.orchestrate.title': '讓依據與操作清晰可見',
+          'ap.orchestrate.body': '我會把檢索決策、模型路由和工具權限寫成可測試的邏輯。回答中的來源方便用戶核對，確認步驟則讓用戶掌握數據修改和提醒操作的決定權。',
           'ap.measure.meta': '03 · 衡量',
-          'ap.measure.title': '測真正重要的那一部分',
-          'ap.measure.body': '我會為系統選一個它確實可能不及格的指標：檢索品質、路由精確率、面對未知類別時的表現，或相對基線的改進。合成數據會明確標註，演示效果也不會被當成真實使用成績。',
+          'ap.measure.title': '圍繞使用場景做評估',
+          'ap.measure.body': '我會透過檢索品質、路由準確率或未知請求的處理表現來比較方案，同時記錄數據集與運行配置。再根據錯誤分析，確定接下來值得改進的部分。',
           'ap.productise.meta': '04 · 產品化',
-          'ap.productise.title': '給團隊留下一樣能繼續用的東西',
-          'ap.productise.body': '如果同一個問題每週都會回來，我會試著用模板、腳本、定時工作流或統一指標，溫和地拿掉重複勞動。目的不是為了自動化而自動化，而是把時間還給那些真正需要人來判斷的事情。',
+          'ap.productise.title': '讓重複工作更省力',
+          'ap.productise.body': '當一個問題反覆出現時，我會嘗試把處理方法做成可復用的工具或流程。統一的指標、腳本和定時智能體，可以幫助團隊減少資訊整理的時間，留出更多精力討論下一步。',
 
           'exp.title': '經歷',
           'exp.e1.meta': '2026 至今',
           'exp.e1.title': '獨立應用 AI 工程師與研究者',
           'exp.e1.d1': '從產品取捨到上線後的調試，獨立建構並部署了四個 LLM 應用。其中最完整的 Social Memory Copilot 基於 Google ADK，包含按用戶隔離的工具權限、按需檢索、來源引用、會話與長期記憶分離、寫入前確認，以及組件失效時的降級處理。我也持續維護這些產品的數據模型、輸出護欄、評測和監控。',
-          'exp.e1.d2': '為一個反覆出現的研究問題搭建了定時工作流：經濟價值正在中美 AI 產業鏈的哪些環節積累。系統負責整理每週行業資訊和一致預期數據；需要背景與判斷的解讀仍由我自己完成。',
+          'exp.e1.d2': '為自己學習中美 AI 產業搭建定時工作流。智能體整理每週行業資訊和一致預期數據，我再閱讀公司披露，結合背景形成自己的理解。',
           'exp.e2.meta': '2024–2025',
           'exp.e2.title': '研究助理',
           'exp.e2.d1': '負責一項 NSF 資助課題的定量分析，研究極端冬季風暴中的社區韌性。我結合調查、行為與空間數據，理解地理位置、資訊接觸和線上社區如何影響互助決定。',
           'exp.e2.d2': '從數據準備、統計建模到驗證，設計並完成整套分析流程，再把結果寫成研究團隊與資助方都能清楚使用的結論。',
           'exp.e3.meta': '2021–2023',
           'exp.e3.title': '產品經理與數據分析師',
-          'exp.e3.d1': '在六個以上政府數字化項目中負責業務分析，主要是監測與預警平台。我與相關方商定真正有用的 KPI，編寫背後的 SQL 與分析流程，並保持不同報告週期中的指標口徑一致。數字受到質疑時，我會追溯到源數據，用容易理解的方式說明究竟發生了甚麼變化。',
+          'exp.e3.d1': '在六個以上政府數字化項目中負責業務分析，主要涉及監測與預警平台。我與業務方商定 KPI，編寫配套 SQL 和分析流程。遇到報表差異時，我們一起核對源數據和計算規則，明確一致的解釋口徑。',
           'exp.e3.d2': '用 Python 腳本和可復用查詢替代重複的手工取數；協調一個十人以上、橫跨工程、數據、設計與市場的團隊，並針對技術與非技術決策者調整匯報方式。多項建議最終得到採納。',
           'exp.e4.meta': '2019–2020',
           'exp.e4.title': '遙感分析師與項目經理',
@@ -2356,31 +2379,31 @@
           'projects.group2': '早期地理空間、數據與產品工作',
 
           'p.smc.meta': '線上 MVP · Google ADK · 智能體編排、記憶與混合檢索',
-          'p.smc.b1': 'Social Memory Copilot 幫助用戶記住一段關係裡的來龍去脈，而不只是一個聯絡人名字。它會關注當前對象、這次對話的目標和下一步行動；需要時才檢索相關偏好、事件與承諾，並說明每條資訊為甚麼被用到。數據庫變更必須等用戶確認後才會執行。我刻意保留一個主智能體和清楚、可測試的階段，讓系統更容易理解和排查。',
-          'p.smc.b2': '檢索由 BM25 與 pgvector/HNSW 組成，再通過 RRF 和輕量重排器融合。在一個小型合成評測集上，Recall@5 從任一單路的 0.682 提高到 0.889。項目目前有 354 個通過的測試，覆蓋用戶隔離、提示注入、工具結構、降級與確認狀態變化。線上演示使用合成聯絡人和記憶，因此更適合作為技術驗證，而不是生產使用證明。',
+          'p.smc.b1': 'Social Memory Copilot 幫助用戶在繼續交流時找回背景，包括過去的討論、承諾和溝通偏好。系統由一個主智能體管理會話狀態，檢索和操作確認分別由獨立組件處理。回答會標註記憶來源，智能體提出的寫入、刪除和提醒操作都需用戶確認。',
+          'p.smc.b2': '在 20 條合成查詢上，本地完整配置將 BM25 與向量檢索透過 RRF 和重排結合，Recall@5 從 0.682 提高到 0.889；線上 Vercel 輕量配置在同一評測集上為 0.757。是否檢索的決策組件在 28 條人工標註的合成樣本上達到 F1 0.963。倉庫記錄了 354 項通過的單元與整合測試。演示使用合成數據，真實用戶驗證是後續步驟。',
           'p.btg.meta': '雙語 AI 知識產品 · 信任與排序',
-          'p.btg.b1': 'Bridge the Gap 讓用戶可以用中英文，禮貌地詢問不熟悉的食物與文化習慣。AI 負責第一步翻譯；社區回答則結合認可度、Wilson 置信區間和時效性排序。出現分歧時，產品保留必要的背景，而不是把不同聲音壓成一個看似權威的答案。',
-          'p.ioos.meta': '生產級 AI 產品 · 行為護欄',
-          'p.ioos.b1': 'Inner Order OS 只專注一件事：一次提出一個真正有幫助的問題，不急著給建議，也不自動安慰。我負責產品設計、提示詞、結構化輸出檢查與行為護欄，並根據真實使用持續調整。這裡的克制不是要掩飾的限制，而正是產品本身。',
-          'p.cir.meta': '模型微調 · 基於置信度的路由與轉交',
+          'p.btg.b1': 'Bridge the Gap 幫助人們用中英文了解不熟悉的食物和文化習慣。AI 協助翻譯，社區回答根據認可度、Wilson 置信區間和時效性排序。熟悉相關文化的人可以補充背景，社區共識也可以更新 AI 最初的標籤。',
+          'p.ioos.meta': '已部署 · 準備 alpha 測試',
+          'p.ioos.b1': 'Inner Order OS 是一個自我反思產品，一次提出一個問題，給使用者留出思考自己答案的空間。我負責產品設計、提示詞和結構化輸出檢查，並透過檢索將相關的過往記錄帶回對話。項目已部署，正在準備 alpha 測試，尚未向外部用戶開放。',
+          'p.cir.meta': '模型微調 · 置信度閾值評估',
           'p.cir.title': '中文意圖識別與置信度路由',
-          'p.cir.b1': '我在覆蓋 50 個意圖、超過 11,000 條對話的數據上微調中文意圖分類器，測試準確率為 87%。另留出十個未參與訓練的意圖，觀察系統遇到「不屬於現有分類」的請求時會怎樣處理。',
-          'p.cir.b2': '置信度隨後被用作實際路由規則：在 90% 精確率目標下，小模型可處理 94% 的已知請求，拿不準的再交給大模型。復盤錯誤時，我會區分模型不確定、分類體系有缺口，還是系統上下文不足；它們看起來可能一樣，卻需要完全不同的產品處理。',
+          'p.cir.b1': '我用 9,972 條訓練語料微調中文編碼器，覆蓋 50 個意圖，在已知意圖測試集上達到 87% 準確率。另有十個意圖完全不參與訓練，用來評估模型如何處理未覆蓋的請求。',
+          'p.cir.b2': '在選定置信度閾值下，模型接收了 94% 的已知請求，這部分請求的準確率不低於 90%；同一閾值識別出 42% 的未知意圖請求。這些結果為路由規則提供依據，也說明了哪些情況需要額外檢查。大模型備援或專門的未知意圖檢測層尚待實現。',
           'p.scbm.meta': '碩士論文 · NLP 與基於智能體的建模',
           'p.scbm.title': '可持續性傳播與行為建模',
           'p.scbm.b1': '碩士論文從 Yelp 公開數據集中篩出 78,116 條可持續性相關評論，用 LDA 識別主題，再用多語言 BERT 評估情緒。隨後，這些結果被用於初始化 Mesa 中一個包含 500 個智能體的網絡模型。通過三種情景和「無干預」基線，我測試了一個簡單問題：一條可持續性資訊甚麼時候會在社區中傳播，又會在甚麼時候停下來？研究由我獨立設計、實現和解讀。',
-          'p.sa.meta': '生產級金融情報產品 · 美股 · 港股 · A 股市場',
+          'p.sa.meta': '已部署分析工具 · 美股 · 港股 · A 股',
           'p.sa.b1': 'Stock Analyzer 把美股、港股和 A 股的實時數據放進同一套研究流程，覆蓋基本面、技術面、估值和情緒。我負責產品、數據流程、標普 500 篩選器與 AI 價值鏈圖譜；LLM 層可自動切換供應商，在單個模型不可用時保留核心服務。',
           'p.ata.meta': '地理空間 AI 流水線 · 香港機場智慧交通',
           'p.ata.b1': 'AirportTwin AI 是香港國際機場及北大嶼山周邊道路的 GIS 到 3D 原型。它清洗公開的 OpenStreetMap 數據，生成可用於場景的幾何體，並整理為面向 USD 的結構，為後續交通仿真做準備。',
           'p.oc.meta': '進行中的另類數據方法 · 免費 Sentinel-2 影像',
           'p.oc.b1': '大型雲廠商按季度披露 AI 資本開支，而 Sentinel-2 大約每五天就會拍到不少施工現場。Orbital Capex 嘗試用這些免費影像，建立一條獨立的每週訊號，觀察美國數據中心的建成表面與清整土地。項目已經暴露出兩個重要限制：常用的 NDBI 會漏掉高反射膜屋頂，單景影像也難以區分灰色屋頂與乾燥裸土，因此流程改用時間上的持續性來判斷。場地邊界來自縣級稅務地塊，並與公開面積交叉核對。首條序列與公開施工進度大致同步，但 10 米影像仍會把道路和停車場算進去，所以項目繼續明確標為「建設中」，等帶時間戳的預測真正與資本開支數據對照後再談結論。',
           'p.ist.meta': '定時研究智能體 · 自 2026 年初持續進行',
-          'p.ist.title': 'AI 產業研究線',
-          'p.ist.b1': '這是我理解 AI 商業世界的一項長期練習：從半導體、雲和基礎模型，到智能體與應用，中美市場的價值究竟在甚麼地方積累。定時智能體負責收集每週行業資訊和一致預期數據，我則閱讀公司披露，並把解讀保留給自己。它是一條仍在進行的學習路徑，不代表我已經把市場看透。',
+          'p.ist.title': 'AI 產業學習與研究',
+          'p.ist.b1': '從 2026 年初開始，我持續學習中美 AI 產業，關注晶片、雲基礎設施、模型和應用中的經濟價值如何變化。定時智能體為我的個人學習收集每週行業資料與一致預期數據，我再閱讀公司披露並形成自己的理解，將技術選擇與背後的商業問題聯繫起來。',
           'p.kcas.meta': '開源決策框架 · 資本配置',
           'p.kcas.title': 'KCAS · 知識資本生態',
-          'p.kcas.b1': 'KCAS 是我用於研究與資本配置的四套相互銜接的框架：區分資產質量與價格、整理證據、按角色和機會成本比較持倉，並檢驗一個項目是否仍值得長期投入。它並不替代判斷，而是讓判斷更容易被檢查，也更容易被修正。',
+          'p.kcas.b1': 'KCAS 是我用於個人研究與資本配置決策的四套相互銜接的框架，分別幫助區分資產質量與價格、整理證據、按角色和機會成本比較持倉，以及評估項目是否值得繼續投入。把推理過程寫下來，方便在新資訊出現時重新審視判斷。',
 
           'm.dash.meta': '分析儀表盤',
           'm.dash.title': '可持續食品消費者洞察儀表盤',
@@ -2409,8 +2432,8 @@
           'edu.d3.title': '人文地理與城鄉規劃 理學學士',
           'edu.d3.desc': '與地理信息科學學位同期完成，關注空間問題中人的一面：人、城市與土地利用如何彼此影響。',
 
-          'contact.title': '聯繫',
-          'contact.intro': '如果你正在處理一個既需要技術深度，也需要耐心協調不同團隊的 AI 或數據問題，歡迎來聊聊。電子郵件是聯繫我最方便的方式。',
+          'contact.title': '聊聊你的項目',
+          'contact.intro': '如果你的團隊正在探索 AI 或數據應用，歡迎聊聊正在做的項目。我在尋找應用 AI 與數據科學方向的工作機會，也願意與做相關工具的朋友交流經驗。透過郵件聯繫我最方便。',
 
           'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有權利。',
 
