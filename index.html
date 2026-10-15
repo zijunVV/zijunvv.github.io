@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zijun Wang · Applied AI &amp; Data Science</title>
+    <title>Zijun Wang · AI &amp; Technology Strategy</title>
     <meta
       name="description"
-      content="Zijun Wang builds AI applications for information retrieval and decision support, with a background in data analysis, product delivery, and quantitative research."
+      content="Zijun Wang connects AI industry research, product thinking, and cross-functional execution. Exploring CEO Office, Strategy &amp; Operations, and New Business opportunities."
     />
+    <meta property="og:title" content="Zijun Wang · AI &amp; Technology Strategy" />
+    <meta property="og:description" content="Industry research, strategic decisions, and product experiments. Exploring CEO Office, Strategy &amp; Operations, and New Business roles." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zijunvv.github.io/" />
+    <link rel="canonical" href="https://zijunvv.github.io/" />
     <link rel="icon" type="image/svg+xml" href="./assets/icons/icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1475,6 +1480,46 @@
         }
       }
 
+      .hero__roles {
+        max-width: 760px;
+        margin: 1.5rem auto 0;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .section {
+        scroll-margin-top: 4rem;
+      }
+
+      .hero__actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem 2rem;
+      }
+
+      .projects__intro {
+        max-width: 760px;
+        margin-bottom: 3rem;
+        color: var(--text-muted);
+      }
+
+      .supporting-work summary {
+        cursor: pointer;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+
+      .supporting-work__content {
+        margin-top: 1.5rem;
+      }
+
+      a:focus-visible, button:focus-visible, summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
           scroll-behavior: auto !important;
@@ -1494,7 +1539,7 @@
             <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
             <li><a href="#approach" class="nav__link" data-i18n="nav.approach">Approach</a></li>
             <li><a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
-            <li><a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#projects" class="nav__link" data-i18n="nav.projects">Selected work</a></li>
             <li><a href="#education" class="nav__link" data-i18n="nav.education">Education</a></li>
             <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
           </ul>
@@ -1521,23 +1566,26 @@
       <section id="home" class="section hero">
         <div class="shell hero__inner">
           <div class="hero__content">
-            <span class="eyebrow" data-i18n="hero.eyebrow">Applied AI · Data science</span>
+            <span class="eyebrow" data-i18n="hero.eyebrow">AI &amp; technology · Strategy &amp; business building</span>
 
-            <h1 class="hero__title" data-i18n="hero.title">AI built around people</h1>
+            <h1 class="hero__title" data-i18n="hero.title">Understand the market.<br>Shape the next move.</h1>
 
             <div class="hero__columns">
               <div class="hero__summary">
-                <p class="hero__subtitle" data-i18n="hero.subtitle">
-                  Hi, I'm Zijun. I build AI applications that help people find useful information and make informed decisions. My background combines data analysis and product delivery in China with quantitative research at the University at Buffalo.
-                </p>
+                <p class="hero__subtitle" data-i18n="hero.subtitle">I'm Zijun Wang. I connect industry research, product thinking, and cross-functional execution to turn emerging technologies into clearer strategic choices and testable business opportunities.</p>
+                <p class="hero__roles" data-i18n="hero.roles">Exploring CEO Office · Strategy &amp; Operations · New Business roles</p>
+                <div class="hero__actions">
+                  <a class="hero-card__cta" href="#projects" data-i18n="hero.work">Explore selected work →</a>
+                  <a class="hero-card__cta" href="#contact" data-i18n="hero.contact">Get in touch →</a>
+                </div>
               </div>
 
               <div class="hero__competencies">
-                <span class="competency-item" data-i18n="hero.comp1">Agent workflows and memory</span>
-                <span class="competency-item" data-i18n="hero.comp2">LLMs, retrieval and tool use</span>
-                <span class="competency-item" data-i18n="hero.comp3">Data analysis with Python and SQL</span>
-                <span class="competency-item" data-i18n="hero.comp4">Business questions and metrics</span>
-                <span class="competency-item" data-i18n="hero.comp5">Collaboration in Mandarin and English</span>
+                <span class="competency-item" data-i18n="hero.comp1">Industry &amp; competitive research</span>
+                <span class="competency-item" data-i18n="hero.comp2">Strategic narrative &amp; synthesis</span>
+                <span class="competency-item" data-i18n="hero.comp3">Product &amp; business thinking</span>
+                <span class="competency-item" data-i18n="hero.comp4">Decision intelligence &amp; metrics</span>
+                <span class="competency-item" data-i18n="hero.comp5">Cross-functional execution</span>
               </div>
             </div>
           </div>
@@ -1563,39 +1611,25 @@
             </figure>
 
             <div class="about__body">
-              <p data-i18n="about.p1">
-                I enjoy working with people to understand the decisions they need to make and the constraints they work within. Those conversations help me turn an open-ended question into a workflow we can test together. I want people to be able to see where an answer came from and decide how to use it.
-              </p>
-              <p data-i18n="about.p2">
-                I've built and deployed four LLM applications, taking responsibility for product design, data models, and implementation through to deployment and debugging. In Social Memory Copilot, I focused on remembering conversational context, showing the sources behind an answer, and giving users control over proposed memory updates and reminders.
-              </p>
-              <p data-i18n="about.p3">
-                My work with Python and SQL includes an NLP and agent-based modeling thesis, quantitative analysis for an NSF-funded study, and two years of KPI definition and reporting. These experiences taught me to check assumptions and explain what the data supports, so colleagues can use the results with a clear understanding of their scope.
-              </p>
-              <p data-i18n="about.p4">
-                Across more than six government digitalization projects, I worked with clients to clarify requirements and agree on metrics, then coordinated delivery with engineering, data, and design colleagues. I learned to make space for questions, discuss trade-offs openly, and adapt an explanation to the person using it.
-              </p>
-              <p data-i18n="about.p5">
-                I started in geographic information science and remote sensing, using satellite imagery for public planning and environmental assessment. Comparing estimates with independent observations remains a useful part of how I approach data problems today.
-              </p>
-              <p data-i18n="about.lo">
-                I also develop Living Origins (生境志), an independent editorial brand exploring how place, season, and craft shape everyday things. It brings my geography background into research, storytelling, and visual communication, with Miaofeng Mountain as its first field site.
-              </p>
-              <p data-i18n="about.p6">
-                I'm exploring applied AI and data science opportunities where I can work closely with the people using what we build. I'm open to relocation and on-site work. I work in Mandarin and English, and speak conversational Cantonese.
-              </p>
+              <p data-i18n="about.p1">My background spans product management, data analysis, and quantitative research. I am now focusing that experience on AI and technology business strategy: understanding where value is created, which problems matter, and what a team should test next.</p>
+              <p data-i18n="about.p2">Since early 2026, I have independently studied the AI value chain across the US and China, from chips and cloud infrastructure to models and applications. I read company disclosures alongside industry material to connect technical developments with business models, competitive positions, and the assumptions behind a decision.</p>
+              <p data-i18n="about.p3">As a product manager and data analyst, I worked on more than six government digitalization projects and coordinated a team of over ten across engineering, data, design, and marketing. My work connected client requirements and shared KPIs with delivery, reporting, and recommendations for decision-makers.</p>
+              <p data-i18n="about.p4">I have also built and deployed four LLM applications independently. That hands-on work helps me judge what AI can deliver, make product trade-offs, and turn an idea into a working prototype. These are early product experiments, with user validation still ahead.</p>
+              <p data-i18n="about.p5">My foundation in geographic information science and NSF-funded research taught me to test assumptions, compare independent sources, and explain uncertainty. Python, SQL, and AI workflows support that work by making evidence easier to gather and examine.</p>
+              <p data-i18n="about.lo">Through Living Origins (生境志), I am developing an independent editorial brand around place, season, and craft. It is a practical exercise in positioning, research-led storytelling, and consistent publishing, starting with Miaofeng Mountain.</p>
+              <p data-i18n="about.p6">I am seeking CEO Office, Strategy &amp; Operations, and New Business opportunities where I can contribute research and execution while growing into broader business ownership and, over time, general management or entrepreneurship. I work in Mandarin and English, speak conversational Cantonese, and am open to relocation and on-site work.</p>
 
               <div class="pill-group">
-                <p class="pill-group__label" data-i18n="about.focusLabel">Focus areas</p>
+                <p class="pill-group__label" data-i18n="about.focusLabel">Areas of contribution</p>
                 <div class="pill-group__items">
-                  <span class="pill">Agent Orchestration</span>
-                  <span class="pill">LLM / RAG / Tool Calling</span>
-                  <span class="pill">Retrieval &amp; Evaluation</span>
-                  <span class="pill">Data Analysis &amp; Statistics</span>
-                  <span class="pill">Python &amp; SQL</span>
-                  <span class="pill">KPI &amp; Metric Design</span>
-                  <span class="pill">Stakeholder Management</span>
-                  <span class="pill">Remote Sensing &amp; Alternative Data</span>
+                  <span class="pill" data-i18n="about.tag1">Industry Research</span>
+                  <span class="pill" data-i18n="about.tag2">Business Models</span>
+                  <span class="pill" data-i18n="about.tag3">Strategic Synthesis</span>
+                  <span class="pill" data-i18n="about.tag4">Product Discovery</span>
+                  <span class="pill" data-i18n="about.tag5">Decision Frameworks</span>
+                  <span class="pill" data-i18n="about.tag6">KPI &amp; Metric Design</span>
+                  <span class="pill" data-i18n="about.tag7">Cross-functional Delivery</span>
+                  <span class="pill" data-i18n="about.tag8">AI &amp; Data Tools</span>
                 </div>
               </div>
             </div>
@@ -1612,55 +1646,46 @@
 
           <div class="grid grid--2">
             <article class="card card--minimal">
-              <div class="card__meta" data-i18n="ap.frame.meta">01 · Frame</div>
-              <h3 class="card__title" data-i18n="ap.frame.title">Understand the decision together</h3>
-              <p class="card__body" data-i18n="ap.frame.body">
-                I start by listening to the people closest to the work: what they need to decide, what information they have, and where they need help. We can then agree on a useful first step and how to assess it.
-              </p>
+              <div class="card__meta" data-i18n="ap.frame.meta">01 · Frame the decision</div>
+              <h3 class="card__title" data-i18n="ap.frame.title">Start with the business question</h3>
+              <p class="card__body" data-i18n="ap.frame.body">Clarify who needs to decide, what outcome matters, and which constraints shape the choice. Turn an open-ended brief into a focused question, explicit assumptions, and criteria for a useful answer.</p>
               <div class="card__tags">
-                <span class="tag">KPI Design</span>
-                <span class="tag">Requirements</span>
-                <span class="tag">Decision Frameworks</span>
+                  <span class="tag" data-i18n="ap.frame.tag1">Problem Definition</span>
+                  <span class="tag" data-i18n="ap.frame.tag2">Stakeholder Context</span>
+                  <span class="tag" data-i18n="ap.frame.tag3">Success Criteria</span>
               </div>
             </article>
 
             <article class="card card--minimal">
-              <div class="card__meta" data-i18n="ap.orchestrate.meta">02 · Orchestrate</div>
-              <h3 class="card__title" data-i18n="ap.orchestrate.title">Keep actions and evidence visible</h3>
-              <p class="card__body" data-i18n="ap.orchestrate.body">
-                I make retrieval decisions, model routing, and tool permissions explicit and testable. Source references help users review an answer, while confirmation steps give them control over changes and reminders.
-              </p>
+              <div class="card__meta" data-i18n="ap.orchestrate.meta">02 · Build the evidence</div>
+              <h3 class="card__title" data-i18n="ap.orchestrate.title">Map the market and its drivers</h3>
+              <p class="card__body" data-i18n="ap.orchestrate.body">Connect company disclosures, industry research, and customer context. Map the value chain and competitive alternatives, separate facts from interpretation, and identify the gaps that could change the conclusion. AI and data tools help with collection and analysis.</p>
               <div class="card__tags">
-                <span class="tag">Planning &amp; Routing</span>
-                <span class="tag">Tool Use</span>
-                <span class="tag">Memory</span>
-                <span class="tag">Human-in-the-Loop</span>
+                  <span class="tag" data-i18n="ap.orchestrate.tag1">Value Chains</span>
+                  <span class="tag" data-i18n="ap.orchestrate.tag2">Source Review</span>
+                  <span class="tag" data-i18n="ap.orchestrate.tag3">Competitive Analysis</span>
               </div>
             </article>
 
             <article class="card card--minimal">
-              <div class="card__meta" data-i18n="ap.measure.meta">03 · Measure</div>
-              <h3 class="card__title" data-i18n="ap.measure.title">Evaluate against the use case</h3>
-              <p class="card__body" data-i18n="ap.measure.body">
-                I compare alternatives using retrieval quality, routing accuracy, or behavior on unfamiliar requests. I document the dataset and configuration alongside each result, then use error analysis to decide what needs attention next.
-              </p>
+              <div class="card__meta" data-i18n="ap.measure.meta">03 · Make the choice</div>
+              <h3 class="card__title" data-i18n="ap.measure.title">Turn analysis into a recommendation</h3>
+              <p class="card__body" data-i18n="ap.measure.body">Compare options against customer value, feasibility, resource needs, and risk. Explain the recommendation in a clear strategic narrative: what to pursue, why it makes sense, and what evidence would change the view.</p>
               <div class="card__tags">
-                <span class="tag">Offline Evaluation</span>
-                <span class="tag">Baselines</span>
-                <span class="tag">Error Analysis</span>
+                  <span class="tag" data-i18n="ap.measure.tag1">Trade-offs</span>
+                  <span class="tag" data-i18n="ap.measure.tag2">Strategic Narrative</span>
+                  <span class="tag" data-i18n="ap.measure.tag3">Decision Frameworks</span>
               </div>
             </article>
 
             <article class="card card--minimal">
-              <div class="card__meta" data-i18n="ap.productise.meta">04 · Productise</div>
-              <h3 class="card__title" data-i18n="ap.productise.title">Make recurring work easier</h3>
-              <p class="card__body" data-i18n="ap.productise.body">
-                When a question returns regularly, I work toward a reusable tool or workflow. Shared metric definitions, scripts, and scheduled agents can help a team spend less time gathering information and more time deciding what to do with it.
-              </p>
+              <div class="card__meta" data-i18n="ap.productise.meta">04 · Execute and learn</div>
+              <h3 class="card__title" data-i18n="ap.productise.title">Give the next step an owner and a metric</h3>
+              <p class="card__body" data-i18n="ap.productise.body">Translate the recommendation into a scoped pilot or delivery plan with responsibilities, milestones, and success measures. Coordinate across functions, use prototypes where useful, and review results before committing more resources.</p>
               <div class="card__tags">
-                <span class="tag">Process Automation</span>
-                <span class="tag">Scheduled Agents</span>
-                <span class="tag">Metric Governance</span>
+                  <span class="tag" data-i18n="ap.productise.tag1">Pilot Design</span>
+                  <span class="tag" data-i18n="ap.productise.tag2">Cross-functional Execution</span>
+                  <span class="tag" data-i18n="ap.productise.tag3">KPI Review</span>
               </div>
             </article>
           </div>
@@ -1671,28 +1696,23 @@
       <section id="experience" class="section">
         <div class="shell work">
           <div class="section-heading">
-            <h2 class="section-heading__title" data-i18n="exp.title">Experience</h2>
+            <h2 class="section-heading__title" data-i18n="exp.title">Experience &amp; independent work</h2>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-item__meta" data-i18n="exp.e1.meta">2026–present</div>
               <div class="timeline-item__body">
-                <h3 class="timeline-item__title" data-i18n="exp.e1.title">Independent Applied AI Engineer &amp; Researcher</h3>
-                <p class="timeline-item__desc" data-i18n="exp.e1.d1">
-                  Built and deployed four LLM applications from initial product decisions through post-launch debugging. The most complete is Social Memory Copilot on Google ADK, where I implemented scoped tool access, selective retrieval, cited sources, separate session and long-term memory, confirmation before write actions, and fallback when a component fails. Across the four products, I also look after data models, guardrails, evaluation, and monitoring.
-                </p>
-                <p class="timeline-item__desc" data-i18n="exp.e1.d2">
-                  Built scheduled workflows for my own study of the AI industry in the US and China. Agents collect weekly industry updates and consensus data; I review company disclosures and develop the interpretation myself.
-                </p>
+                <h3 class="timeline-item__title" data-i18n="exp.e1.title">Independent AI Industry Research &amp; Product Projects</h3>
+                <p class="timeline-item__org" data-i18n="exp.e1.org">Self-directed research &amp; product experiments</p>
+                <p class="timeline-item__desc" data-i18n="exp.e1.d1">Study the US and China AI value chain, connecting developments in chips, cloud infrastructure, models, and applications with business questions. Review company disclosures and industry evidence; use scheduled agents to collect weekly updates and consensus data for my own research.</p>
+                <p class="timeline-item__desc" data-i18n="exp.e1.d2">Built and deployed four LLM applications, owning the product concept, data design, implementation, and iteration. Projects include research tools and conversational products. Social Memory Copilot explores how source transparency and user control can make AI assistance more useful; its demo uses synthetic data and real-user validation remains a next step.</p>
                 <div class="timeline-item__tags">
-                  <span class="tag">Agent Orchestration</span>
-                  <span class="tag">Tool Calling</span>
-                  <span class="tag">RAG &amp; Hybrid Retrieval</span>
-                  <span class="tag">Agent Memory</span>
-                  <span class="tag">Human-in-the-Loop</span>
-                  <span class="tag">Evaluation</span>
-                  <span class="tag">Full-stack Delivery</span>
+                  <span class="tag" data-i18n="exp.e1.tag1">AI Industry Research</span>
+                  <span class="tag" data-i18n="exp.e1.tag2">Business Models</span>
+                  <span class="tag" data-i18n="exp.e1.tag3">Product Discovery</span>
+                  <span class="tag" data-i18n="exp.e1.tag4">Decision Support</span>
+                  <span class="tag" data-i18n="exp.e1.tag5">AI Prototyping</span>
                 </div>
               </div>
             </article>
@@ -1743,12 +1763,8 @@
               <div class="timeline-item__body">
                 <h3 class="timeline-item__title" data-i18n="exp.e3.title">Product Manager &amp; Data Analyst</h3>
                 <p class="timeline-item__org">Beijing Yiyun Technology Co., Ltd.</p>
-                <p class="timeline-item__desc" data-i18n="exp.e3.d1">
-                  Led business analysis for more than six government digitalization projects, mainly monitoring and early-warning platforms. I worked with stakeholders to define KPIs and wrote the supporting SQL and analysis workflows. When reports differed, we checked source data and calculation rules to agree on a consistent interpretation.
-                </p>
-                <p class="timeline-item__desc" data-i18n="exp.e3.d2">
-                  Replaced repeated manual data pulls with Python scripts and reusable queries. I coordinated a team of more than ten across engineering, data, design, and marketing, and adapted the same analysis for both technical and non-technical decision-makers. Several of our recommendations were adopted.
-                </p>
+                <p class="timeline-item__desc" data-i18n="exp.e3.d1">Led business analysis for more than six government digitalization projects, mainly monitoring and early-warning platforms. Worked with clients to clarify requirements, define KPIs, and agree on consistent data and reporting rules so that teams could work from the same evidence.</p>
+                <p class="timeline-item__desc" data-i18n="exp.e3.d2">Coordinated delivery across a team of more than ten in engineering, data, design, and marketing. Translated analysis into recommendations for technical and non-technical decision-makers, several of which were adopted. Used Python scripts and reusable SQL queries to replace repeated manual data pulls.</p>
                 <div class="timeline-item__tags">
                   <span class="tag">Business Analysis</span>
                   <span class="tag">KPI &amp; Metric Design</span>
@@ -1786,11 +1802,94 @@
       <section id="projects" class="section">
         <div class="shell projects">
           <div class="section-heading">
-            <h2 class="section-heading__title" data-i18n="projects.title">Projects</h2>
+            <h2 class="section-heading__title" data-i18n="projects.title">Selected work</h2>
+          </div>
+          <p class="projects__intro" data-i18n="projects.intro">Independent research and product experiments, alongside earlier client and academic work. Each project shows the question, my contribution, and the current limits of the evidence.</p>
+
+          <div class="projects__group">
+            <h3 class="projects__group-title" data-i18n="projects.group1">Strategic intelligence &amp; decision frameworks</h3>
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/value-chain.svg"
+                    alt="AI value chain research framework"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.ist.meta">Independent industry research · Ongoing since early 2026</div>
+                  <h3 class="card__title" data-i18n="p.ist.title">AI value chain &amp; business models</h3>
+                  <p class="card__body" data-i18n="p.ist.b1">Where does economic value accrue as AI develops? I study chips, cloud infrastructure, models, and applications across the US and China, using company disclosures and industry material to examine business models and competitive positions. Scheduled agents gather weekly updates and consensus data; I review the evidence and develop the interpretation. This is an ongoing independent research practice.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.ist.tag1">AI Value Chain</span>
+                  <span class="tag" data-i18n="p.ist.tag2">Business Models</span>
+                  <span class="tag" data-i18n="p.ist.tag3">US–China</span>
+                  <span class="tag" data-i18n="p.ist.tag4">Evidence Synthesis</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/kcas-ecosystem.svg"
+                    alt="KCAS Knowledge Capital Ecosystem frameworks"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.kcas.meta">Personal decision frameworks · Resource allocation</div>
+                  <h3 class="card__title" data-i18n="p.kcas.title">KCAS · Knowledge Capital Ecosystem</h3>
+                  <p class="card__body" data-i18n="p.kcas.b1">How should limited capital and attention be allocated? KCAS brings together four frameworks I use in personal research: separating asset quality from price, organizing evidence, comparing opportunity costs, and reviewing whether a project merits further effort. Making the reasoning explicit helps me revisit a choice when the facts change.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.kcas.tag1">Capital Allocation</span>
+                  <span class="tag" data-i18n="p.kcas.tag2">Opportunity Cost</span>
+                  <span class="tag" data-i18n="p.kcas.tag3">Decision Review</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/orbital-capex-mask.png"
+                    alt="Sentinel-2 false-colour scene beside the same scene with the built-surface mask overlaid, clipped to the owner's tax parcels"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.oc.meta">Alternative data for AI infrastructure research · In progress</div>
+                  <h3 class="card__title">Orbital Capex</h3>
+                  <p class="card__body" data-i18n="p.oc.b1">Can satellite imagery add an independent signal to AI infrastructure research between quarterly disclosures? I am testing Sentinel-2 observations of US data-centre construction, checking site boundaries against county records and public acreage. Early observations broadly follow a public construction timeline, but 10 m imagery mixes roofs, roads, and parking. The method remains in development; its predictive value for reported capex has not yet been validated.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.oc.tag1">AI Infrastructure</span>
+                  <span class="tag" data-i18n="p.oc.tag2">Alternative Data</span>
+                  <span class="tag" data-i18n="p.oc.tag3">Hypothesis Testing</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://github.com/zijunVV/orbital-capex" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
+                </div>
+              </article>
           </div>
 
           <div class="projects__group">
-            <h3 class="projects__group-title" data-i18n="projects.group1">Selected Work: Agents, Applied AI &amp; Analytics</h3>
+            <h3 class="projects__group-title" data-i18n="projects.business">Product thinking &amp; business building experiments</h3>
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/stock-analyzer.jpg"
+                    alt="Stock Analyzer multi-market AI analysis platform"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.sa.meta">Independent research product · Deployed demo</div>
+                  <h3 class="card__title">Stock Analyzer</h3>
+                  <p class="card__body" data-i18n="p.sa.b1">Stock Analyzer brings US, Hong Kong, and A-share data into one workflow for fundamentals, valuation, technicals, and sentiment. I designed the product and data flow, including an S&amp;P 500 screener and an AI value-chain map, to connect company-level analysis with an industry view. It is an independent tool for structuring company and industry research.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.sa.tag1">Research Workflow</span>
+                  <span class="tag" data-i18n="p.sa.tag2">AI Value Chain</span>
+                  <span class="tag" data-i18n="p.sa.tag3">Multi-market Data</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.liveDemo">Live demo →</a>
+                </div>
+              </article>
 
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
@@ -1800,24 +1899,87 @@
                   />
                 </div>
                 <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.smc.meta">Live MVP · Google ADK · Agent orchestration, memory and hybrid retrieval</div>
+                  <div class="card__meta" data-i18n="p.smc.meta">Independent AI product · Live MVP · User validation pending</div>
                   <h3 class="card__title">Social Memory Copilot</h3>
-                  <p class="card__body" data-i18n="p.smc.b1">
-                    Social Memory Copilot helps users pick up conversations with context: past discussions, commitments, and communication preferences. One coordinating agent manages session state, with separate components for retrieval and action confirmation. It cites the memories used in an answer and asks users to confirm agent-proposed writes, deletions, and reminders.
-                  </p>
-                  <p class="card__body" data-i18n="p.smc.b2">
-                    On 20 synthetic queries, BM25 and vector search with RRF and reranking improved Recall@5 from 0.682 to 0.889 in the local full configuration. The lighter Vercel configuration scored 0.757 on the same set. The retrieve-or-not component reached F1 0.963 on 28 labeled synthetic cases, and the repository reports 354 passing unit and integration tests. The demo uses synthetic data; evaluation with real users is a future step.
-                  </p>
+                  <p class="card__body" data-i18n="p.smc.b1">How can an AI assistant preserve useful context without taking control away from the user? I designed and built Social Memory Copilot to carry past conversations, commitments, and communication preferences into later interactions. Product choices include cited memory sources and user confirmation before agent-proposed updates, deletions, or reminders.</p>
+                  <p class="card__body" data-i18n="p.smc.b2">A small synthetic evaluation showed Recall@5 improving from 0.682 to 0.889 in the full local configuration, with 0.757 in the lighter deployed configuration, across 20 queries. The evaluation guides retrieval choices; real-user validation is the next step.</p>
                   <div class="card__tags">
-                    <span class="tag">Google ADK</span>
-                    <span class="tag">Python / FastAPI</span>
-                    <span class="tag">PostgreSQL / pgvector</span>
-                    <span class="tag">BM25 + HNSW</span>
-                    <span class="tag">RRF + Reranker</span>
-                    <span class="tag">Agent Memory</span>
+                  <span class="tag" data-i18n="p.smc.tag1">Product Design</span>
+                  <span class="tag" data-i18n="p.smc.tag2">User Trust</span>
+                  <span class="tag" data-i18n="p.smc.tag3">AI Prototyping</span>
+                  <span class="tag" data-i18n="p.smc.tag4">Retrieval Evaluation</span>
                   </div>
                   <a class="hero-card__cta" href="https://social-memory-copilot.vercel.app" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.liveDemo">Live demo →</a>
                   <a class="hero-card__cta" href="https://github.com/zijunVV/social-memory-copilot" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/culture.jpg"
+                    alt="Bridge the Gap cross-cultural food platform"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.btg.meta">Independent bilingual product experiment · Deployed demo</div>
+                  <h3 class="card__title">Bridge the Gap</h3>
+                  <p class="card__body" data-i18n="p.btg.b1">Bridge the Gap explores how AI translation and community knowledge can help people understand unfamiliar food and cultural practices. I designed the product around bilingual access and trust: answers are ranked by endorsements, confidence, and freshness, while community consensus can revise an AI label. The demo makes those product choices tangible; adoption has not yet been validated.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.btg.tag1">Bilingual Product</span>
+                  <span class="tag" data-i18n="p.btg.tag2">Community Trust</span>
+                  <span class="tag" data-i18n="p.btg.tag3">Ranking Design</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.live">Live →</a>
+                </div>
+              </article>
+
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/inner-order-os.png"
+                    alt="Inner Order OS life cultivation system interface"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.ioos.meta">Deployed · Preparing for alpha testing</div>
+                  <h3 class="card__title">Inner Order OS</h3>
+                  <p class="card__body" data-i18n="p.ioos.b1">Inner Order OS explores a focused reflection experience: one question at a time, with relevant past entries available as context. I owned product design and implementation, including prompts and output checks. The product is deployed and preparing for alpha testing; external access is not yet open.</p>
+                  <div class="card__tags">
+                  <span class="tag" data-i18n="p.ioos.tag1">Product Discovery</span>
+                  <span class="tag" data-i18n="p.ioos.tag2">Interaction Design</span>
+                  <span class="tag" data-i18n="p.ioos.tag3">AI Prototyping</span>
+                  </div>
+                  <a class="hero-card__cta" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.live">Live →</a>
+                  <a class="hero-card__cta" href="./inner-order-os-architecture.html" data-i18n="cta.architecture">Architecture →</a>
+                </div>
+              </article>
+          </div>
+
+          <details class="projects__group supporting-work">
+            <summary class="projects__group-title" data-i18n="projects.technical">Explore supporting AI, data &amp; research work</summary>
+            <div class="supporting-work__content">
+              <article class="project-list__item">
+                <div class="card__image" style="margin-bottom: 0;">
+                  <img
+                    src="./assets/images/diffusion.jpg"
+                    alt="Opinion diffusion across a network of agents"
+                  />
+                </div>
+                <div class="project-list__content">
+                  <div class="card__meta" data-i18n="p.scbm.meta">MS thesis · NLP and agent-based modelling</div>
+                  <h3 class="card__title" data-i18n="p.scbm.title">Sustainability Communication &amp; Behavioral Modeling</h3>
+                  <p class="card__body" data-i18n="p.scbm.b1">
+                    For my master's thesis, I filtered 78,116 sustainability-related reviews from the Yelp Open Dataset, used LDA to identify themes, and scored sentiment with multilingual BERT. Those results seeded a 500-agent network model in Mesa. Across three scenarios and a no-intervention baseline, I tested a simple question: when does a sustainability message spread through a community, and when does it stop? I designed, implemented, and interpreted the study independently.
+                  </p>
+                  <div class="card__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">gensim LDA</span>
+                    <span class="tag">BERT</span>
+                    <span class="tag">Mesa</span>
+                    <span class="tag">NetworkX</span>
+                    <span class="tag">Agent-based Modeling</span>
+                  </div>
                 </div>
               </article>
 
@@ -1850,173 +2012,6 @@
               <article class="project-list__item">
                 <div class="card__image" style="margin-bottom: 0;">
                   <img
-                    src="./assets/images/value-chain.svg"
-                    alt="AI value chain research framework"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.ist.meta">Scheduled research agents · Ongoing since early 2026</div>
-                  <h3 class="card__title" data-i18n="p.ist.title">AI industry research notes</h3>
-                  <p class="card__body" data-i18n="p.ist.b1">
-                    Since early 2026, I've been studying how economic value moves through the AI industry, including chips, cloud infrastructure, models, and applications in the US and China. For my own study, scheduled agents collect weekly industry material and consensus data. I read company disclosures and develop the interpretation myself, connecting technical choices with the business questions behind them.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">AI Value Chain</span>
-                    <span class="tag">Foundation Models</span>
-                    <span class="tag">US–China</span>
-                    <span class="tag">Agentic Workflows</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/stock-analyzer.jpg"
-                    alt="Stock Analyzer multi-market AI analysis platform"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.sa.meta">Deployed analysis tool · US · HK · A-share markets</div>
-                  <h3 class="card__title">Stock Analyzer</h3>
-                  <p class="card__body" data-i18n="p.sa.b1">
-                    Stock Analyzer brings live US, Hong Kong, and A-share market data into one research workflow for fundamentals, technicals, valuation, and sentiment. I designed the product, data flow, S&amp;P 500 screener, and AI value-chain map. The LLM layer can switch providers automatically, which keeps the core service usable when one model is unavailable.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">Groq LLM</span>
-                    <span class="tag">Multi-market Data</span>
-                    <span class="tag">AI Value-Chain Map</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://stockanalyzer-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.liveDemo">Live demo →</a>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/kcas-ecosystem.svg"
-                    alt="KCAS Knowledge Capital Ecosystem frameworks"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.kcas.meta">Open-source decision frameworks · Capital allocation</div>
-                  <h3 class="card__title" data-i18n="p.kcas.title">KCAS · Knowledge Capital Ecosystem</h3>
-                  <p class="card__body" data-i18n="p.kcas.b1">
-                    KCAS is a set of four connected frameworks I use for personal research and capital-allocation decisions. They separate asset quality from price, organize evidence, compare holdings by role and opportunity cost, and review whether a project merits continued attention. Writing down the reasoning makes it easier to revisit a decision as new information arrives.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Capital Allocation</span>
-                    <span class="tag">Knowledge-Capital Moats</span>
-                    <span class="tag">Compounding</span>
-                    <span class="tag">Framework Design</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/diffusion.jpg"
-                    alt="Opinion diffusion across a network of agents"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.scbm.meta">MS thesis · NLP and agent-based modelling</div>
-                  <h3 class="card__title" data-i18n="p.scbm.title">Sustainability Communication &amp; Behavioral Modeling</h3>
-                  <p class="card__body" data-i18n="p.scbm.b1">
-                    For my master's thesis, I filtered 78,116 sustainability-related reviews from the Yelp Open Dataset, used LDA to identify themes, and scored sentiment with multilingual BERT. Those results seeded a 500-agent network model in Mesa. Across three scenarios and a no-intervention baseline, I tested a simple question: when does a sustainability message spread through a community, and when does it stop? I designed, implemented, and interpreted the study independently.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">gensim LDA</span>
-                    <span class="tag">BERT</span>
-                    <span class="tag">Mesa</span>
-                    <span class="tag">NetworkX</span>
-                    <span class="tag">Agent-based Modeling</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/culture.jpg"
-                    alt="Bridge the Gap cross-cultural food platform"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.btg.meta">Bilingual AI knowledge product · Trust and ranking</div>
-                  <h3 class="card__title">Bridge the Gap</h3>
-                  <p class="card__body" data-i18n="p.btg.b1">
-                    Bridge the Gap helps people explore unfamiliar food and cultural practices in English and Chinese. AI supports translation, and community answers are ranked using endorsements, Wilson-score confidence bounds, and freshness. People familiar with the relevant culture contribute context, and community consensus can update the AI's initial label.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">Groq LLM</span>
-                    <span class="tag">Ranking Algorithm Design</span>
-                    <span class="tag">EN / 中 Bilingual</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://bridge-the-gap-ai.vercel.app/" target="_blank" rel="noreferrer" data-i18n="cta.live">Live →</a>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/inner-order-os.png"
-                    alt="Inner Order OS life cultivation system interface"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.ioos.meta">Deployed · Preparing for alpha testing</div>
-                  <h3 class="card__title">Inner Order OS</h3>
-                  <p class="card__body" data-i18n="p.ioos.b1">
-                    Inner Order OS is a reflection product that asks one question at a time, giving people space to think through their own answers. I designed the product, prompts, and structured-output checks, with retrieval to bring relevant past entries into the conversation. It is deployed and preparing for alpha testing, with external access not yet open.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Next.js 14</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">Groq API</span>
-                    <span class="tag">Prompt Engineering</span>
-                    <span class="tag">Output Validation</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://inner-order-os.vercel.app/" target="_blank" rel="noreferrer" style="margin-right: 1.25rem;" data-i18n="cta.live">Live →</a>
-                  <a class="hero-card__cta" href="./inner-order-os-architecture.html" data-i18n="cta.architecture">Architecture →</a>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
-                    src="./assets/images/orbital-capex-mask.png"
-                    alt="Sentinel-2 false-colour scene beside the same scene with the built-surface mask overlaid, clipped to the owner's tax parcels"
-                  />
-                </div>
-                <div class="project-list__content">
-                  <div class="card__meta" data-i18n="p.oc.meta">Alt-data method in progress · Free Sentinel-2 imagery</div>
-                  <h3 class="card__title">Orbital Capex</h3>
-                  <p class="card__body" data-i18n="p.oc.b1">
-                    Hyperscalers report AI capital expenditure quarterly; Sentinel-2 photographs many construction sites every five days. Orbital Capex explores whether those images can provide an independent, weekly signal by measuring built surfaces and cleared ground at US datacentre sites. The work has already exposed two useful limits: the standard NDBI index misses high-reflectance membrane roofs, and single images cannot reliably separate grey roofing from dry soil, so the pipeline uses persistence over time instead. Parcel boundaries come from county tax records and are checked against reported acreage. The first series moves with the site's public construction timeline, but the 10 m imagery still mixes roofs with roads and parking. The project therefore remains clearly labelled “Building” until a timestamped prediction can be tested against reported capex.
-                  </p>
-                  <div class="card__tags">
-                    <span class="tag">Sentinel-2</span>
-                    <span class="tag">STAC</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Remote Sensing</span>
-                    <span class="tag">Alternative Data</span>
-                    <span class="tag">Falsifiable Prediction</span>
-                  </div>
-                  <a class="hero-card__cta" href="https://github.com/zijunVV/orbital-capex" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
-                </div>
-              </article>
-
-              <article class="project-list__item">
-                <div class="card__image" style="margin-bottom: 0;">
-                  <img
                     src="./assets/images/airport-twin-ai-preview.png"
                     alt="AirportTwin AI digital twin road network preview"
                   />
@@ -2037,12 +2032,11 @@
                   <a class="hero-card__cta" href="https://github.com/zijunVV/airport-twin-ai" target="_blank" rel="noreferrer" data-i18n="cta.github">On GitHub →</a>
                 </div>
               </article>
-            <div class="project-list">
             </div>
-          </div>
+          </details>
 
           <div class="projects__group projects__group--secondary">
-            <h3 class="projects__group-title" data-i18n="projects.group2">Earlier Geospatial, Data &amp; Product Work</h3>
+            <h3 class="projects__group-title" data-i18n="projects.group2">Client delivery &amp; earlier applied work</h3>
             <div class="grid">
               <article class="card card--minimal">
                 <div class="card__meta" data-i18n="m.dash.meta">Analytics dashboard</div>
@@ -2164,11 +2158,9 @@
       <section id="contact" class="section">
         <div class="shell contact">
           <div class="section-heading section-heading--center">
-            <h2 class="section-heading__title" data-i18n="contact.title">Let's talk</h2>
+            <h2 class="section-heading__title" data-i18n="contact.title">Let's discuss the next move</h2>
           </div>
-          <p class="contact__intro" data-i18n="contact.intro">
-            If your team is exploring an AI or data problem, I'd be glad to hear what you're working on. I'm open to applied AI and data science opportunities, and always happy to compare notes with people building related tools. Email is the easiest way to reach me.
-          </p>
+          <p class="contact__intro" data-i18n="contact.intro">I'm exploring CEO Office, Strategy &amp; Operations, and New Business roles in AI and technology companies. If your team needs someone to research a market, structure an ambiguous business question, or coordinate a pilot, I'd be glad to connect. I also welcome conversations with founders and potential collaborators. Email is the easiest way to reach me.</p>
 
           <div class="contact__links">
             <a href="mailto:zijun.wangzj@hotmail.com" class="contact__link">
@@ -2213,75 +2205,70 @@
           'nav.about': '关于',
           'nav.approach': '方法',
           'nav.experience': '经历',
-          'nav.projects': '项目',
+          "nav.projects": "精选作品",
           'nav.education': '教育',
           'nav.contact': '联系',
-
-          'hero.eyebrow': '应用 AI · 数据科学',
-          'hero.title': '<span class="hero__phrase">从人的需要出发，</span> <span class="hero__phrase">构建 AI 应用</span>',
-          'hero.subtitle': '你好，我是子君。我做 AI 应用，帮助人们找到有用的信息，为决策提供依据。此前，我在国内从事数据分析与产品交付，后来在纽约州立大学布法罗分校开展定量研究。',
-          'hero.comp1': '智能体工作流与记忆',
-          'hero.comp2': 'LLM、检索与工具调用',
-          'hero.comp3': 'Python / SQL 分析',
-          'hero.comp4': '业务问题与指标设计',
-          'hero.comp5': '中英文沟通与团队协作',
-
+          "hero.eyebrow": "AI 与科技 · 战略与业务探索",
+          "hero.title": "<span class=\"hero__phrase\">读懂产业，</span> <span class=\"hero__phrase\">找到下一步</span>",
+          "hero.subtitle": "你好，我是子君。我将产业研究、产品思维与跨团队执行结合起来，把新兴技术与复杂市场中的问题，转化为有依据的战略选择和可以验证的业务机会。",
+          "hero.comp1": "产业与竞争研究",
+          "hero.comp2": "战略叙事与信息整合",
+          "hero.comp3": "产品与商业思维",
+          "hero.comp4": "决策分析与指标设计",
+          "hero.comp5": "跨团队协同与执行",
           'about.title': '关于',
-          'about.p1': '我喜欢先和使用者聊聊，了解他们需要做什么决定，以及实际工作中有哪些限制。再一起把问题梳理成可以尝试和验证的方案。我希望使用者能看懂答案的依据，也能自己决定如何使用它。',
-          'about.p2': '我独立构建并部署了四个 LLM 应用，负责产品设计、数据模型、开发，以及部署后的调试。在 Social Memory Copilot 中，我关注对话上下文如何延续、回答如何呈现来源，以及怎样让用户决定是否保存记忆或创建提醒。',
-          'about.p3': '我的 Python 和 SQL 经验来自 NLP 与智能体建模论文、NSF 资助课题的定量分析，以及两年的 KPI 定义与报表工作。这些经历让我习惯核对假设、说明数据能支持哪些结论，方便同事判断结果适用于什么场景。',
-          'about.p4': '在六个以上政府数字化项目中，我与客户一起澄清需求、商定指标，并和工程、数据、设计同事协作交付。我也逐渐学会给讨论留出空间，把不同方案的取舍说明白，并根据对方的背景调整表达。',
-          'about.p5': '我的起点是地理信息科学与遥感，早期使用卫星影像支持公共规划和环境评估。将估算结果与独立观测相互核对，至今仍是我处理数据问题时常用的方法。',
-          'about.p6': '我正在寻找应用 AI 与数据科学方向的机会，希望能与使用者保持交流，一起改进产品。我可以配合工作地点安排搬迁和现场办公，能够使用普通话和英语工作，也能用粤语进行日常交流。',
-          'about.focusLabel': '重点领域',
+          "about.p1": "我的经历横跨产品管理、数据分析与定量研究。现在，我希望把这些积累用于 AI 与科技企业的战略和业务问题：价值在哪里产生，哪些问题值得解决，团队下一步应该验证什么。",
+          "about.p2": "从 2026 年初开始，我独立研究中美 AI 产业链，覆盖芯片、云基础设施、模型与应用。结合公司披露与行业资料，我关注技术变化如何影响商业模式和竞争位置，以及一个判断依赖哪些假设。",
+          "about.p3": "担任产品经理与数据分析师期间，我参与了六个以上政府数字化项目，协调十人以上、横跨工程、数据、设计与市场的团队。我的工作是把客户需求和共同认可的指标，连接到项目交付、分析汇报与决策建议。",
+          "about.p4": "我也独立构建并部署了四个 LLM 应用。这些动手实践帮助我判断 AI 的能力边界、做出产品取舍，并将想法变成可运行的原型。目前它们仍是早期产品实验，用户验证是后续工作。",
+          "about.p5": "地理信息科学背景与 NSF 资助课题的研究经历，让我习惯检验假设、交叉核对来源，并说明结论的不确定性。Python、SQL 和 AI 工作流帮助我更高效地收集与分析证据。",
+          "about.p6": "我正在寻找 CEO Office、战略与运营、新业务方向的机会，希望以研究和执行贡献价值，逐步承担更完整的业务责任，长期走向综合经营管理或创业。我能以普通话和英语工作，粤语可日常交流，接受搬迁与现场办公。",
+          "about.focusLabel": "可以贡献的方向",
           'ap.title': '工作方式',
-          'ap.frame.meta': '01 · 拆解',
-          'ap.frame.title': '一起理解要做的决策',
-          'ap.frame.body': '我会先听最了解业务的人介绍：需要做什么决定、手头有哪些信息、哪里需要帮助。再一起确定第一步做什么，以及如何判断它是否有用。',
-          'ap.orchestrate.meta': '02 · 编排',
-          'ap.orchestrate.title': '让依据与操作清晰可见',
-          'ap.orchestrate.body': '我会把检索决策、模型路由和工具权限写成可测试的逻辑。回答中的来源方便用户核对，确认步骤则让用户掌握数据修改和提醒操作的决定权。',
-          'ap.measure.meta': '03 · 衡量',
-          'ap.measure.title': '围绕使用场景做评估',
-          'ap.measure.body': '我会通过检索质量、路由准确率或未知请求的处理表现来比较方案，同时记录数据集与运行配置。再根据错误分析，确定接下来值得改进的部分。',
-          'ap.productise.meta': '04 · 产品化',
-          'ap.productise.title': '让重复工作更省力',
-          'ap.productise.body': '当一个问题反复出现时，我会尝试把处理方法做成可复用的工具或流程。统一的指标、脚本和定时智能体，可以帮助团队减少信息整理的时间，留出更多精力讨论下一步。',
-
-          'exp.title': '经历',
-          "about.lo": "我也在建设独立内容品牌「生境志 / Living Origins」，探索水土、时令与手艺如何塑造日常之物。以妙峰山为第一块田野，将地理学背景延伸到内容研究、叙事和视觉表达。",
+          "ap.frame.meta": "01 · 明确决策",
+          "ap.frame.title": "从业务问题出发",
+          "ap.frame.body": "先明确谁需要做决定、希望达成什么结果，以及有哪些现实约束。把开放式任务收敛为具体问题，写清假设和判断标准。",
+          "ap.orchestrate.meta": "02 · 建立依据",
+          "ap.orchestrate.title": "梳理市场与价值来源",
+          "ap.orchestrate.body": "结合公司披露、产业研究与客户情境，梳理价值链和竞争选项。区分事实与解释，找出哪些信息缺口可能改变结论；用 AI 和数据工具支持收集与分析。",
+          "ap.measure.meta": "03 · 比较取舍",
+          "ap.measure.title": "把分析变成可讨论的建议",
+          "ap.measure.body": "从客户价值、可行性、资源需求和风险比较选项。讲清建议背后的逻辑：值得做什么，依据是什么，出现哪些新证据时需要调整判断。",
+          "ap.productise.meta": "04 · 推进与验证",
+          "ap.productise.title": "让下一步有人负责、有据可验",
+          "ap.productise.body": "把建议转化为范围清晰的试点或交付计划，明确责任分工、里程碑和衡量指标。协调各团队，必要时用原型验证，并根据结果决定是否继续投入。",
+          "exp.title": "工作经历与独立实践",
+          "about.lo": "我还在建设独立内容品牌「生境志 / Living Origins」，从水土、时令与手艺出发，以妙峰山为第一块田野，练习品牌定位、基于研究的叙事和持续内容生产。",
           "exp.lo.meta": "2026 至今",
           "exp.lo.title": "独立创作者与内容策划",
           "exp.lo.d1": "建设独立内容品牌「生境志」，从地理、植物、时令与手艺出发，追问日常之物的来处。制定品牌定位、视觉识别和内容框架，以妙峰山为第一块田野，围绕玫瑰、茉莉花茶，以及背后的人与工艺展开叙事。",
           "exp.lo.d2": "搭建连接资料研究、证据记录、长文写作与各平台视觉制作的可复用工作流。制作适用于公众号、小红书和 Instagram 的文章与轮播图卡，明确区分已核实事实、观察和阐释。",
           'exp.e1.meta': '2026 至今',
-          'exp.e1.title': '独立应用 AI 工程师与研究者',
-          'exp.e1.d1': '从产品取舍到上线后的调试，独立构建并部署了四个 LLM 应用。其中最完整的 Social Memory Copilot 基于 Google ADK，包含按用户隔离的工具权限、按需检索、来源引用、会话与长期记忆分离、写入前确认，以及组件失效时的降级处理。我也持续维护这些产品的数据模型、输出护栏、评测和监控。',
-          'exp.e1.d2': '为自己学习中美 AI 产业搭建定时工作流。智能体整理每周行业信息和一致预期数据，我再阅读公司披露，结合背景形成自己的理解。',
+          "exp.e1.title": "独立 AI 产业研究与产品实践",
+          "exp.e1.d1": "独立研究中美 AI 产业链，将芯片、云基础设施、模型和应用的变化与商业问题联系起来。阅读公司披露与行业资料，并用定时智能体整理每周动态和一致预期数据，支持个人研究。",
+          "exp.e1.d2": "独立构建并部署四个 LLM 应用，负责产品构思、数据设计、实现与迭代，覆盖研究工具和对话产品。Social Memory Copilot 探索如何通过来源透明与用户控制提升 AI 助手的可用性；演示使用合成数据，真实用户验证仍是下一步。",
           'exp.e2.meta': '2024–2025',
           'exp.e2.title': '研究助理',
           'exp.e2.d1': '负责一项 NSF 资助课题的定量分析，研究极端冬季风暴中的社区韧性。我结合调查、行为与空间数据，理解地理位置、信息接触和线上社区如何影响互助决定。',
           'exp.e2.d2': '从数据准备、统计建模到验证，设计并完成整套分析流程，再把结果写成研究团队与资助方都能清楚使用的结论。',
           'exp.e3.meta': '2021–2023',
           'exp.e3.title': '产品经理与数据分析师',
-          'exp.e3.d1': '在六个以上政府数字化项目中负责业务分析，主要涉及监测与预警平台。我与业务方商定 KPI，编写配套 SQL 和分析流程。遇到报表差异时，我们一起核对源数据和计算规则，明确一致的解释口径。',
-          'exp.e3.d2': '用 Python 脚本和可复用查询替代重复的手工取数；协调一个十人以上、横跨工程、数据、设计与市场的团队，并针对技术与非技术决策者调整汇报方式。多项建议最终得到采纳。',
+          "exp.e3.d1": "在六个以上政府数字化项目中负责业务分析，主要涉及监测与预警平台。与客户澄清需求、定义 KPI，统一数据与汇报口径，让各团队依据一致的信息开展工作。",
+          "exp.e3.d2": "协调十人以上、横跨工程、数据、设计与市场的团队推进交付。针对技术和非技术决策者，将分析转化为建议，多项建议得到采纳。同时以 Python 脚本和可复用 SQL 查询替代重复的手工取数。",
           'exp.e4.meta': '2019–2020',
           'exp.e4.title': '遥感分析师与项目经理',
           'exp.e4.d1': '为公共规划与环境评估处理大型地理空间数据，使用机器学习分类与空间分析，参与开发并验证结合卫星影像和环境指标的估算方法。',
           'exp.e4.d2': '负责从第一次客户沟通，到分析、报告、演示和可落地建议的完整交付。',
-
-          'projects.title': '项目',
-          'projects.group1': '精选作品：智能体、应用 AI 与分析',
-          'projects.group2': '早期地理空间、数据与产品工作',
-
-          'p.smc.meta': '在线 MVP · Google ADK · 智能体编排、记忆与混合检索',
-          'p.smc.b1': 'Social Memory Copilot 帮助用户在继续交流时找回背景，包括过去的讨论、承诺和沟通偏好。系统由一个主智能体管理会话状态，检索和操作确认分别由独立组件处理。回答会标注记忆来源，智能体提出的写入、删除和提醒操作都需用户确认。',
-          'p.smc.b2': '在 20 条合成查询上，本地完整配置将 BM25 与向量检索通过 RRF 和重排结合，Recall@5 从 0.682 提高到 0.889；线上 Vercel 轻量配置在同一评测集上为 0.757。是否检索的决策组件在 28 条人工标注的合成样本上达到 F1 0.963。仓库记录了 354 项通过的单元与集成测试。演示使用合成数据，真实用户验证是后续步骤。',
-          'p.btg.meta': '双语 AI 知识产品 · 信任与排序',
-          'p.btg.b1': 'Bridge the Gap 帮助人们用中英文了解不熟悉的食物和文化习惯。AI 协助翻译，社区回答根据认可度、Wilson 置信区间和时效性排序。熟悉相关文化的人可以补充背景，社区共识也可以更新 AI 最初的标签。',
+          "projects.title": "精选作品",
+          "projects.group1": "产业研究与决策框架",
+          "projects.group2": "客户交付与早期应用实践",
+          "p.smc.meta": "独立 AI 产品 · 在线 MVP · 待用户验证",
+          "p.smc.b1": "AI 助手如何保留有用的上下文，同时让用户掌握控制权？我设计并构建 Social Memory Copilot，将过往对话、承诺与沟通偏好带入后续交流。产品取舍包括显示记忆来源，以及在智能体提出更新、删除或提醒操作时要求用户确认。",
+          "p.smc.b2": "在 20 条合成查询的小规模评测中，本地完整配置的 Recall@5 从 0.682 提升至 0.889，轻量部署配置为 0.757。这有助于比较检索方案的取舍，用户需求仍需通过真实用户验证。",
+          "p.btg.meta": "独立双语产品实验 · 已部署演示",
+          "p.btg.b1": "Bridge the Gap 探索 AI 翻译与社区知识如何帮助人们理解陌生的食物和文化习惯。我围绕双语访问与信任设计产品：按认可度、置信度和时效性排列回答，并允许社区共识修正 AI 标签。演示将这些产品取舍具体化，用户采纳仍待验证。",
           'p.ioos.meta': '已部署 · 准备 alpha 测试',
-          'p.ioos.b1': 'Inner Order OS 是一个自我反思产品，一次提出一个问题，给使用者留出思考自己答案的空间。我负责产品设计、提示词和结构化输出检查，并通过检索将相关的过往记录带回对话。项目已部署，正在准备 alpha 测试，尚未向外部用户开放。',
+          "p.ioos.b1": "Inner Order OS 探索专注的自我反思体验：一次只问一个问题，并将相关的过往记录作为上下文。我负责产品设计与实现，包括提示词和输出检查。产品已部署，正在准备 alpha 测试，尚未开放外部访问。",
           'p.cir.meta': '模型微调 · 置信度阈值评估',
           'p.cir.title': '中文意图识别与置信度路由',
           'p.cir.b1': '我用 9,972 条训练语料微调中文编码器，覆盖 50 个意图，在已知意图测试集上达到 87% 准确率。另有十个意图完全不参与训练，用来评估模型如何处理未覆盖的请求。',
@@ -2289,19 +2276,18 @@
           'p.scbm.meta': '硕士论文 · NLP 与基于智能体的建模',
           'p.scbm.title': '可持续性传播与行为建模',
           'p.scbm.b1': '硕士论文从 Yelp 公开数据集中筛出 78,116 条可持续性相关评论，用 LDA 识别主题，再用多语言 BERT 评估情绪。随后，这些结果被用于初始化 Mesa 中一个包含 500 个智能体的网络模型。通过三种情景和“无干预”基线，我测试了一个简单问题：一条可持续性信息什么时候会在社区中传播，又会在什么时候停下来？研究由我独立设计、实现和解读。',
-          'p.sa.meta': '已部署分析工具 · 美股 · 港股 · A 股',
-          'p.sa.b1': 'Stock Analyzer 把美股、港股和 A 股的实时数据放进同一套研究流程，覆盖基本面、技术面、估值和情绪。我负责产品、数据流程、标普 500 筛选器与 AI 价值链图谱；LLM 层可自动切换供应商，在单个模型不可用时保留核心服务。',
+          "p.sa.meta": "独立研究工具 · 已部署演示",
+          "p.sa.b1": "Stock Analyzer 将美股、港股和 A 股数据放入同一研究流程，覆盖基本面、估值、技术面与情绪。我负责产品与数据流程，设计标普 500 筛选器和 AI 价值链图谱，将公司分析与产业视角连接起来。这是一款用于梳理公司与产业信息的独立研究工具。",
           'p.ata.meta': '地理空间 AI 流水线 · 香港机场智慧交通',
           'p.ata.b1': 'AirportTwin AI 是香港国际机场及北大屿山周边道路的 GIS 到 3D 原型。它清洗公开的 OpenStreetMap 数据，生成可用于场景的几何体，并整理为面向 USD 的结构，为后续交通仿真做准备。',
-          'p.oc.meta': '进行中的另类数据方法 · 免费 Sentinel-2 影像',
-          'p.oc.b1': '大型云厂商按季度披露 AI 资本开支，而 Sentinel-2 大约每五天就会拍到不少施工现场。Orbital Capex 尝试用这些免费影像，建立一条独立的周度信号，观察美国数据中心的建成表面与清整土地。项目已经暴露出两个重要限制：常用的 NDBI 会漏掉高反射膜屋顶，单景影像也难以区分灰色屋顶与干燥裸土，因此流程改用时间上的持续性来判断。场地边界来自县级税务地块，并与公开面积交叉核对。首条序列与公开施工进度大致同步，但 10 米影像仍会把道路和停车场算进去，所以项目继续明确标为“建设中”，等带时间戳的预测真正与资本开支数据对照后再谈结论。',
-          'p.ist.meta': '定时研究智能体 · 自 2026 年初持续进行',
-          'p.ist.title': 'AI 产业学习与研究',
-          'p.ist.b1': '从 2026 年初开始，我持续学习中美 AI 产业，关注芯片、云基础设施、模型和应用中的经济价值如何变化。定时智能体为我的个人学习收集每周行业资料与一致预期数据，我再阅读公司披露并形成自己的理解，将技术选择与背后的商业问题联系起来。',
-          'p.kcas.meta': '开源决策框架 · 资本配置',
+          "p.oc.meta": "AI 基础设施研究的另类数据 · 进行中",
+          "p.oc.b1": "卫星影像能否在季度披露之间，为 AI 基础设施研究提供独立信号？我用 Sentinel-2 观察美国数据中心建设，并以县级记录和公开面积核对场地边界。早期观测与公开施工时间线大致同步，但 10 米影像会混合屋顶、道路和停车场。方法仍在开发，对资本开支的预测能力尚未验证。",
+          "p.ist.meta": "独立产业研究 · 自 2026 年初持续进行",
+          "p.ist.title": "AI 价值链与商业模式研究",
+          "p.ist.b1": "AI 发展过程中，经济价值会流向哪里？我结合公司披露和行业资料，研究中美芯片、云基础设施、模型与应用的商业模式和竞争位置。定时智能体整理每周动态和一致预期数据，我负责审阅证据与形成判断。这是一项持续进行的独立研究实践。",
+          "p.kcas.meta": "个人决策框架 · 资源配置",
           'p.kcas.title': 'KCAS · 知识资本生态',
-          'p.kcas.b1': 'KCAS 是我用于个人研究与资本配置决策的四套相互衔接的框架，分别帮助区分资产质量与价格、整理证据、按角色和机会成本比较持仓，以及评估项目是否值得继续投入。把推理过程写下来，方便在新信息出现时重新审视判断。',
-
+          "p.kcas.b1": "有限的资金与注意力应该投向哪里？KCAS 汇集了我用于个人研究的四套框架：区分资产质量与价格、整理证据、比较机会成本，以及审视项目是否值得继续投入。将推理过程写清楚，方便在事实变化时重新检验判断。",
           'm.dash.meta': '分析仪表盘',
           'm.dash.title': '可持续食品消费者洞察仪表盘',
           'm.dash.b1': '在 Tableau 中分析消费者评论，把可持续性主题与情绪模式连接到实际 KPI 和采纳建议。',
@@ -2328,91 +2314,139 @@
           'edu.d3.meta': '2015–2018',
           'edu.d3.title': '人文地理与城乡规划 理学学士',
           'edu.d3.desc': '与地理信息科学学位同期完成，关注空间问题中人的一面：人、城市与土地利用如何彼此影响。',
-
-          'contact.title': '聊聊你的项目',
-          'contact.intro': '如果你的团队正在探索 AI 或数据应用，欢迎聊聊正在做的项目。我在寻找应用 AI 与数据科学方向的工作机会，也愿意与做相关工具的朋友交流经验。通过邮件联系我最方便。',
-
+          "contact.title": "聊聊下一步",
+          "contact.intro": "我正在寻找 AI 与科技企业的 CEO Office、战略与运营、新业务岗位。如果你的团队需要研究市场、梳理尚不清晰的业务问题，或协调推进一个试点，欢迎联系。我也希望与创始人及潜在合作伙伴交流。通过邮件联系我最方便。",
           'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有权利。',
 
           'cta.liveDemo': '在线演示 →',
           'cta.live': '在线 →',
           'cta.github': 'GitHub 源码 →',
-          'cta.architecture': '架构 →'
+          'cta.architecture': '架构 →',
+          "hero.roles": "求职方向：CEO Office · 战略与运营 · 新业务",
+          "hero.work": "查看精选作品 →",
+          "hero.contact": "联系我 →",
+          "projects.intro": "独立研究与产品实验，以及此前的客户项目和学术工作。每个项目说明所研究的问题、我的贡献与当前证据的边界。",
+          "projects.business": "产品思维与业务探索",
+          "projects.technical": "展开 AI、数据与研究实践",
+          "about.tag1": "产业研究",
+          "about.tag2": "商业模式",
+          "about.tag3": "战略分析与表达",
+          "about.tag4": "产品探索",
+          "about.tag5": "决策框架",
+          "about.tag6": "KPI 与指标设计",
+          "about.tag7": "跨团队交付",
+          "about.tag8": "AI 与数据工具",
+          "ap.frame.tag1": "问题定义",
+          "ap.frame.tag2": "相关方情境",
+          "ap.frame.tag3": "成功标准",
+          "ap.orchestrate.tag1": "价值链",
+          "ap.orchestrate.tag2": "来源核对",
+          "ap.orchestrate.tag3": "竞争分析",
+          "ap.measure.tag1": "方案取舍",
+          "ap.measure.tag2": "战略叙事",
+          "ap.measure.tag3": "决策框架",
+          "ap.productise.tag1": "试点设计",
+          "ap.productise.tag2": "跨团队执行",
+          "ap.productise.tag3": "指标复盘",
+          "exp.e1.tag1": "AI 产业研究",
+          "exp.e1.tag2": "商业模式",
+          "exp.e1.tag3": "产品探索",
+          "exp.e1.tag4": "决策支持",
+          "exp.e1.tag5": "AI 原型验证",
+          "p.ist.tag1": "AI 价值链",
+          "p.ist.tag2": "商业模式",
+          "p.ist.tag3": "中美产业",
+          "p.ist.tag4": "证据整合",
+          "p.kcas.tag1": "资本配置",
+          "p.kcas.tag2": "机会成本",
+          "p.kcas.tag3": "决策复盘",
+          "p.oc.tag1": "AI 基础设施",
+          "p.oc.tag2": "另类数据",
+          "p.oc.tag3": "假设检验",
+          "p.sa.tag1": "研究流程",
+          "p.sa.tag2": "AI 价值链",
+          "p.sa.tag3": "多市场数据",
+          "p.smc.tag1": "产品设计",
+          "p.smc.tag2": "用户信任",
+          "p.smc.tag3": "AI 原型验证",
+          "p.smc.tag4": "检索评测",
+          "p.btg.tag1": "双语产品",
+          "p.btg.tag2": "社区信任",
+          "p.btg.tag3": "排序设计",
+          "p.ioos.tag1": "产品探索",
+          "p.ioos.tag2": "交互设计",
+          "p.ioos.tag3": "AI 原型验证",
+          "exp.e1.org": "自主研究与产品实验",
         },
         'zh-Hant': {
           'nav.home': '首頁',
           'nav.about': '關於',
           'nav.approach': '方法',
           'nav.experience': '經歷',
-          'nav.projects': '項目',
+          "nav.projects": "精選作品",
           'nav.education': '教育',
           'nav.contact': '聯繫',
-
-          'hero.eyebrow': '應用 AI · 數據科學',
-          'hero.title': '<span class="hero__phrase">從人的需要出發，</span> <span class="hero__phrase">建構 AI 應用</span>',
-          'hero.subtitle': '你好，我是子君。我做 AI 應用，幫助人們找到有用的資訊，為決策提供依據。此前，我在內地從事數據分析與產品交付，後來在紐約州立大學布法羅分校開展定量研究。',
-          'hero.comp1': '智能體工作流與記憶',
-          'hero.comp2': 'LLM、檢索與工具調用',
-          'hero.comp3': 'Python / SQL 分析',
-          'hero.comp4': '業務問題與指標設計',
-          'hero.comp5': '中英文溝通與團隊協作',
-
+          "hero.eyebrow": "AI 與科技 · 策略與業務探索",
+          "hero.title": "<span class=\"hero__phrase\">讀懂產業，</span> <span class=\"hero__phrase\">找到下一步</span>",
+          "hero.subtitle": "你好，我是子君。我將產業研究、產品思維與跨團隊執行結合起來，把新興技術與複雜市場中的問題，轉化為有依據的策略選擇和可以驗證的業務機會。",
+          "hero.comp1": "產業與競爭研究",
+          "hero.comp2": "策略敘事與資訊整合",
+          "hero.comp3": "產品與商業思維",
+          "hero.comp4": "決策分析與指標設計",
+          "hero.comp5": "跨團隊協同與執行",
           'about.title': '關於',
-          'about.p1': '我喜歡先和使用者聊聊，了解他們需要做甚麼決定，以及實際工作中有哪些限制。再一起把問題梳理成可以嘗試和驗證的方案。我希望使用者能看懂答案的依據，也能自己決定如何使用它。',
-          'about.p2': '我獨立建構並部署了四個 LLM 應用，負責產品設計、數據模型、開發，以及部署後的調試。在 Social Memory Copilot 中，我關注對話上下文如何延續、回答如何呈現來源，以及怎樣讓用戶決定是否儲存記憶或建立提醒。',
-          'about.p3': '我的 Python 和 SQL 經驗來自 NLP 與智能體建模論文、NSF 資助課題的定量分析，以及兩年的 KPI 定義與報表工作。這些經歷讓我習慣核對假設、說明數據能支持哪些結論，方便同事判斷結果適用於甚麼場景。',
-          'about.p4': '在六個以上政府數字化項目中，我與客戶一起釐清需求、商定指標，並和工程、數據、設計同事協作交付。我也逐漸學會給討論留出空間，把不同方案的取捨說明白，並根據對方的背景調整表達。',
-          'about.p5': '我的起點是地理信息科學與遙感，早期使用衛星影像支持公共規劃和環境評估。將估算結果與獨立觀測相互核對，至今仍是我處理數據問題時常用的方法。',
-          'about.p6': '我正在尋找應用 AI 與數據科學方向的機會，希望能與使用者保持交流，一起改進產品。我可以配合工作地點安排搬遷和現場辦公，能夠使用普通話和英語工作，也能用粵語進行日常交流。',
-          'about.focusLabel': '重點領域',
+          "about.p1": "我的經歷橫跨產品管理、數據分析與定量研究。現在，我希望把這些積累用於 AI 與科技企業的策略和業務問題：價值在哪裡產生，哪些問題值得解決，團隊下一步應該驗證甚麼。",
+          "about.p2": "從 2026 年初開始，我獨立研究中美 AI 產業鏈，涵蓋晶片、雲基礎設施、模型與應用。結合公司披露與行業資料，我關注技術變化如何影響商業模式和競爭位置，以及一個判斷依賴哪些假設。",
+          "about.p3": "擔任產品經理與數據分析師期間，我參與了六個以上政府數碼化項目，協調十人以上、橫跨工程、數據、設計與市場的團隊。我的工作是把客戶需求和共同認可的指標，連接到項目交付、分析匯報與決策建議。",
+          "about.p4": "我也獨立建構並部署了四個 LLM 應用。這些動手實踐幫助我判斷 AI 的能力邊界、作出產品取捨，並將想法變成可運行的原型。目前它們仍是早期產品實驗，用戶驗證是後續工作。",
+          "about.p5": "地理信息科學背景與 NSF 資助課題的研究經歷，讓我習慣檢驗假設、交叉核對來源，並說明結論的不確定性。Python、SQL 和 AI 工作流幫助我更有效地收集與分析證據。",
+          "about.p6": "我正在尋找 CEO Office、策略與營運、新業務方向的機會，希望以研究和執行貢獻價值，逐步承擔更完整的業務責任，長期走向綜合經營管理或創業。我能以普通話和英語工作，粵語可日常交流，接受搬遷與現場辦公。",
+          "about.focusLabel": "可以貢獻的方向",
           'ap.title': '工作方式',
-          'ap.frame.meta': '01 · 拆解',
-          'ap.frame.title': '一起理解要做的決策',
-          'ap.frame.body': '我會先聽最了解業務的人介紹：需要做甚麼決定、手頭有哪些資訊、哪裡需要幫助。再一起確定第一步做甚麼，以及如何判斷它是否有用。',
-          'ap.orchestrate.meta': '02 · 編排',
-          'ap.orchestrate.title': '讓依據與操作清晰可見',
-          'ap.orchestrate.body': '我會把檢索決策、模型路由和工具權限寫成可測試的邏輯。回答中的來源方便用戶核對，確認步驟則讓用戶掌握數據修改和提醒操作的決定權。',
-          'ap.measure.meta': '03 · 衡量',
-          'ap.measure.title': '圍繞使用場景做評估',
-          'ap.measure.body': '我會透過檢索品質、路由準確率或未知請求的處理表現來比較方案，同時記錄數據集與運行配置。再根據錯誤分析，確定接下來值得改進的部分。',
-          'ap.productise.meta': '04 · 產品化',
-          'ap.productise.title': '讓重複工作更省力',
-          'ap.productise.body': '當一個問題反覆出現時，我會嘗試把處理方法做成可復用的工具或流程。統一的指標、腳本和定時智能體，可以幫助團隊減少資訊整理的時間，留出更多精力討論下一步。',
-
-          'exp.title': '經歷',
-          "about.lo": "我也在建設獨立內容品牌「生境志 / Living Origins」，探索水土、時令與手藝如何塑造日常之物。以妙峰山為第一塊田野，將地理學背景延伸到內容研究、敘事和視覺表達。",
+          "ap.frame.meta": "01 · 明確決策",
+          "ap.frame.title": "從業務問題出發",
+          "ap.frame.body": "先明確誰需要作決定、希望達成甚麼結果，以及有哪些現實限制。把開放式任務收斂為具體問題，寫清假設和判斷標準。",
+          "ap.orchestrate.meta": "02 · 建立依據",
+          "ap.orchestrate.title": "梳理市場與價值來源",
+          "ap.orchestrate.body": "結合公司披露、產業研究與客戶情境，梳理價值鏈和競爭選項。區分事實與解釋，找出哪些資訊缺口可能改變結論；用 AI 和數據工具支持收集與分析。",
+          "ap.measure.meta": "03 · 比較取捨",
+          "ap.measure.title": "把分析變成可討論的建議",
+          "ap.measure.body": "從客戶價值、可行性、資源需求和風險比較選項。講清建議背後的邏輯：值得做甚麼，依據是甚麼，出現哪些新證據時需要調整判斷。",
+          "ap.productise.meta": "04 · 推進與驗證",
+          "ap.productise.title": "讓下一步有人負責、有據可驗",
+          "ap.productise.body": "把建議轉化為範圍清晰的試點或交付計劃，明確責任分工、里程碑和衡量指標。協調各團隊，必要時用原型驗證，並根據結果決定是否繼續投入。",
+          "exp.title": "工作經歷與獨立實踐",
+          "about.lo": "我還在建設獨立內容品牌「生境志 / Living Origins」，從水土、時令與手藝出發，以妙峰山為第一塊田野，練習品牌定位、基於研究的敘事和持續內容製作。",
           "exp.lo.meta": "2026 至今",
           "exp.lo.title": "獨立創作者與內容策劃",
           "exp.lo.d1": "建設獨立內容品牌「生境志」，從地理、植物、時令與手藝出發，追問日常之物的來處。制定品牌定位、視覺識別和內容框架，以妙峰山為第一塊田野，圍繞玫瑰、茉莉花茶，以及背後的人與工藝展開敘事。",
           "exp.lo.d2": "搭建連接資料研究、證據記錄、長文寫作與各平台視覺製作的可復用工作流。製作適用於公眾號、小紅書和 Instagram 的文章與輪播圖卡，明確區分已核實事實、觀察和闡釋。",
           'exp.e1.meta': '2026 至今',
-          'exp.e1.title': '獨立應用 AI 工程師與研究者',
-          'exp.e1.d1': '從產品取捨到上線後的調試，獨立建構並部署了四個 LLM 應用。其中最完整的 Social Memory Copilot 基於 Google ADK，包含按用戶隔離的工具權限、按需檢索、來源引用、會話與長期記憶分離、寫入前確認，以及組件失效時的降級處理。我也持續維護這些產品的數據模型、輸出護欄、評測和監控。',
-          'exp.e1.d2': '為自己學習中美 AI 產業搭建定時工作流。智能體整理每週行業資訊和一致預期數據，我再閱讀公司披露，結合背景形成自己的理解。',
+          "exp.e1.title": "獨立 AI 產業研究與產品實踐",
+          "exp.e1.d1": "獨立研究中美 AI 產業鏈，將晶片、雲基礎設施、模型和應用的變化與商業問題聯繫起來。閱讀公司披露與行業資料，並用定時智能體整理每週動態和一致預期數據，支持個人研究。",
+          "exp.e1.d2": "獨立建構並部署四個 LLM 應用，負責產品構思、數據設計、實現與迭代，涵蓋研究工具和對話產品。Social Memory Copilot 探索如何透過來源透明與用戶控制提升 AI 助手的可用性；演示使用合成數據，真實用戶驗證仍是下一步。",
           'exp.e2.meta': '2024–2025',
           'exp.e2.title': '研究助理',
           'exp.e2.d1': '負責一項 NSF 資助課題的定量分析，研究極端冬季風暴中的社區韌性。我結合調查、行為與空間數據，理解地理位置、資訊接觸和線上社區如何影響互助決定。',
           'exp.e2.d2': '從數據準備、統計建模到驗證，設計並完成整套分析流程，再把結果寫成研究團隊與資助方都能清楚使用的結論。',
           'exp.e3.meta': '2021–2023',
           'exp.e3.title': '產品經理與數據分析師',
-          'exp.e3.d1': '在六個以上政府數字化項目中負責業務分析，主要涉及監測與預警平台。我與業務方商定 KPI，編寫配套 SQL 和分析流程。遇到報表差異時，我們一起核對源數據和計算規則，明確一致的解釋口徑。',
-          'exp.e3.d2': '用 Python 腳本和可復用查詢替代重複的手工取數；協調一個十人以上、橫跨工程、數據、設計與市場的團隊，並針對技術與非技術決策者調整匯報方式。多項建議最終得到採納。',
+          "exp.e3.d1": "在六個以上政府數碼化項目中負責業務分析，主要涉及監測與預警平台。與客戶釐清需求、定義 KPI，統一數據與匯報口徑，讓各團隊依據一致的資訊開展工作。",
+          "exp.e3.d2": "協調十人以上、橫跨工程、數據、設計與市場的團隊推進交付。針對技術和非技術決策者，將分析轉化為建議，多項建議得到採納。同時以 Python 腳本和可復用 SQL 查詢替代重複的手工取數。",
           'exp.e4.meta': '2019–2020',
           'exp.e4.title': '遙感分析師與項目經理',
           'exp.e4.d1': '為公共規劃與環境評估處理大型地理空間數據，使用機器學習分類與空間分析，參與開發並驗證結合衛星影像和環境指標的估算方法。',
           'exp.e4.d2': '負責從第一次客戶溝通，到分析、報告、演示和可落地建議的完整交付。',
-
-          'projects.title': '項目',
-          'projects.group1': '精選作品：智能體、應用 AI 與分析',
-          'projects.group2': '早期地理空間、數據與產品工作',
-
-          'p.smc.meta': '線上 MVP · Google ADK · 智能體編排、記憶與混合檢索',
-          'p.smc.b1': 'Social Memory Copilot 幫助用戶在繼續交流時找回背景，包括過去的討論、承諾和溝通偏好。系統由一個主智能體管理會話狀態，檢索和操作確認分別由獨立組件處理。回答會標註記憶來源，智能體提出的寫入、刪除和提醒操作都需用戶確認。',
-          'p.smc.b2': '在 20 條合成查詢上，本地完整配置將 BM25 與向量檢索透過 RRF 和重排結合，Recall@5 從 0.682 提高到 0.889；線上 Vercel 輕量配置在同一評測集上為 0.757。是否檢索的決策組件在 28 條人工標註的合成樣本上達到 F1 0.963。倉庫記錄了 354 項通過的單元與整合測試。演示使用合成數據，真實用戶驗證是後續步驟。',
-          'p.btg.meta': '雙語 AI 知識產品 · 信任與排序',
-          'p.btg.b1': 'Bridge the Gap 幫助人們用中英文了解不熟悉的食物和文化習慣。AI 協助翻譯，社區回答根據認可度、Wilson 置信區間和時效性排序。熟悉相關文化的人可以補充背景，社區共識也可以更新 AI 最初的標籤。',
+          "projects.title": "精選作品",
+          "projects.group1": "產業研究與決策框架",
+          "projects.group2": "客戶交付與早期應用實踐",
+          "p.smc.meta": "獨立 AI 產品 · 線上 MVP · 待用戶驗證",
+          "p.smc.b1": "AI 助手如何保留有用的上下文，同時讓用戶掌握控制權？我設計並建構 Social Memory Copilot，將過往對話、承諾與溝通偏好帶入後續交流。產品取捨包括顯示記憶來源，以及在智能體提出更新、刪除或提醒操作時要求用戶確認。",
+          "p.smc.b2": "在 20 條合成查詢的小規模評測中，本地完整配置的 Recall@5 從 0.682 提升至 0.889，輕量部署配置為 0.757。這有助於比較檢索方案的取捨，用戶需求仍需透過真實用戶驗證。",
+          "p.btg.meta": "獨立雙語產品實驗 · 已部署演示",
+          "p.btg.b1": "Bridge the Gap 探索 AI 翻譯與社區知識如何幫助人們理解陌生的食物和文化習慣。我圍繞雙語存取與信任設計產品：按認可度、置信度和時效性排列回答，並允許社區共識修正 AI 標籤。演示將這些產品取捨具體化，用戶採納仍待驗證。",
           'p.ioos.meta': '已部署 · 準備 alpha 測試',
-          'p.ioos.b1': 'Inner Order OS 是一個自我反思產品，一次提出一個問題，給使用者留出思考自己答案的空間。我負責產品設計、提示詞和結構化輸出檢查，並透過檢索將相關的過往記錄帶回對話。項目已部署，正在準備 alpha 測試，尚未向外部用戶開放。',
+          "p.ioos.b1": "Inner Order OS 探索專注的自我反思體驗：一次只問一個問題，並將相關的過往記錄作為上下文。我負責產品設計與實現，包括提示詞和輸出檢查。產品已部署，正在準備 alpha 測試，尚未開放外部存取。",
           'p.cir.meta': '模型微調 · 置信度閾值評估',
           'p.cir.title': '中文意圖識別與置信度路由',
           'p.cir.b1': '我用 9,972 條訓練語料微調中文編碼器，覆蓋 50 個意圖，在已知意圖測試集上達到 87% 準確率。另有十個意圖完全不參與訓練，用來評估模型如何處理未覆蓋的請求。',
@@ -2420,19 +2454,18 @@
           'p.scbm.meta': '碩士論文 · NLP 與基於智能體的建模',
           'p.scbm.title': '可持續性傳播與行為建模',
           'p.scbm.b1': '碩士論文從 Yelp 公開數據集中篩出 78,116 條可持續性相關評論，用 LDA 識別主題，再用多語言 BERT 評估情緒。隨後，這些結果被用於初始化 Mesa 中一個包含 500 個智能體的網絡模型。通過三種情景和「無干預」基線，我測試了一個簡單問題：一條可持續性資訊甚麼時候會在社區中傳播，又會在甚麼時候停下來？研究由我獨立設計、實現和解讀。',
-          'p.sa.meta': '已部署分析工具 · 美股 · 港股 · A 股',
-          'p.sa.b1': 'Stock Analyzer 把美股、港股和 A 股的實時數據放進同一套研究流程，覆蓋基本面、技術面、估值和情緒。我負責產品、數據流程、標普 500 篩選器與 AI 價值鏈圖譜；LLM 層可自動切換供應商，在單個模型不可用時保留核心服務。',
+          "p.sa.meta": "獨立研究工具 · 已部署演示",
+          "p.sa.b1": "Stock Analyzer 將美股、港股和 A 股數據放入同一研究流程，涵蓋基本面、估值、技術面與情緒。我負責產品與數據流程，設計標普 500 篩選器和 AI 價值鏈圖譜，將公司分析與產業視角連接起來。這是一款用於梳理公司與產業資訊的獨立研究工具。",
           'p.ata.meta': '地理空間 AI 流水線 · 香港機場智慧交通',
           'p.ata.b1': 'AirportTwin AI 是香港國際機場及北大嶼山周邊道路的 GIS 到 3D 原型。它清洗公開的 OpenStreetMap 數據，生成可用於場景的幾何體，並整理為面向 USD 的結構，為後續交通仿真做準備。',
-          'p.oc.meta': '進行中的另類數據方法 · 免費 Sentinel-2 影像',
-          'p.oc.b1': '大型雲廠商按季度披露 AI 資本開支，而 Sentinel-2 大約每五天就會拍到不少施工現場。Orbital Capex 嘗試用這些免費影像，建立一條獨立的每週訊號，觀察美國數據中心的建成表面與清整土地。項目已經暴露出兩個重要限制：常用的 NDBI 會漏掉高反射膜屋頂，單景影像也難以區分灰色屋頂與乾燥裸土，因此流程改用時間上的持續性來判斷。場地邊界來自縣級稅務地塊，並與公開面積交叉核對。首條序列與公開施工進度大致同步，但 10 米影像仍會把道路和停車場算進去，所以項目繼續明確標為「建設中」，等帶時間戳的預測真正與資本開支數據對照後再談結論。',
-          'p.ist.meta': '定時研究智能體 · 自 2026 年初持續進行',
-          'p.ist.title': 'AI 產業學習與研究',
-          'p.ist.b1': '從 2026 年初開始，我持續學習中美 AI 產業，關注晶片、雲基礎設施、模型和應用中的經濟價值如何變化。定時智能體為我的個人學習收集每週行業資料與一致預期數據，我再閱讀公司披露並形成自己的理解，將技術選擇與背後的商業問題聯繫起來。',
-          'p.kcas.meta': '開源決策框架 · 資本配置',
+          "p.oc.meta": "AI 基礎設施研究的另類數據 · 進行中",
+          "p.oc.b1": "衛星影像能否在季度披露之間，為 AI 基礎設施研究提供獨立訊號？我用 Sentinel-2 觀察美國數據中心建設，並以縣級記錄和公開面積核對場地邊界。早期觀測與公開施工時間線大致同步，但 10 米影像會混合屋頂、道路和停車場。方法仍在開發，對資本開支的預測能力尚未驗證。",
+          "p.ist.meta": "獨立產業研究 · 自 2026 年初持續進行",
+          "p.ist.title": "AI 價值鏈與商業模式研究",
+          "p.ist.b1": "AI 發展過程中，經濟價值會流向哪裡？我結合公司披露和行業資料，研究中美晶片、雲基礎設施、模型與應用的商業模式和競爭位置。定時智能體整理每週動態和一致預期數據，我負責審閱證據與形成判斷。這是一項持續進行的獨立研究實踐。",
+          "p.kcas.meta": "個人決策框架 · 資源配置",
           'p.kcas.title': 'KCAS · 知識資本生態',
-          'p.kcas.b1': 'KCAS 是我用於個人研究與資本配置決策的四套相互銜接的框架，分別幫助區分資產質量與價格、整理證據、按角色和機會成本比較持倉，以及評估項目是否值得繼續投入。把推理過程寫下來，方便在新資訊出現時重新審視判斷。',
-
+          "p.kcas.b1": "有限的資金與注意力應該投向哪裡？KCAS 匯集了我用於個人研究的四套框架：區分資產質量與價格、整理證據、比較機會成本，以及審視項目是否值得繼續投入。將推理過程寫清楚，方便在事實變化時重新檢驗判斷。",
           'm.dash.meta': '分析儀表盤',
           'm.dash.title': '可持續食品消費者洞察儀表盤',
           'm.dash.b1': '在 Tableau 中分析消費者評論，把可持續性主題與情緒模式連接到實際 KPI 和採納建議。',
@@ -2459,16 +2492,69 @@
           'edu.d3.meta': '2015–2018',
           'edu.d3.title': '人文地理與城鄉規劃 理學學士',
           'edu.d3.desc': '與地理信息科學學位同期完成，關注空間問題中人的一面：人、城市與土地利用如何彼此影響。',
-
-          'contact.title': '聊聊你的項目',
-          'contact.intro': '如果你的團隊正在探索 AI 或數據應用，歡迎聊聊正在做的項目。我在尋找應用 AI 與數據科學方向的工作機會，也願意與做相關工具的朋友交流經驗。透過郵件聯繫我最方便。',
-
+          "contact.title": "聊聊下一步",
+          "contact.intro": "我正在尋找 AI 與科技企業的 CEO Office、策略與營運、新業務崗位。如果你的團隊需要研究市場、梳理尚不清晰的業務問題，或協調推進一個試點，歡迎聯繫。我也希望與創始人及潛在合作夥伴交流。透過郵件聯繫我最方便。",
           'footer.meta': '© <span id="year"></span> Zijun Wang. 保留所有權利。',
 
           'cta.liveDemo': '線上演示 →',
           'cta.live': '線上 →',
           'cta.github': 'GitHub 源碼 →',
-          'cta.architecture': '架構 →'
+          'cta.architecture': '架構 →',
+          "hero.roles": "求職方向：CEO Office · 策略與營運 · 新業務",
+          "hero.work": "查看精選作品 →",
+          "hero.contact": "聯繫我 →",
+          "projects.intro": "獨立研究與產品實驗，以及此前的客戶項目和學術工作。每個項目說明所研究的問題、我的貢獻與當前證據的邊界。",
+          "projects.business": "產品思維與業務探索",
+          "projects.technical": "展開 AI、數據與研究實踐",
+          "about.tag1": "產業研究",
+          "about.tag2": "商業模式",
+          "about.tag3": "策略分析與表達",
+          "about.tag4": "產品探索",
+          "about.tag5": "決策框架",
+          "about.tag6": "KPI 與指標設計",
+          "about.tag7": "跨團隊交付",
+          "about.tag8": "AI 與數據工具",
+          "ap.frame.tag1": "問題定義",
+          "ap.frame.tag2": "持份者情境",
+          "ap.frame.tag3": "成功標準",
+          "ap.orchestrate.tag1": "價值鏈",
+          "ap.orchestrate.tag2": "來源核對",
+          "ap.orchestrate.tag3": "競爭分析",
+          "ap.measure.tag1": "方案取捨",
+          "ap.measure.tag2": "策略敘事",
+          "ap.measure.tag3": "決策框架",
+          "ap.productise.tag1": "試點設計",
+          "ap.productise.tag2": "跨團隊執行",
+          "ap.productise.tag3": "指標檢討",
+          "exp.e1.tag1": "AI 產業研究",
+          "exp.e1.tag2": "商業模式",
+          "exp.e1.tag3": "產品探索",
+          "exp.e1.tag4": "決策支持",
+          "exp.e1.tag5": "AI 原型驗證",
+          "p.ist.tag1": "AI 價值鏈",
+          "p.ist.tag2": "商業模式",
+          "p.ist.tag3": "中美產業",
+          "p.ist.tag4": "證據整合",
+          "p.kcas.tag1": "資本配置",
+          "p.kcas.tag2": "機會成本",
+          "p.kcas.tag3": "決策檢討",
+          "p.oc.tag1": "AI 基礎設施",
+          "p.oc.tag2": "另類數據",
+          "p.oc.tag3": "假設檢驗",
+          "p.sa.tag1": "研究流程",
+          "p.sa.tag2": "AI 價值鏈",
+          "p.sa.tag3": "多市場數據",
+          "p.smc.tag1": "產品設計",
+          "p.smc.tag2": "用戶信任",
+          "p.smc.tag3": "AI 原型驗證",
+          "p.smc.tag4": "檢索評測",
+          "p.btg.tag1": "雙語產品",
+          "p.btg.tag2": "社區信任",
+          "p.btg.tag3": "排序設計",
+          "p.ioos.tag1": "產品探索",
+          "p.ioos.tag2": "互動設計",
+          "p.ioos.tag3": "AI 原型驗證",
+          "exp.e1.org": "自主研究與產品實驗",
         }
       };
 
@@ -2497,7 +2583,11 @@
             }
           });
           document.documentElement.lang = lang;
-          langButtons.forEach((b) => b.classList.toggle('is-active', b.dataset.lang === lang));
+          langButtons.forEach((b) => {
+            const active = b.dataset.lang === lang;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', String(active));
+          });
           try { localStorage.setItem('site-lang', lang); } catch (e) {}
           fillYear();
         }
@@ -2541,6 +2631,12 @@
                 <line x1="4" x2="20" y1="6" y2="6"></line>
                 <line x1="4" x2="20" y1="18" y2="18"></line>
               </svg>`;
+          }
+        });
+
+        navList.addEventListener('click', (event) => {
+          if (event.target.closest('a') && navToggle.getAttribute('aria-expanded') === 'true') {
+            navToggle.click();
           }
         });
       }
