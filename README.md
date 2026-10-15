@@ -1,6 +1,6 @@
 # Zijun Wang — Personal Website
 
-Personal homepage focused on AI and technology business strategy, industry research, product thinking, and cross-functional execution. Current role interests include CEO Office, Strategy & Operations, and New Business, with a longer-term interest in general management and entrepreneurship.
+Personal homepage focused on AI and technology business strategy, industry research, product thinking, and cross-functional execution. Open to both employment and collaboration: CEO Office, Strategy & Operations, and New Business roles, as well as joint industry research, AI product and business validation, and research-led content and brand projects. Longer-term interests include general management and building new ventures with partners.
 
 Live site: [zijunvv.github.io](https://zijunvv.github.io/)
 
